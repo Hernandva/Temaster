@@ -1,27 +1,27 @@
-# Playlister — instructions for coding agents
+# Temaster — instructions for coding agents
 
-Playlister is a SwiftUI app (iOS (iPhone), iPadOS) written in Swift 6 language mode, with MVVM and a feature-based architecture. It is split into Swift packages.
+Temaster is a SwiftUI app (iOS (iPhone), iPadOS) written in Swift 6 language mode, with MVVM and a feature-based architecture. It is split into Swift packages.
 Read the configuration file of the area you are working on before you change it, and follow it.
 
 | Area | Path | Configuration |
 |---|---|---|
-| App scenes (features) | `Playlister/` | `Playlister/FEATURES.md`: feature anatomy, data flow, navigation and the app map |
-| Data layer: repositories, APIs and local storage | `Packages/PlaylisterData/` | `Packages/PlaylisterData/DATA.md`: repositories, protocols, DAOs, Alamofire, local storage |
-| Design system and UI components | `Packages/PlaylisterUI/` | `Packages/PlaylisterUI/DESIGN_SYSTEM.md`: tokens, components, `.localized(_:)` |
+| App scenes (features) | `Temaster/` | `Temaster/FEATURES.md`: feature anatomy, data flow, navigation and the app map |
+| Data layer: repositories, APIs and local storage | `Packages/TemasterData/` | `Packages/TemasterData/DATA.md`: repositories, protocols, DAOs, Alamofire, local storage |
+| Design system and UI components | `Packages/TemasterUI/` | `Packages/TemasterUI/DESIGN_SYSTEM.md`: tokens, components, `.localized(_:)` |
 
 ## Skills
 
 Project skills live in `.claude/skills/`, which Claude Code and GitHub Copilot both read. Any other agent can follow the same steps by reading the SKILL.md files.
 
-- `playlister-new-feature`: new scene. Run `python3 scripts/codegen/new_feature.py --name X --parent Y [--repository Z]`.
-- `playlister-new-repo`: new repository. Run `python3 scripts/codegen/new_repo.py --name X`.
+- `temaster-new-feature`: new scene. Run `python3 scripts/codegen/new_feature.py --name X --parent Y [--repository Z]`.
+- `temaster-new-repo`: new repository. Run `python3 scripts/codegen/new_repo.py --name X`.
 
 Always use the generators to create features and repositories, so the structure and the registries stay consistent.
 
 ## Rules
 
-- SwiftUI only. Feature views compose `PlaylisterUI` components and never hard-code colors, fonts or spacing.
-- Features reach `PlaylisterData` only through a repository's public protocol, from the feature's use case.
+- SwiftUI only. Feature views compose `TemasterUI` components and never hard-code colors, fonts or spacing.
+- Features reach `TemasterData` only through a repository's public protocol, from the feature's use case.
 - New dependencies are injected through the feature's `<Feature>Dependencies`: a `private let` plus a `resolve<Name>()` function.
 - Every function of a `<Feature>Dependencies` that hands out a dependency is named `resolve<Name>()` (`resolveUseCase()`, `resolveViewModel()`, `resolveRepository()`). Never use the `make` prefix.
 - `View`, `ViewModel` and `UseCase` receive only `init(dependencies: <Feature>Dependencies)` and resolve the rest inside it.
@@ -48,12 +48,12 @@ Every time you add a variable, constant, property, function or method, check tha
 ## Git flow
 
 - `main` holds releases. `develop` is the integration branch.
-- Every feature is built on `feature/Playlister-<Feature>`, created from `develop`.
+- Every feature is built on `feature/Temaster-<Feature>`, created from `develop`.
 
 ## Build
 
 ```bash
-xcodegen generate                      # creates Playlister.xcodeproj from project.yml (it is not committed)
-open Playlister.xcodeproj
-(cd Packages/PlaylisterData && swift test)  # package tests
+xcodegen generate                      # creates Temaster.xcodeproj from project.yml (it is not committed)
+open Temaster.xcodeproj
+(cd Packages/TemasterData && swift test)  # package tests
 ```

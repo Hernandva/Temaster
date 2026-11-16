@@ -1,10 +1,10 @@
 {
-  "name": "Playlister",
-  "slug": "playlister",
-  "appDirectory": "Playlister",
+  "name": "Temaster",
+  "slug": "temaster",
+  "appDirectory": "Temaster",
   "rootFeature": "Home",
-  "dataSources": "Packages/PlaylisterData/Sources/PlaylisterData",
-  "designSystemPackage": "Packages/PlaylisterUI",
+  "dataSources": "Packages/TemasterData/Sources/TemasterData",
+  "designSystemPackage": "Packages/TemasterUI",
   "platforms": [
     "iphone",
     "ipad"

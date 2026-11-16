@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
-"""Create a new repository in the PlaylisterData package following DATA.md.
+"""Create a new repository in the TemasterData package following DATA.md.
 
 Usage:
     python3 scripts/codegen/new_repo.py --name Users
 
-Creates Sources/PlaylisterData/Repositories/<Name>/ with the public repository class and API protocol,
+Creates Sources/TemasterData/Repositories/<Name>/ with the public repository class and API protocol,
 the public request/response protocols and the internal DAOs. The configuration is left empty
 (baseURL "" and serviceNames []). Then it registers the repository in DATA.md.
 """
