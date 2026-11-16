@@ -7,6 +7,7 @@ enum BingoLevelsCatalog {
     static let levels: [BingoLevelDAO] = [
         BingoLevelDAO(level: .beginner),
         BingoLevelDAO(level: .intermediate),
-        BingoLevelDAO(level: .expert)
+        BingoLevelDAO(level: .expert),
+        BingoLevelDAO(level: .movies)
     ]
 }

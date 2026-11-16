@@ -32,6 +32,7 @@ public enum SettingsBingoLevel: String, Codable, Sendable, CaseIterable {
     case beginner
     case intermediate
     case expert
+    case movies
 }
 
 /// The five Bingo categories, by their color. Every level has all five, in this order.
