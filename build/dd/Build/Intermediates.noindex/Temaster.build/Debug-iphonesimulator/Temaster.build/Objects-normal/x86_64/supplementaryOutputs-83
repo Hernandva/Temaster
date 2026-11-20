@@ -1,0 +1,37 @@
+{
+  "/Users/hernanvillamil/Documents/Proyectos/Temaster/Temaster/Features/PlaylistSelector/UseCase/SearchByTermUseCase.swift" : {
+    "const-values" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/Temaster.build/Debug-iphonesimulator/Temaster.build/Objects-normal/x86_64/SearchByTermUseCase.swiftconstvalues",
+    "dependencies" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/Temaster.build/Debug-iphonesimulator/Temaster.build/Objects-normal/x86_64/SearchByTermUseCase.d",
+    "diagnostics" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/Temaster.build/Debug-iphonesimulator/Temaster.build/Objects-normal/x86_64/SearchByTermUseCase.dia",
+    "object" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/Temaster.build/Debug-iphonesimulator/Temaster.build/Objects-normal/x86_64/SearchByTermUseCase.o",
+    "swift-dependencies" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/Temaster.build/Debug-iphonesimulator/Temaster.build/Objects-normal/x86_64/SearchByTermUseCase.swiftdeps"
+  },
+  "/Users/hernanvillamil/Documents/Proyectos/Temaster/Temaster/Features/Settings/SettingsCoordinator.swift" : {
+    "const-values" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/Temaster.build/Debug-iphonesimulator/Temaster.build/Objects-normal/x86_64/SettingsCoordinator.swiftconstvalues",
+    "dependencies" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/Temaster.build/Debug-iphonesimulator/Temaster.build/Objects-normal/x86_64/SettingsCoordinator.d",
+    "diagnostics" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/Temaster.build/Debug-iphonesimulator/Temaster.build/Objects-normal/x86_64/SettingsCoordinator.dia",
+    "object" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/Temaster.build/Debug-iphonesimulator/Temaster.build/Objects-normal/x86_64/SettingsCoordinator.o",
+    "swift-dependencies" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/Temaster.build/Debug-iphonesimulator/Temaster.build/Objects-normal/x86_64/SettingsCoordinator.swiftdeps"
+  },
+  "/Users/hernanvillamil/Documents/Proyectos/Temaster/Temaster/Features/Settings/SettingsDependencies.swift" : {
+    "const-values" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/Temaster.build/Debug-iphonesimulator/Temaster.build/Objects-normal/x86_64/SettingsDependencies.swiftconstvalues",
+    "dependencies" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/Temaster.build/Debug-iphonesimulator/Temaster.build/Objects-normal/x86_64/SettingsDependencies.d",
+    "diagnostics" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/Temaster.build/Debug-iphonesimulator/Temaster.build/Objects-normal/x86_64/SettingsDependencies.dia",
+    "object" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/Temaster.build/Debug-iphonesimulator/Temaster.build/Objects-normal/x86_64/SettingsDependencies.o",
+    "swift-dependencies" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/Temaster.build/Debug-iphonesimulator/Temaster.build/Objects-normal/x86_64/SettingsDependencies.swiftdeps"
+  },
+  "/Users/hernanvillamil/Documents/Proyectos/Temaster/Temaster/Features/Settings/UseCase/SettingsUseCase.swift" : {
+    "const-values" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/Temaster.build/Debug-iphonesimulator/Temaster.build/Objects-normal/x86_64/SettingsUseCase.swiftconstvalues",
+    "dependencies" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/Temaster.build/Debug-iphonesimulator/Temaster.build/Objects-normal/x86_64/SettingsUseCase.d",
+    "diagnostics" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/Temaster.build/Debug-iphonesimulator/Temaster.build/Objects-normal/x86_64/SettingsUseCase.dia",
+    "object" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/Temaster.build/Debug-iphonesimulator/Temaster.build/Objects-normal/x86_64/SettingsUseCase.o",
+    "swift-dependencies" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/Temaster.build/Debug-iphonesimulator/Temaster.build/Objects-normal/x86_64/SettingsUseCase.swiftdeps"
+  },
+  "/Users/hernanvillamil/Documents/Proyectos/Temaster/Temaster/Features/Settings/View/SettingsView.swift" : {
+    "const-values" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/Temaster.build/Debug-iphonesimulator/Temaster.build/Objects-normal/x86_64/SettingsView.swiftconstvalues",
+    "dependencies" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/Temaster.build/Debug-iphonesimulator/Temaster.build/Objects-normal/x86_64/SettingsView.d",
+    "diagnostics" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/Temaster.build/Debug-iphonesimulator/Temaster.build/Objects-normal/x86_64/SettingsView.dia",
+    "object" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/Temaster.build/Debug-iphonesimulator/Temaster.build/Objects-normal/x86_64/SettingsView.o",
+    "swift-dependencies" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/Temaster.build/Debug-iphonesimulator/Temaster.build/Objects-normal/x86_64/SettingsView.swiftdeps"
+  }
+}

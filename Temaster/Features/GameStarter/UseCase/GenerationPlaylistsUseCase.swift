@@ -50,7 +50,18 @@ private extension GenerationPlaylistsUseCase {
             kind: .custom(id: custom.id),
             title: custom.name,
             firstYear: custom.firstYear,
-            lastYear: custom.lastYear
+            lastYear: custom.lastYear,
+            customLook: GameStarterViewData.CustomLook(symbolName: custom.symbolName, color: color(custom.color))
         )
+    }
+
+    static func color(_ color: SettingsCustomGenerationColor) -> GameStarterViewData.BingoColor {
+        switch color {
+        case .pink: .pink
+        case .yellow: .yellow
+        case .cyan: .cyan
+        case .green: .green
+        case .orange: .orange
+        }
     }
 }

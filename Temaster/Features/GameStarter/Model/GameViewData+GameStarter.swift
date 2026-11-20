@@ -13,10 +13,25 @@ extension GameViewData.Playlist {
                 GameViewData.Generation(
                     title: generation.title,
                     firstYear: generation.firstYear,
-                    lastYear: generation.lastYear
+                    lastYear: generation.lastYear,
+                    look: Self.look(generation)
                 )
             }
         )
+    }
+
+    private static func look(_ generation: GameStarterViewData.Generation) -> GameViewData.GenerationLook {
+        switch generation.kind {
+        case .vinyl: return .vinyl
+        case .cassette: return .cassette
+        case .streaming: return .streaming
+        case .custom:
+            let look = generation.customLook
+            return .custom(
+                symbolName: look?.symbolName ?? "music.note",
+                color: look.map { GameViewData.Settings.color($0.color) } ?? .cyan
+            )
+        }
     }
 }
 
@@ -36,7 +51,7 @@ extension GameViewData.Settings {
         )
     }
 
-    private static func color(_ color: GameStarterViewData.BingoColor) -> GameViewData.BingoColor {
+    static func color(_ color: GameStarterViewData.BingoColor) -> GameViewData.BingoColor {
         switch color {
         case .pink: .pink
         case .yellow: .yellow

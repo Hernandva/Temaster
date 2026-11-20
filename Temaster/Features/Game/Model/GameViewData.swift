@@ -21,11 +21,22 @@ struct GameViewData: Equatable, Sendable {
         let title: String
         let firstYear: Int?
         let lastYear: Int?
+        /// Its icon and color, which the game shows under the vinyl and paints the round with.
+        let look: GenerationLook
 
         /// `true` when a song released in `year` belongs to the generation.
         func contains(year: Int) -> Bool {
             (firstYear.map { year >= $0 } ?? true) && (lastYear.map { year <= $0 } ?? true)
         }
+    }
+
+    /// The look of a generation: one of the three of the «Generations» play mode, or the icon and color the user
+    /// chose for a custom one.
+    enum GenerationLook: Equatable, Sendable {
+        case vinyl
+        case cassette
+        case streaming
+        case custom(symbolName: String, color: BingoColor)
     }
 
     /// What each round plays of a song.

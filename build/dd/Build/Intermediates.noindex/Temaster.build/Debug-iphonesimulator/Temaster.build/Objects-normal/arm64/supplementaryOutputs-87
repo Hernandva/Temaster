@@ -1,0 +1,44 @@
+{
+  "/Users/hernanvillamil/Documents/Proyectos/Temaster/Temaster/Features/Game/ExternalDisplay/GameExternalDisplaySession.swift" : {
+    "const-values" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/Temaster.build/Debug-iphonesimulator/Temaster.build/Objects-normal/arm64/GameExternalDisplaySession.swiftconstvalues",
+    "dependencies" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/Temaster.build/Debug-iphonesimulator/Temaster.build/Objects-normal/arm64/GameExternalDisplaySession.d",
+    "diagnostics" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/Temaster.build/Debug-iphonesimulator/Temaster.build/Objects-normal/arm64/GameExternalDisplaySession.dia",
+    "object" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/Temaster.build/Debug-iphonesimulator/Temaster.build/Objects-normal/arm64/GameExternalDisplaySession.o",
+    "swift-dependencies" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/Temaster.build/Debug-iphonesimulator/Temaster.build/Objects-normal/arm64/GameExternalDisplaySession.swiftdeps"
+  },
+  "/Users/hernanvillamil/Documents/Proyectos/Temaster/Temaster/Features/Game/GameDependencies.swift" : {
+    "const-values" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/Temaster.build/Debug-iphonesimulator/Temaster.build/Objects-normal/arm64/GameDependencies.swiftconstvalues",
+    "dependencies" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/Temaster.build/Debug-iphonesimulator/Temaster.build/Objects-normal/arm64/GameDependencies.d",
+    "diagnostics" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/Temaster.build/Debug-iphonesimulator/Temaster.build/Objects-normal/arm64/GameDependencies.dia",
+    "object" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/Temaster.build/Debug-iphonesimulator/Temaster.build/Objects-normal/arm64/GameDependencies.o",
+    "swift-dependencies" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/Temaster.build/Debug-iphonesimulator/Temaster.build/Objects-normal/arm64/GameDependencies.swiftdeps"
+  },
+  "/Users/hernanvillamil/Documents/Proyectos/Temaster/Temaster/Features/Game/UseCase/GamePlayBackStatusUseCase.swift" : {
+    "const-values" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/Temaster.build/Debug-iphonesimulator/Temaster.build/Objects-normal/arm64/GamePlayBackStatusUseCase.swiftconstvalues",
+    "dependencies" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/Temaster.build/Debug-iphonesimulator/Temaster.build/Objects-normal/arm64/GamePlayBackStatusUseCase.d",
+    "diagnostics" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/Temaster.build/Debug-iphonesimulator/Temaster.build/Objects-normal/arm64/GamePlayBackStatusUseCase.dia",
+    "object" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/Temaster.build/Debug-iphonesimulator/Temaster.build/Objects-normal/arm64/GamePlayBackStatusUseCase.o",
+    "swift-dependencies" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/Temaster.build/Debug-iphonesimulator/Temaster.build/Objects-normal/arm64/GamePlayBackStatusUseCase.swiftdeps"
+  },
+  "/Users/hernanvillamil/Documents/Proyectos/Temaster/Temaster/Features/Game/UseCase/GamePlayerUseCase.swift" : {
+    "const-values" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/Temaster.build/Debug-iphonesimulator/Temaster.build/Objects-normal/arm64/GamePlayerUseCase.swiftconstvalues",
+    "dependencies" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/Temaster.build/Debug-iphonesimulator/Temaster.build/Objects-normal/arm64/GamePlayerUseCase.d",
+    "diagnostics" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/Temaster.build/Debug-iphonesimulator/Temaster.build/Objects-normal/arm64/GamePlayerUseCase.dia",
+    "object" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/Temaster.build/Debug-iphonesimulator/Temaster.build/Objects-normal/arm64/GamePlayerUseCase.o",
+    "swift-dependencies" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/Temaster.build/Debug-iphonesimulator/Temaster.build/Objects-normal/arm64/GamePlayerUseCase.swiftdeps"
+  },
+  "/Users/hernanvillamil/Documents/Proyectos/Temaster/Temaster/Features/Game/View/GameExternalDisplayView.swift" : {
+    "const-values" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/Temaster.build/Debug-iphonesimulator/Temaster.build/Objects-normal/arm64/GameExternalDisplayView.swiftconstvalues",
+    "dependencies" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/Temaster.build/Debug-iphonesimulator/Temaster.build/Objects-normal/arm64/GameExternalDisplayView.d",
+    "diagnostics" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/Temaster.build/Debug-iphonesimulator/Temaster.build/Objects-normal/arm64/GameExternalDisplayView.dia",
+    "object" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/Temaster.build/Debug-iphonesimulator/Temaster.build/Objects-normal/arm64/GameExternalDisplayView.o",
+    "swift-dependencies" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/Temaster.build/Debug-iphonesimulator/Temaster.build/Objects-normal/arm64/GameExternalDisplayView.swiftdeps"
+  },
+  "/Users/hernanvillamil/Documents/Proyectos/Temaster/Temaster/Features/GameStarter/UseCase/GameSettingsUseCase.swift" : {
+    "const-values" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/Temaster.build/Debug-iphonesimulator/Temaster.build/Objects-normal/arm64/GameSettingsUseCase.swiftconstvalues",
+    "dependencies" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/Temaster.build/Debug-iphonesimulator/Temaster.build/Objects-normal/arm64/GameSettingsUseCase.d",
+    "diagnostics" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/Temaster.build/Debug-iphonesimulator/Temaster.build/Objects-normal/arm64/GameSettingsUseCase.dia",
+    "object" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/Temaster.build/Debug-iphonesimulator/Temaster.build/Objects-normal/arm64/GameSettingsUseCase.o",
+    "swift-dependencies" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/Temaster.build/Debug-iphonesimulator/Temaster.build/Objects-normal/arm64/GameSettingsUseCase.swiftdeps"
+  }
+}

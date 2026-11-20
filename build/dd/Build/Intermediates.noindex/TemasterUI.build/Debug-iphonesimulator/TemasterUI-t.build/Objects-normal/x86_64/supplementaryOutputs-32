@@ -1,0 +1,23 @@
+{
+  "/Users/hernanvillamil/Documents/Proyectos/Temaster/Packages/TemasterUI/Sources/TemasterUI/Components/DSStatusBadge.swift" : {
+    "const-values" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/TemasterUI.build/Debug-iphonesimulator/TemasterUI-t.build/Objects-normal/x86_64/DSStatusBadge.swiftconstvalues",
+    "dependencies" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/TemasterUI.build/Debug-iphonesimulator/TemasterUI-t.build/Objects-normal/x86_64/DSStatusBadge.d",
+    "diagnostics" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/TemasterUI.build/Debug-iphonesimulator/TemasterUI-t.build/Objects-normal/x86_64/DSStatusBadge.dia",
+    "object" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/TemasterUI.build/Debug-iphonesimulator/TemasterUI-t.build/Objects-normal/x86_64/DSStatusBadge.o",
+    "swift-dependencies" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/TemasterUI.build/Debug-iphonesimulator/TemasterUI-t.build/Objects-normal/x86_64/DSStatusBadge.swiftdeps"
+  },
+  "/Users/hernanvillamil/Documents/Proyectos/Temaster/Packages/TemasterUI/Sources/TemasterUI/Components/DSText.swift" : {
+    "const-values" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/TemasterUI.build/Debug-iphonesimulator/TemasterUI-t.build/Objects-normal/x86_64/DSText.swiftconstvalues",
+    "dependencies" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/TemasterUI.build/Debug-iphonesimulator/TemasterUI-t.build/Objects-normal/x86_64/DSText.d",
+    "diagnostics" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/TemasterUI.build/Debug-iphonesimulator/TemasterUI-t.build/Objects-normal/x86_64/DSText.dia",
+    "object" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/TemasterUI.build/Debug-iphonesimulator/TemasterUI-t.build/Objects-normal/x86_64/DSText.o",
+    "swift-dependencies" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/TemasterUI.build/Debug-iphonesimulator/TemasterUI-t.build/Objects-normal/x86_64/DSText.swiftdeps"
+  },
+  "/Users/hernanvillamil/Documents/Proyectos/Temaster/Packages/TemasterUI/Sources/TemasterUI/Components/DSTextField.swift" : {
+    "const-values" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/TemasterUI.build/Debug-iphonesimulator/TemasterUI-t.build/Objects-normal/x86_64/DSTextField.swiftconstvalues",
+    "dependencies" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/TemasterUI.build/Debug-iphonesimulator/TemasterUI-t.build/Objects-normal/x86_64/DSTextField.d",
+    "diagnostics" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/TemasterUI.build/Debug-iphonesimulator/TemasterUI-t.build/Objects-normal/x86_64/DSTextField.dia",
+    "object" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/TemasterUI.build/Debug-iphonesimulator/TemasterUI-t.build/Objects-normal/x86_64/DSTextField.o",
+    "swift-dependencies" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/TemasterUI.build/Debug-iphonesimulator/TemasterUI-t.build/Objects-normal/x86_64/DSTextField.swiftdeps"
+  }
+}

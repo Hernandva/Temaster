@@ -2966,6 +2966,23 @@
           }
         }
       }
+    },
+    "vinyl.team" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Team"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Equipo"
+          }
+        }
+      }
     }
   },
   "version" : "1.0"

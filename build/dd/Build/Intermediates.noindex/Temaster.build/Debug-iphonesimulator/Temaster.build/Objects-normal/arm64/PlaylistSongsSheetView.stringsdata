@@ -1,0 +1,32 @@
+{
+  "source": "/Users/hernanvillamil/Documents/Proyectos/Temaster/Temaster/Features/PlaylistSelector/View/PlaylistSongsSheetView.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "playlistSelector.songs.use",
+        "location": {
+          "startingColumn": 52,
+          "startingLine": 20
+        }
+      },
+      {
+        "comment": "",
+        "key": "playlistSelector.songs.close",
+        "location": {
+          "startingColumn": 50,
+          "startingLine": 21
+        }
+      },
+      {
+        "comment": "",
+        "key": "playlistSelector.songs.loadMore",
+        "location": {
+          "startingColumn": 51,
+          "startingLine": 72
+        }
+      }
+    ]
+  },
+  "version": 1
+}

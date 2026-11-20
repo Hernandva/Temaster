@@ -12,6 +12,8 @@ import SwiftUI
 /// - Bingo: with a `category`, grooves, ring and glow take its color and the centre is solid with `bg-night` bars.
 ///   With a `categoryTitle` too (already localised), «CATEGORÍA» with that name pops in under the disc, and stays
 ///   there once it is revealed.
+/// - Generations: with a `generation` (the one whose turn it is), «EQUIPO» over its icon on its color and its name
+///   shows under the category (or under the disc without one). The disc keeps the category's color.
 /// - With Reduce Motion the disc does not turn and the bars are static.
 public struct DSVinyl: View {
     public enum Phase: Equatable, Sendable {
@@ -20,9 +22,31 @@ public struct DSVinyl: View {
         case revealed(cover: URL?, isPaused: Bool = false)
     }
 
+    /// The generation whose turn it is: its SF Symbol, its name (already localised) and its light color, on which
+    /// the icon is `bg-night`.
+    public struct Generation: Equatable, Sendable {
+        public let symbolName: String
+        public let title: String
+        public let color: Color
+
+        public init(symbolName: String, title: String, color: Color) {
+            self.symbolName = symbolName
+            self.title = title
+            self.color = color
+        }
+
+        /// One of the three generations of the «Generations» play mode, with its fixed look.
+        public init(_ generation: DSGeneration, title: String) {
+            self.init(symbolName: generation.symbolName, title: title, color: generation.color)
+        }
+    }
+
+    private static let generationSwatch: CGFloat = 24
+
     private let phase: Phase
     private let category: DSBingoCategory?
     private let categoryTitle: String?
+    private let generation: Generation?
     private let levels: [Double]?
     private let diameter: CGFloat
 
@@ -30,12 +54,14 @@ public struct DSVinyl: View {
         phase: Phase,
         category: DSBingoCategory? = nil,
         categoryTitle: String? = nil,
+        generation: Generation? = nil,
         levels: [Double]? = nil,
         diameter: CGFloat = 250
     ) {
         self.phase = phase
         self.category = category
         self.categoryTitle = categoryTitle
+        self.generation = generation
         self.levels = levels
         self.diameter = diameter
     }
@@ -50,6 +76,11 @@ public struct DSVinyl: View {
             .accessibilityElement(children: .ignore)
             .accessibilityLabel(accessibilityText)
             .accessibilityAddTraits(.isImage)
+            if let generation {
+                generationLabel(generation)
+                    .id(generation.title)
+                    .transition(.scale(scale: 0.8).combined(with: .opacity))
+            }
             if let category, let categoryTitle {
                 categoryLabel(category, title: categoryTitle)
                     .id(category)
@@ -58,6 +89,39 @@ public struct DSVinyl: View {
         }
         .animation(.spring(response: 0.45, dampingFraction: 0.6), value: phase)
         .animation(.spring(response: 0.4, dampingFraction: 0.6), value: category)
+        .animation(.spring(response: 0.4, dampingFraction: 0.6), value: generation)
+    }
+
+    /// «EQUIPO» over the generation's icon on its color, next to its name.
+    private func generationLabel(_ generation: Generation) -> some View {
+        VStack(spacing: DSSpacing.space1) {
+            Text(Bundle.main.localizedString(forKey: "vinyl.team", value: "Equipo", table: nil).uppercased())
+                .font(DSFont.caption)
+                .tracking(0.72)
+                .foregroundStyle(DSColor.textSecondary)
+            generationName(generation)
+        }
+        .multilineTextAlignment(.center)
+        .accessibilityElement(children: .combine)
+    }
+
+    /// The generation's icon on its color, next to its name.
+    private func generationName(_ generation: Generation) -> some View {
+        HStack(spacing: DSSpacing.space2) {
+            RoundedRectangle(cornerRadius: 6, style: .continuous)
+                .fill(generation.color)
+                .overlay {
+                    Image(systemName: generation.symbolName)
+                        .font(DSFont.caption.weight(.semibold))
+                        .foregroundStyle(DSColor.background)
+                }
+                .frame(width: Self.generationSwatch, height: Self.generationSwatch)
+                .accessibilityHidden(true)
+            Text(generation.title)
+                .font(DSTypeScale.title2.weight(.heavy))
+                .foregroundStyle(generation.color)
+                .lineLimit(2)
+        }
     }
 
     /// «CATEGORÍA» over the category name in its color.
@@ -275,7 +339,13 @@ private struct DSVinylLabel: View {
     @Previewable @State var paused = false
     VStack(spacing: DSSpacing.space8) {
         DSVinyl(phase: revealed ? .revealed(cover: nil, isPaused: paused) : (paused ? .paused : .playing))
-        DSVinyl(phase: paused ? .paused : .playing, category: .green, categoryTitle: "Década", diameter: 180)
+        DSVinyl(
+            phase: paused ? .paused : .playing,
+            category: .green,
+            categoryTitle: "Década",
+            generation: .init(.vinyl, title: "Clásicos en vinilo"),
+            diameter: 180
+        )
         HStack(spacing: DSSpacing.space3) {
             DSButton(paused ? "Reproducir" : "Pausa", style: .secondary) { paused.toggle() }
             DSButton(revealed ? "Siguiente" : "Revelar", style: .secondary) { revealed.toggle() }

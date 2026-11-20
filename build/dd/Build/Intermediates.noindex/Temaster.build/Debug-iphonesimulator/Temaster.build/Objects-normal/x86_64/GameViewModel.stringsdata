@@ -1,0 +1,16 @@
+{
+  "source": "/Users/hernanvillamil/Documents/Proyectos/Temaster/Temaster/Features/Game/ViewModel/GameViewModel.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "game.empty",
+        "location": {
+          "startingColumn": 51,
+          "startingLine": 122
+        }
+      }
+    ]
+  },
+  "version": 1
+}

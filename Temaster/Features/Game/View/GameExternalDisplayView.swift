@@ -4,7 +4,8 @@ import SwiftUI
 /// «Partida · TV»: the game on an external display (a TV through AirPlay or a cable), laid out in 16:9 for everybody
 /// in the room. The playlist and mode on top; the spinning vinyl with the progress on the left; on the right, the
 /// question while the song plays (the round's category, in its color, in the Bingo mode) and the revealed song's card
-/// after Reveal. In the Bingo mode the round's category lights the background, as on the iPhone.
+/// after Reveal. In the Bingo mode the round's category lights the background, as on the iPhone. With one playlist per
+/// generation, the icon and name of the generation whose turn it is show under the vinyl.
 ///
 /// It has no controls: the display is not interactive, and the game is played on the iPhone. It does not own its view
 /// model: it mirrors the one of the iPhone's `GameView`, which `GameExternalDisplaySession` hands to the display's
@@ -55,7 +56,12 @@ struct GameExternalDisplayView: View {
 
     private var player: some View {
         VStack(spacing: DSSpacing.space6) {
-            DSVinyl(phase: viewModel.vinylPhase, category: viewModel.category, categoryTitle: viewModel.categoryTitle)
+            DSVinyl(
+                phase: viewModel.vinylPhase,
+                category: viewModel.category,
+                categoryTitle: viewModel.categoryTitle,
+                generation: viewModel.generation
+            )
             DSProgressBar(
                 progress: viewModel.progress,
                 elapsed: viewModel.elapsedText,

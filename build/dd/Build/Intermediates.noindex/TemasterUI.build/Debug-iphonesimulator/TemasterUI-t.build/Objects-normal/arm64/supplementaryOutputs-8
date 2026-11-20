@@ -1,0 +1,23 @@
+{
+  "/Users/hernanvillamil/Documents/Proyectos/Temaster/Packages/TemasterUI/Sources/TemasterUI/Components/DSExternalDisplayCanvas.swift" : {
+    "const-values" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/TemasterUI.build/Debug-iphonesimulator/TemasterUI-t.build/Objects-normal/arm64/DSExternalDisplayCanvas.swiftconstvalues",
+    "dependencies" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/TemasterUI.build/Debug-iphonesimulator/TemasterUI-t.build/Objects-normal/arm64/DSExternalDisplayCanvas.d",
+    "diagnostics" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/TemasterUI.build/Debug-iphonesimulator/TemasterUI-t.build/Objects-normal/arm64/DSExternalDisplayCanvas.dia",
+    "object" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/TemasterUI.build/Debug-iphonesimulator/TemasterUI-t.build/Objects-normal/arm64/DSExternalDisplayCanvas.o",
+    "swift-dependencies" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/TemasterUI.build/Debug-iphonesimulator/TemasterUI-t.build/Objects-normal/arm64/DSExternalDisplayCanvas.swiftdeps"
+  },
+  "/Users/hernanvillamil/Documents/Proyectos/Temaster/Packages/TemasterUI/Sources/TemasterUI/Components/DSGameControls.swift" : {
+    "const-values" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/TemasterUI.build/Debug-iphonesimulator/TemasterUI-t.build/Objects-normal/arm64/DSGameControls.swiftconstvalues",
+    "dependencies" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/TemasterUI.build/Debug-iphonesimulator/TemasterUI-t.build/Objects-normal/arm64/DSGameControls.d",
+    "diagnostics" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/TemasterUI.build/Debug-iphonesimulator/TemasterUI-t.build/Objects-normal/arm64/DSGameControls.dia",
+    "object" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/TemasterUI.build/Debug-iphonesimulator/TemasterUI-t.build/Objects-normal/arm64/DSGameControls.o",
+    "swift-dependencies" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/TemasterUI.build/Debug-iphonesimulator/TemasterUI-t.build/Objects-normal/arm64/DSGameControls.swiftdeps"
+  },
+  "/Users/hernanvillamil/Documents/Proyectos/Temaster/Packages/TemasterUI/Sources/TemasterUI/Components/DSGameHeader.swift" : {
+    "const-values" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/TemasterUI.build/Debug-iphonesimulator/TemasterUI-t.build/Objects-normal/arm64/DSGameHeader.swiftconstvalues",
+    "dependencies" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/TemasterUI.build/Debug-iphonesimulator/TemasterUI-t.build/Objects-normal/arm64/DSGameHeader.d",
+    "diagnostics" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/TemasterUI.build/Debug-iphonesimulator/TemasterUI-t.build/Objects-normal/arm64/DSGameHeader.dia",
+    "object" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/TemasterUI.build/Debug-iphonesimulator/TemasterUI-t.build/Objects-normal/arm64/DSGameHeader.o",
+    "swift-dependencies" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/TemasterUI.build/Debug-iphonesimulator/TemasterUI-t.build/Objects-normal/arm64/DSGameHeader.swiftdeps"
+  }
+}

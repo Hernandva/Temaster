@@ -1,0 +1,23 @@
+{
+  "/Users/hernanvillamil/Documents/Proyectos/Temaster/Temaster/Features/PlaylistSelector/PlaylistSelectorCoordinator.swift" : {
+    "const-values" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/Temaster.build/Debug-iphonesimulator/Temaster.build/Objects-normal/x86_64/PlaylistSelectorCoordinator.swiftconstvalues",
+    "dependencies" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/Temaster.build/Debug-iphonesimulator/Temaster.build/Objects-normal/x86_64/PlaylistSelectorCoordinator.d",
+    "diagnostics" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/Temaster.build/Debug-iphonesimulator/Temaster.build/Objects-normal/x86_64/PlaylistSelectorCoordinator.dia",
+    "object" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/Temaster.build/Debug-iphonesimulator/Temaster.build/Objects-normal/x86_64/PlaylistSelectorCoordinator.o",
+    "swift-dependencies" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/Temaster.build/Debug-iphonesimulator/Temaster.build/Objects-normal/x86_64/PlaylistSelectorCoordinator.swiftdeps"
+  },
+  "/Users/hernanvillamil/Documents/Proyectos/Temaster/Temaster/Features/PlaylistSelector/UseCase/PlaylistItemMapper.swift" : {
+    "const-values" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/Temaster.build/Debug-iphonesimulator/Temaster.build/Objects-normal/x86_64/PlaylistItemMapper.swiftconstvalues",
+    "dependencies" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/Temaster.build/Debug-iphonesimulator/Temaster.build/Objects-normal/x86_64/PlaylistItemMapper.d",
+    "diagnostics" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/Temaster.build/Debug-iphonesimulator/Temaster.build/Objects-normal/x86_64/PlaylistItemMapper.dia",
+    "object" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/Temaster.build/Debug-iphonesimulator/Temaster.build/Objects-normal/x86_64/PlaylistItemMapper.o",
+    "swift-dependencies" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/Temaster.build/Debug-iphonesimulator/Temaster.build/Objects-normal/x86_64/PlaylistItemMapper.swiftdeps"
+  },
+  "/Users/hernanvillamil/Documents/Proyectos/Temaster/Temaster/Features/PlaylistSelector/View/PlaylistSelectorView.swift" : {
+    "const-values" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/Temaster.build/Debug-iphonesimulator/Temaster.build/Objects-normal/x86_64/PlaylistSelectorView.swiftconstvalues",
+    "dependencies" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/Temaster.build/Debug-iphonesimulator/Temaster.build/Objects-normal/x86_64/PlaylistSelectorView.d",
+    "diagnostics" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/Temaster.build/Debug-iphonesimulator/Temaster.build/Objects-normal/x86_64/PlaylistSelectorView.dia",
+    "object" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/Temaster.build/Debug-iphonesimulator/Temaster.build/Objects-normal/x86_64/PlaylistSelectorView.o",
+    "swift-dependencies" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/Temaster.build/Debug-iphonesimulator/Temaster.build/Objects-normal/x86_64/PlaylistSelectorView.swiftdeps"
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "/Users/hernanvillamil/Documents/Proyectos/Temaster/Packages/TemasterUI/Sources/TemasterUI/Components/DSSongRevealCard.swift" : {
+    "const-values" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/TemasterUI.build/Debug-iphonesimulator/TemasterUI-t.build/Objects-normal/arm64/DSSongRevealCard.swiftconstvalues",
+    "dependencies" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/TemasterUI.build/Debug-iphonesimulator/TemasterUI-t.build/Objects-normal/arm64/DSSongRevealCard.d",
+    "diagnostics" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/TemasterUI.build/Debug-iphonesimulator/TemasterUI-t.build/Objects-normal/arm64/DSSongRevealCard.dia",
+    "object" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/TemasterUI.build/Debug-iphonesimulator/TemasterUI-t.build/Objects-normal/arm64/DSSongRevealCard.o",
+    "swift-dependencies" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/TemasterUI.build/Debug-iphonesimulator/TemasterUI-t.build/Objects-normal/arm64/DSSongRevealCard.swiftdeps"
+  },
+  "/Users/hernanvillamil/Documents/Proyectos/Temaster/Packages/TemasterUI/Sources/TemasterUI/Components/DSSongRow.swift" : {
+    "const-values" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/TemasterUI.build/Debug-iphonesimulator/TemasterUI-t.build/Objects-normal/arm64/DSSongRow.swiftconstvalues",
+    "dependencies" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/TemasterUI.build/Debug-iphonesimulator/TemasterUI-t.build/Objects-normal/arm64/DSSongRow.d",
+    "diagnostics" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/TemasterUI.build/Debug-iphonesimulator/TemasterUI-t.build/Objects-normal/arm64/DSSongRow.dia",
+    "object" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/TemasterUI.build/Debug-iphonesimulator/TemasterUI-t.build/Objects-normal/arm64/DSSongRow.o",
+    "swift-dependencies" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/TemasterUI.build/Debug-iphonesimulator/TemasterUI-t.build/Objects-normal/arm64/DSSongRow.swiftdeps"
+  },
+  "/Users/hernanvillamil/Documents/Proyectos/Temaster/Packages/TemasterUI/Sources/TemasterUI/Components/DSSongsSheet.swift" : {
+    "const-values" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/TemasterUI.build/Debug-iphonesimulator/TemasterUI-t.build/Objects-normal/arm64/DSSongsSheet.swiftconstvalues",
+    "dependencies" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/TemasterUI.build/Debug-iphonesimulator/TemasterUI-t.build/Objects-normal/arm64/DSSongsSheet.d",
+    "diagnostics" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/TemasterUI.build/Debug-iphonesimulator/TemasterUI-t.build/Objects-normal/arm64/DSSongsSheet.dia",
+    "object" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/TemasterUI.build/Debug-iphonesimulator/TemasterUI-t.build/Objects-normal/arm64/DSSongsSheet.o",
+    "swift-dependencies" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/TemasterUI.build/Debug-iphonesimulator/TemasterUI-t.build/Objects-normal/arm64/DSSongsSheet.swiftdeps"
+  }
+}

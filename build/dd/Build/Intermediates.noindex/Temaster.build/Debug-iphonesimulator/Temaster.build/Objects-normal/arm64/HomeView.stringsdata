@@ -1,0 +1,32 @@
+{
+  "source": "/Users/hernanvillamil/Documents/Proyectos/Temaster/Temaster/Features/Home/View/HomeView.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "home.settingsSheet.openSettings",
+        "location": {
+          "startingColumn": 52,
+          "startingLine": 95
+        }
+      },
+      {
+        "comment": "",
+        "key": "home.settingsSheet.notNow",
+        "location": {
+          "startingColumn": 54,
+          "startingLine": 101
+        }
+      },
+      {
+        "comment": "",
+        "key": "home.loginError.accept",
+        "location": {
+          "startingColumn": 52,
+          "startingLine": 112
+        }
+      }
+    ]
+  },
+  "version": 1
+}

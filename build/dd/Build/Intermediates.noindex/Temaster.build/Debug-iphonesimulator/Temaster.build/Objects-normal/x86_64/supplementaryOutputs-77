@@ -1,0 +1,44 @@
+{
+  "/Users/hernanvillamil/Documents/Proyectos/Temaster/Temaster/Features/Game/Model/GameViewData+Turns.swift" : {
+    "const-values" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/Temaster.build/Debug-iphonesimulator/Temaster.build/Objects-normal/x86_64/GameViewData+Turns.swiftconstvalues",
+    "dependencies" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/Temaster.build/Debug-iphonesimulator/Temaster.build/Objects-normal/x86_64/GameViewData+Turns.d",
+    "diagnostics" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/Temaster.build/Debug-iphonesimulator/Temaster.build/Objects-normal/x86_64/GameViewData+Turns.dia",
+    "object" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/Temaster.build/Debug-iphonesimulator/Temaster.build/Objects-normal/x86_64/GameViewData+Turns.o",
+    "swift-dependencies" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/Temaster.build/Debug-iphonesimulator/Temaster.build/Objects-normal/x86_64/GameViewData+Turns.swiftdeps"
+  },
+  "/Users/hernanvillamil/Documents/Proyectos/Temaster/Temaster/Features/Game/Model/GameViewData.swift" : {
+    "const-values" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/Temaster.build/Debug-iphonesimulator/Temaster.build/Objects-normal/x86_64/GameViewData.swiftconstvalues",
+    "dependencies" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/Temaster.build/Debug-iphonesimulator/Temaster.build/Objects-normal/x86_64/GameViewData.d",
+    "diagnostics" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/Temaster.build/Debug-iphonesimulator/Temaster.build/Objects-normal/x86_64/GameViewData.dia",
+    "object" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/Temaster.build/Debug-iphonesimulator/Temaster.build/Objects-normal/x86_64/GameViewData.o",
+    "swift-dependencies" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/Temaster.build/Debug-iphonesimulator/Temaster.build/Objects-normal/x86_64/GameViewData.swiftdeps"
+  },
+  "/Users/hernanvillamil/Documents/Proyectos/Temaster/Temaster/Features/Game/View/GameViewModel+DesignSystem.swift" : {
+    "const-values" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/Temaster.build/Debug-iphonesimulator/Temaster.build/Objects-normal/x86_64/GameViewModel+DesignSystem.swiftconstvalues",
+    "dependencies" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/Temaster.build/Debug-iphonesimulator/Temaster.build/Objects-normal/x86_64/GameViewModel+DesignSystem.d",
+    "diagnostics" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/Temaster.build/Debug-iphonesimulator/Temaster.build/Objects-normal/x86_64/GameViewModel+DesignSystem.dia",
+    "object" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/Temaster.build/Debug-iphonesimulator/Temaster.build/Objects-normal/x86_64/GameViewModel+DesignSystem.o",
+    "swift-dependencies" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/Temaster.build/Debug-iphonesimulator/Temaster.build/Objects-normal/x86_64/GameViewModel+DesignSystem.swiftdeps"
+  },
+  "/Users/hernanvillamil/Documents/Proyectos/Temaster/Temaster/Features/Game/ViewModel/GameViewModel+Texts.swift" : {
+    "const-values" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/Temaster.build/Debug-iphonesimulator/Temaster.build/Objects-normal/x86_64/GameViewModel+Texts.swiftconstvalues",
+    "dependencies" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/Temaster.build/Debug-iphonesimulator/Temaster.build/Objects-normal/x86_64/GameViewModel+Texts.d",
+    "diagnostics" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/Temaster.build/Debug-iphonesimulator/Temaster.build/Objects-normal/x86_64/GameViewModel+Texts.dia",
+    "object" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/Temaster.build/Debug-iphonesimulator/Temaster.build/Objects-normal/x86_64/GameViewModel+Texts.o",
+    "swift-dependencies" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/Temaster.build/Debug-iphonesimulator/Temaster.build/Objects-normal/x86_64/GameViewModel+Texts.swiftdeps"
+  },
+  "/Users/hernanvillamil/Documents/Proyectos/Temaster/Temaster/Features/Game/ViewModel/GameViewModel.swift" : {
+    "const-values" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/Temaster.build/Debug-iphonesimulator/Temaster.build/Objects-normal/x86_64/GameViewModel.swiftconstvalues",
+    "dependencies" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/Temaster.build/Debug-iphonesimulator/Temaster.build/Objects-normal/x86_64/GameViewModel.d",
+    "diagnostics" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/Temaster.build/Debug-iphonesimulator/Temaster.build/Objects-normal/x86_64/GameViewModel.dia",
+    "object" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/Temaster.build/Debug-iphonesimulator/Temaster.build/Objects-normal/x86_64/GameViewModel.o",
+    "swift-dependencies" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/Temaster.build/Debug-iphonesimulator/Temaster.build/Objects-normal/x86_64/GameViewModel.swiftdeps"
+  },
+  "/Users/hernanvillamil/Documents/Proyectos/Temaster/Temaster/Features/GameStarter/Model/GameViewData+GameStarter.swift" : {
+    "const-values" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/Temaster.build/Debug-iphonesimulator/Temaster.build/Objects-normal/x86_64/GameViewData+GameStarter.swiftconstvalues",
+    "dependencies" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/Temaster.build/Debug-iphonesimulator/Temaster.build/Objects-normal/x86_64/GameViewData+GameStarter.d",
+    "diagnostics" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/Temaster.build/Debug-iphonesimulator/Temaster.build/Objects-normal/x86_64/GameViewData+GameStarter.dia",
+    "object" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/Temaster.build/Debug-iphonesimulator/Temaster.build/Objects-normal/x86_64/GameViewData+GameStarter.o",
+    "swift-dependencies" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/Temaster.build/Debug-iphonesimulator/Temaster.build/Objects-normal/x86_64/GameViewData+GameStarter.swiftdeps"
+  }
+}

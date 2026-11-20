@@ -1,0 +1,44 @@
+{
+  "/Users/hernanvillamil/Documents/Proyectos/Temaster/Temaster/Features/Game/UseCase/GenerationMixUseCase.swift" : {
+    "const-values" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/Temaster.build/Debug-iphonesimulator/Temaster.build/Objects-normal/x86_64/GenerationMixUseCase.swiftconstvalues",
+    "dependencies" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/Temaster.build/Debug-iphonesimulator/Temaster.build/Objects-normal/x86_64/GenerationMixUseCase.d",
+    "diagnostics" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/Temaster.build/Debug-iphonesimulator/Temaster.build/Objects-normal/x86_64/GenerationMixUseCase.dia",
+    "object" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/Temaster.build/Debug-iphonesimulator/Temaster.build/Objects-normal/x86_64/GenerationMixUseCase.o",
+    "swift-dependencies" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/Temaster.build/Debug-iphonesimulator/Temaster.build/Objects-normal/x86_64/GenerationMixUseCase.swiftdeps"
+  },
+  "/Users/hernanvillamil/Documents/Proyectos/Temaster/Temaster/Features/GameStarter/UseCase/GenerationKind+Settings.swift" : {
+    "const-values" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/Temaster.build/Debug-iphonesimulator/Temaster.build/Objects-normal/x86_64/GenerationKind+Settings.swiftconstvalues",
+    "dependencies" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/Temaster.build/Debug-iphonesimulator/Temaster.build/Objects-normal/x86_64/GenerationKind+Settings.d",
+    "diagnostics" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/Temaster.build/Debug-iphonesimulator/Temaster.build/Objects-normal/x86_64/GenerationKind+Settings.dia",
+    "object" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/Temaster.build/Debug-iphonesimulator/Temaster.build/Objects-normal/x86_64/GenerationKind+Settings.o",
+    "swift-dependencies" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/Temaster.build/Debug-iphonesimulator/Temaster.build/Objects-normal/x86_64/GenerationKind+Settings.swiftdeps"
+  },
+  "/Users/hernanvillamil/Documents/Proyectos/Temaster/Temaster/Features/GameStarter/UseCase/GenerationPlaylistsUseCase.swift" : {
+    "const-values" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/Temaster.build/Debug-iphonesimulator/Temaster.build/Objects-normal/x86_64/GenerationPlaylistsUseCase.swiftconstvalues",
+    "dependencies" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/Temaster.build/Debug-iphonesimulator/Temaster.build/Objects-normal/x86_64/GenerationPlaylistsUseCase.d",
+    "diagnostics" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/Temaster.build/Debug-iphonesimulator/Temaster.build/Objects-normal/x86_64/GenerationPlaylistsUseCase.dia",
+    "object" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/Temaster.build/Debug-iphonesimulator/Temaster.build/Objects-normal/x86_64/GenerationPlaylistsUseCase.o",
+    "swift-dependencies" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/Temaster.build/Debug-iphonesimulator/Temaster.build/Objects-normal/x86_64/GenerationPlaylistsUseCase.swiftdeps"
+  },
+  "/Users/hernanvillamil/Documents/Proyectos/Temaster/Temaster/Features/Home/HomeCoordinator.swift" : {
+    "const-values" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/Temaster.build/Debug-iphonesimulator/Temaster.build/Objects-normal/x86_64/HomeCoordinator.swiftconstvalues",
+    "dependencies" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/Temaster.build/Debug-iphonesimulator/Temaster.build/Objects-normal/x86_64/HomeCoordinator.d",
+    "diagnostics" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/Temaster.build/Debug-iphonesimulator/Temaster.build/Objects-normal/x86_64/HomeCoordinator.dia",
+    "object" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/Temaster.build/Debug-iphonesimulator/Temaster.build/Objects-normal/x86_64/HomeCoordinator.o",
+    "swift-dependencies" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/Temaster.build/Debug-iphonesimulator/Temaster.build/Objects-normal/x86_64/HomeCoordinator.swiftdeps"
+  },
+  "/Users/hernanvillamil/Documents/Proyectos/Temaster/Temaster/Features/PlaylistSelector/UseCase/HitsterPlayListUseCase.swift" : {
+    "const-values" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/Temaster.build/Debug-iphonesimulator/Temaster.build/Objects-normal/x86_64/HitsterPlayListUseCase.swiftconstvalues",
+    "dependencies" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/Temaster.build/Debug-iphonesimulator/Temaster.build/Objects-normal/x86_64/HitsterPlayListUseCase.d",
+    "diagnostics" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/Temaster.build/Debug-iphonesimulator/Temaster.build/Objects-normal/x86_64/HitsterPlayListUseCase.dia",
+    "object" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/Temaster.build/Debug-iphonesimulator/Temaster.build/Objects-normal/x86_64/HitsterPlayListUseCase.o",
+    "swift-dependencies" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/Temaster.build/Debug-iphonesimulator/Temaster.build/Objects-normal/x86_64/HitsterPlayListUseCase.swiftdeps"
+  },
+  "/Users/hernanvillamil/Documents/Proyectos/Temaster/Temaster/Features/Settings/UseCase/GenerationsUseCase.swift" : {
+    "const-values" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/Temaster.build/Debug-iphonesimulator/Temaster.build/Objects-normal/x86_64/GenerationsUseCase.swiftconstvalues",
+    "dependencies" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/Temaster.build/Debug-iphonesimulator/Temaster.build/Objects-normal/x86_64/GenerationsUseCase.d",
+    "diagnostics" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/Temaster.build/Debug-iphonesimulator/Temaster.build/Objects-normal/x86_64/GenerationsUseCase.dia",
+    "object" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/Temaster.build/Debug-iphonesimulator/Temaster.build/Objects-normal/x86_64/GenerationsUseCase.o",
+    "swift-dependencies" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/Temaster.build/Debug-iphonesimulator/Temaster.build/Objects-normal/x86_64/GenerationsUseCase.swiftdeps"
+  }
+}

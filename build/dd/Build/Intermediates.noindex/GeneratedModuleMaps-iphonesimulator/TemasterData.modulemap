@@ -1,0 +1,4 @@
+module TemasterData {
+header "TemasterData-Swift.h"
+export *
+}

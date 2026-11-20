@@ -14,6 +14,22 @@ extension GameViewModel {
         viewData.bingoCategory?.title
     }
 
+    /// The generation whose turn it is, shown under the vinyl. `nil` when everyone plays with the same playlist.
+    var generation: DSVinyl.Generation? {
+        guard let generation = currentPlaylist?.generation else { return nil }
+        switch generation.look {
+        case .vinyl: return DSVinyl.Generation(.vinyl, title: generation.title)
+        case .cassette: return DSVinyl.Generation(.cassette, title: generation.title)
+        case .streaming: return DSVinyl.Generation(.streaming, title: generation.title)
+        case .custom(let symbolName, let color):
+            return DSVinyl.Generation(
+                symbolName: symbolName,
+                title: generation.title,
+                color: DSBingoCategory(color).color
+            )
+        }
+    }
+
     /// Style of the mode chip at the top: the round's category in the Bingo mode.
     var badgeStyle: DSChip.Style {
         viewData.settings.mode == .bingo ? .bingo(category) : .standard

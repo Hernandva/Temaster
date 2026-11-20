@@ -1,0 +1,4 @@
+module TemasterUI {
+header "TemasterUI-Swift.h"
+export *
+}

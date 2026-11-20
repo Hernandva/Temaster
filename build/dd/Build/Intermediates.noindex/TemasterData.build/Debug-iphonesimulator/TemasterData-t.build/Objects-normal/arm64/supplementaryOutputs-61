@@ -1,0 +1,37 @@
+{
+  "/Users/hernanvillamil/Documents/Proyectos/Temaster/Packages/TemasterData/Sources/TemasterData/Core/Remote/AppleMusic/AppleMusicAPIClient.swift" : {
+    "const-values" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/TemasterData.build/Debug-iphonesimulator/TemasterData-t.build/Objects-normal/arm64/AppleMusicAPIClient.swiftconstvalues",
+    "dependencies" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/TemasterData.build/Debug-iphonesimulator/TemasterData-t.build/Objects-normal/arm64/AppleMusicAPIClient.d",
+    "diagnostics" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/TemasterData.build/Debug-iphonesimulator/TemasterData-t.build/Objects-normal/arm64/AppleMusicAPIClient.dia",
+    "object" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/TemasterData.build/Debug-iphonesimulator/TemasterData-t.build/Objects-normal/arm64/AppleMusicAPIClient.o",
+    "swift-dependencies" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/TemasterData.build/Debug-iphonesimulator/TemasterData-t.build/Objects-normal/arm64/AppleMusicAPIClient.swiftdeps"
+  },
+  "/Users/hernanvillamil/Documents/Proyectos/Temaster/Packages/TemasterData/Sources/TemasterData/Core/Remote/AppleMusic/AppleMusicAPIDAO.swift" : {
+    "const-values" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/TemasterData.build/Debug-iphonesimulator/TemasterData-t.build/Objects-normal/arm64/AppleMusicAPIDAO.swiftconstvalues",
+    "dependencies" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/TemasterData.build/Debug-iphonesimulator/TemasterData-t.build/Objects-normal/arm64/AppleMusicAPIDAO.d",
+    "diagnostics" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/TemasterData.build/Debug-iphonesimulator/TemasterData-t.build/Objects-normal/arm64/AppleMusicAPIDAO.dia",
+    "object" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/TemasterData.build/Debug-iphonesimulator/TemasterData-t.build/Objects-normal/arm64/AppleMusicAPIDAO.o",
+    "swift-dependencies" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/TemasterData.build/Debug-iphonesimulator/TemasterData-t.build/Objects-normal/arm64/AppleMusicAPIDAO.swiftdeps"
+  },
+  "/Users/hernanvillamil/Documents/Proyectos/Temaster/Packages/TemasterData/Sources/TemasterData/Core/Remote/NetworkClient.swift" : {
+    "const-values" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/TemasterData.build/Debug-iphonesimulator/TemasterData-t.build/Objects-normal/arm64/NetworkClient.swiftconstvalues",
+    "dependencies" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/TemasterData.build/Debug-iphonesimulator/TemasterData-t.build/Objects-normal/arm64/NetworkClient.d",
+    "diagnostics" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/TemasterData.build/Debug-iphonesimulator/TemasterData-t.build/Objects-normal/arm64/NetworkClient.dia",
+    "object" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/TemasterData.build/Debug-iphonesimulator/TemasterData-t.build/Objects-normal/arm64/NetworkClient.o",
+    "swift-dependencies" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/TemasterData.build/Debug-iphonesimulator/TemasterData-t.build/Objects-normal/arm64/NetworkClient.swiftdeps"
+  },
+  "/Users/hernanvillamil/Documents/Proyectos/Temaster/Packages/TemasterData/Sources/TemasterData/Core/Remote/NetworkError.swift" : {
+    "const-values" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/TemasterData.build/Debug-iphonesimulator/TemasterData-t.build/Objects-normal/arm64/NetworkError.swiftconstvalues",
+    "dependencies" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/TemasterData.build/Debug-iphonesimulator/TemasterData-t.build/Objects-normal/arm64/NetworkError.d",
+    "diagnostics" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/TemasterData.build/Debug-iphonesimulator/TemasterData-t.build/Objects-normal/arm64/NetworkError.dia",
+    "object" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/TemasterData.build/Debug-iphonesimulator/TemasterData-t.build/Objects-normal/arm64/NetworkError.o",
+    "swift-dependencies" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/TemasterData.build/Debug-iphonesimulator/TemasterData-t.build/Objects-normal/arm64/NetworkError.swiftdeps"
+  },
+  "/Users/hernanvillamil/Documents/Proyectos/Temaster/Packages/TemasterData/Sources/TemasterData/Core/Remote/RepositoryConfiguration.swift" : {
+    "const-values" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/TemasterData.build/Debug-iphonesimulator/TemasterData-t.build/Objects-normal/arm64/RepositoryConfiguration.swiftconstvalues",
+    "dependencies" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/TemasterData.build/Debug-iphonesimulator/TemasterData-t.build/Objects-normal/arm64/RepositoryConfiguration.d",
+    "diagnostics" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/TemasterData.build/Debug-iphonesimulator/TemasterData-t.build/Objects-normal/arm64/RepositoryConfiguration.dia",
+    "object" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/TemasterData.build/Debug-iphonesimulator/TemasterData-t.build/Objects-normal/arm64/RepositoryConfiguration.o",
+    "swift-dependencies" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/TemasterData.build/Debug-iphonesimulator/TemasterData-t.build/Objects-normal/arm64/RepositoryConfiguration.swiftdeps"
+  }
+}

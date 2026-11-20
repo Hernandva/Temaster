@@ -1,0 +1,72 @@
+{
+  "source": "/Users/hernanvillamil/Documents/Proyectos/Temaster/Temaster/Features/Home/ViewModel/HomeViewModel.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "home.signIn.continue %@",
+        "location": {
+          "startingColumn": 38,
+          "startingLine": 65
+        }
+      },
+      {
+        "comment": "",
+        "key": "home.signIn.allow %@",
+        "location": {
+          "startingColumn": 34,
+          "startingLine": 67
+        }
+      },
+      {
+        "comment": "",
+        "key": "home.loginError.title %@",
+        "location": {
+          "startingColumn": 27,
+          "startingLine": 102
+        }
+      },
+      {
+        "comment": "",
+        "key": "home.loginError.notAuthorized %@",
+        "location": {
+          "startingColumn": 38,
+          "startingLine": 110
+        }
+      },
+      {
+        "comment": "",
+        "key": "home.loginError.subscriptionRequired %@",
+        "location": {
+          "startingColumn": 38,
+          "startingLine": 112
+        }
+      },
+      {
+        "comment": "",
+        "key": "home.loginError.unavailable %@",
+        "location": {
+          "startingColumn": 38,
+          "startingLine": 114
+        }
+      },
+      {
+        "comment": "",
+        "key": "home.settingsSheet.title %@",
+        "location": {
+          "startingColumn": 27,
+          "startingLine": 124
+        }
+      },
+      {
+        "comment": "",
+        "key": "home.settingsSheet.message %@",
+        "location": {
+          "startingColumn": 27,
+          "startingLine": 129
+        }
+      }
+    ]
+  },
+  "version": 1
+}

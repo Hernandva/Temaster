@@ -1,0 +1,30 @@
+{
+  "/Users/hernanvillamil/Documents/Proyectos/Temaster/Packages/TemasterData/Sources/TemasterData/Repositories/Song/DAO/SongResponseDAO.swift" : {
+    "const-values" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/TemasterData.build/Debug-iphonesimulator/TemasterData-t.build/Objects-normal/x86_64/SongResponseDAO.swiftconstvalues",
+    "dependencies" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/TemasterData.build/Debug-iphonesimulator/TemasterData-t.build/Objects-normal/x86_64/SongResponseDAO.d",
+    "diagnostics" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/TemasterData.build/Debug-iphonesimulator/TemasterData-t.build/Objects-normal/x86_64/SongResponseDAO.dia",
+    "object" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/TemasterData.build/Debug-iphonesimulator/TemasterData-t.build/Objects-normal/x86_64/SongResponseDAO.o",
+    "swift-dependencies" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/TemasterData.build/Debug-iphonesimulator/TemasterData-t.build/Objects-normal/x86_64/SongResponseDAO.swiftdeps"
+  },
+  "/Users/hernanvillamil/Documents/Proyectos/Temaster/Packages/TemasterData/Sources/TemasterData/Repositories/Song/RandomSongPicker.swift" : {
+    "const-values" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/TemasterData.build/Debug-iphonesimulator/TemasterData-t.build/Objects-normal/x86_64/RandomSongPicker.swiftconstvalues",
+    "dependencies" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/TemasterData.build/Debug-iphonesimulator/TemasterData-t.build/Objects-normal/x86_64/RandomSongPicker.d",
+    "diagnostics" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/TemasterData.build/Debug-iphonesimulator/TemasterData-t.build/Objects-normal/x86_64/RandomSongPicker.dia",
+    "object" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/TemasterData.build/Debug-iphonesimulator/TemasterData-t.build/Objects-normal/x86_64/RandomSongPicker.o",
+    "swift-dependencies" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/TemasterData.build/Debug-iphonesimulator/TemasterData-t.build/Objects-normal/x86_64/RandomSongPicker.swiftdeps"
+  },
+  "/Users/hernanvillamil/Documents/Proyectos/Temaster/Packages/TemasterData/Sources/TemasterData/Repositories/Song/Remote/AppleMusic/AppleMusicSongDAO.swift" : {
+    "const-values" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/TemasterData.build/Debug-iphonesimulator/TemasterData-t.build/Objects-normal/x86_64/AppleMusicSongDAO.swiftconstvalues",
+    "dependencies" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/TemasterData.build/Debug-iphonesimulator/TemasterData-t.build/Objects-normal/x86_64/AppleMusicSongDAO.d",
+    "diagnostics" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/TemasterData.build/Debug-iphonesimulator/TemasterData-t.build/Objects-normal/x86_64/AppleMusicSongDAO.dia",
+    "object" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/TemasterData.build/Debug-iphonesimulator/TemasterData-t.build/Objects-normal/x86_64/AppleMusicSongDAO.o",
+    "swift-dependencies" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/TemasterData.build/Debug-iphonesimulator/TemasterData-t.build/Objects-normal/x86_64/AppleMusicSongDAO.swiftdeps"
+  },
+  "/Users/hernanvillamil/Documents/Proyectos/Temaster/Packages/TemasterData/Sources/TemasterData/Repositories/Song/Remote/AppleMusic/AppleMusicSongService.swift" : {
+    "const-values" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/TemasterData.build/Debug-iphonesimulator/TemasterData-t.build/Objects-normal/x86_64/AppleMusicSongService.swiftconstvalues",
+    "dependencies" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/TemasterData.build/Debug-iphonesimulator/TemasterData-t.build/Objects-normal/x86_64/AppleMusicSongService.d",
+    "diagnostics" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/TemasterData.build/Debug-iphonesimulator/TemasterData-t.build/Objects-normal/x86_64/AppleMusicSongService.dia",
+    "object" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/TemasterData.build/Debug-iphonesimulator/TemasterData-t.build/Objects-normal/x86_64/AppleMusicSongService.o",
+    "swift-dependencies" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/TemasterData.build/Debug-iphonesimulator/TemasterData-t.build/Objects-normal/x86_64/AppleMusicSongService.swiftdeps"
+  }
+}

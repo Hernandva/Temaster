@@ -1,0 +1,112 @@
+{
+  "source": "/Users/hernanvillamil/Documents/Proyectos/Temaster/Temaster/Features/GameStarter/View/GameStarterView.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "gameStarter.changeProvider.returnHome",
+        "location": {
+          "startingColumn": 52,
+          "startingLine": 64
+        }
+      },
+      {
+        "comment": "",
+        "key": "gameStarter.changeProvider.stay",
+        "location": {
+          "startingColumn": 54,
+          "startingLine": 67
+        }
+      },
+      {
+        "comment": "",
+        "key": "gameStarter.settings",
+        "location": {
+          "startingColumn": 51,
+          "startingLine": 80
+        }
+      },
+      {
+        "comment": "",
+        "key": "gameStarter.changeProvider.hint",
+        "location": {
+          "startingColumn": 50,
+          "startingLine": 85
+        }
+      },
+      {
+        "comment": "",
+        "key": "gameStarter.changePlaylist",
+        "location": {
+          "startingColumn": 43,
+          "startingLine": 135
+        }
+      },
+      {
+        "comment": "",
+        "key": "gameStarter.selectPlaylist.title",
+        "location": {
+          "startingColumn": 42,
+          "startingLine": 141
+        }
+      },
+      {
+        "comment": "",
+        "key": "gameStarter.selectPlaylist.message",
+        "location": {
+          "startingColumn": 45,
+          "startingLine": 142
+        }
+      },
+      {
+        "comment": "",
+        "key": "gameStarter.selectPlaylist.action",
+        "location": {
+          "startingColumn": 43,
+          "startingLine": 143
+        }
+      },
+      {
+        "comment": "",
+        "key": "gameStarter.selectPlaylist.title",
+        "location": {
+          "startingColumn": 38,
+          "startingLine": 167
+        }
+      },
+      {
+        "comment": "",
+        "key": "gameStarter.selectPlaylist.message",
+        "location": {
+          "startingColumn": 41,
+          "startingLine": 168
+        }
+      },
+      {
+        "comment": "",
+        "key": "gameStarter.selectPlaylist.action",
+        "location": {
+          "startingColumn": 39,
+          "startingLine": 169
+        }
+      },
+      {
+        "comment": "",
+        "key": "gameStarter.changePlaylist",
+        "location": {
+          "startingColumn": 47,
+          "startingLine": 187
+        }
+      },
+      {
+        "comment": "",
+        "key": "gameStarter.play.accessibility",
+        "location": {
+          "startingColumn": 50,
+          "startingLine": 243
+        }
+      }
+    ]
+  },
+  "version": 1
+}

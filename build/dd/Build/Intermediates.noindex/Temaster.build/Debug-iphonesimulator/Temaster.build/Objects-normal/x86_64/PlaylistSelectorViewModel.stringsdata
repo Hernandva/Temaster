@@ -1,0 +1,32 @@
+{
+  "source": "/Users/hernanvillamil/Documents/Proyectos/Temaster/Temaster/Features/PlaylistSelector/ViewModel/PlaylistSelectorViewModel.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "playlistSelector.search.empty",
+        "location": {
+          "startingColumn": 33,
+          "startingLine": 115
+        }
+      },
+      {
+        "comment": "",
+        "key": "playlistSelector.empty %@",
+        "location": {
+          "startingColumn": 33,
+          "startingLine": 116
+        }
+      },
+      {
+        "comment": "",
+        "key": "playlistSelector.confirm.question",
+        "location": {
+          "startingColumn": 51,
+          "startingLine": 227
+        }
+      }
+    ]
+  },
+  "version": 1
+}

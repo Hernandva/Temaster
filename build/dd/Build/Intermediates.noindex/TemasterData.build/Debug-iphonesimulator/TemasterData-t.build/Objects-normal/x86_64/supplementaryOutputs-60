@@ -1,0 +1,30 @@
+{
+  "/Users/hernanvillamil/Documents/Proyectos/Temaster/Packages/TemasterData/Sources/TemasterData/Repositories/Song/SongRepository.swift" : {
+    "const-values" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/TemasterData.build/Debug-iphonesimulator/TemasterData-t.build/Objects-normal/x86_64/SongRepository.swiftconstvalues",
+    "dependencies" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/TemasterData.build/Debug-iphonesimulator/TemasterData-t.build/Objects-normal/x86_64/SongRepository.d",
+    "diagnostics" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/TemasterData.build/Debug-iphonesimulator/TemasterData-t.build/Objects-normal/x86_64/SongRepository.dia",
+    "object" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/TemasterData.build/Debug-iphonesimulator/TemasterData-t.build/Objects-normal/x86_64/SongRepository.o",
+    "swift-dependencies" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/TemasterData.build/Debug-iphonesimulator/TemasterData-t.build/Objects-normal/x86_64/SongRepository.swiftdeps"
+  },
+  "/Users/hernanvillamil/Documents/Proyectos/Temaster/Packages/TemasterData/Sources/TemasterData/Repositories/Song/SongRequestProtocol.swift" : {
+    "const-values" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/TemasterData.build/Debug-iphonesimulator/TemasterData-t.build/Objects-normal/x86_64/SongRequestProtocol.swiftconstvalues",
+    "dependencies" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/TemasterData.build/Debug-iphonesimulator/TemasterData-t.build/Objects-normal/x86_64/SongRequestProtocol.d",
+    "diagnostics" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/TemasterData.build/Debug-iphonesimulator/TemasterData-t.build/Objects-normal/x86_64/SongRequestProtocol.dia",
+    "object" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/TemasterData.build/Debug-iphonesimulator/TemasterData-t.build/Objects-normal/x86_64/SongRequestProtocol.o",
+    "swift-dependencies" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/TemasterData.build/Debug-iphonesimulator/TemasterData-t.build/Objects-normal/x86_64/SongRequestProtocol.swiftdeps"
+  },
+  "/Users/hernanvillamil/Documents/Proyectos/Temaster/Packages/TemasterData/Sources/TemasterData/Repositories/Song/SongResponseProtocol.swift" : {
+    "const-values" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/TemasterData.build/Debug-iphonesimulator/TemasterData-t.build/Objects-normal/x86_64/SongResponseProtocol.swiftconstvalues",
+    "dependencies" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/TemasterData.build/Debug-iphonesimulator/TemasterData-t.build/Objects-normal/x86_64/SongResponseProtocol.d",
+    "diagnostics" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/TemasterData.build/Debug-iphonesimulator/TemasterData-t.build/Objects-normal/x86_64/SongResponseProtocol.dia",
+    "object" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/TemasterData.build/Debug-iphonesimulator/TemasterData-t.build/Objects-normal/x86_64/SongResponseProtocol.o",
+    "swift-dependencies" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/TemasterData.build/Debug-iphonesimulator/TemasterData-t.build/Objects-normal/x86_64/SongResponseProtocol.swiftdeps"
+  },
+  "/Users/hernanvillamil/Documents/Proyectos/Temaster/Packages/TemasterData/Sources/TemasterData/Repositories/Song/SongServiceProtocol.swift" : {
+    "const-values" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/TemasterData.build/Debug-iphonesimulator/TemasterData-t.build/Objects-normal/x86_64/SongServiceProtocol.swiftconstvalues",
+    "dependencies" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/TemasterData.build/Debug-iphonesimulator/TemasterData-t.build/Objects-normal/x86_64/SongServiceProtocol.d",
+    "diagnostics" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/TemasterData.build/Debug-iphonesimulator/TemasterData-t.build/Objects-normal/x86_64/SongServiceProtocol.dia",
+    "object" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/TemasterData.build/Debug-iphonesimulator/TemasterData-t.build/Objects-normal/x86_64/SongServiceProtocol.o",
+    "swift-dependencies" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/TemasterData.build/Debug-iphonesimulator/TemasterData-t.build/Objects-normal/x86_64/SongServiceProtocol.swiftdeps"
+  }
+}

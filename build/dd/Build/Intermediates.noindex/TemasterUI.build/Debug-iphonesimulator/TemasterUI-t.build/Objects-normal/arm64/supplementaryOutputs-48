@@ -1,0 +1,23 @@
+{
+  "/Users/hernanvillamil/Documents/Proyectos/Temaster/Packages/TemasterUI/Sources/TemasterUI/Tokens/DSSpacing.swift" : {
+    "const-values" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/TemasterUI.build/Debug-iphonesimulator/TemasterUI-t.build/Objects-normal/arm64/DSSpacing.swiftconstvalues",
+    "dependencies" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/TemasterUI.build/Debug-iphonesimulator/TemasterUI-t.build/Objects-normal/arm64/DSSpacing.d",
+    "diagnostics" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/TemasterUI.build/Debug-iphonesimulator/TemasterUI-t.build/Objects-normal/arm64/DSSpacing.dia",
+    "object" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/TemasterUI.build/Debug-iphonesimulator/TemasterUI-t.build/Objects-normal/arm64/DSSpacing.o",
+    "swift-dependencies" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/TemasterUI.build/Debug-iphonesimulator/TemasterUI-t.build/Objects-normal/arm64/DSSpacing.swiftdeps"
+  },
+  "/Users/hernanvillamil/Documents/Proyectos/Temaster/Packages/TemasterUI/Sources/TemasterUI/Tokens/DSTypography.swift" : {
+    "const-values" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/TemasterUI.build/Debug-iphonesimulator/TemasterUI-t.build/Objects-normal/arm64/DSTypography.swiftconstvalues",
+    "dependencies" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/TemasterUI.build/Debug-iphonesimulator/TemasterUI-t.build/Objects-normal/arm64/DSTypography.d",
+    "diagnostics" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/TemasterUI.build/Debug-iphonesimulator/TemasterUI-t.build/Objects-normal/arm64/DSTypography.dia",
+    "object" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/TemasterUI.build/Debug-iphonesimulator/TemasterUI-t.build/Objects-normal/arm64/DSTypography.o",
+    "swift-dependencies" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/TemasterUI.build/Debug-iphonesimulator/TemasterUI-t.build/Objects-normal/arm64/DSTypography.swiftdeps"
+  },
+  "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/TemasterUI.build/Debug-iphonesimulator/TemasterUI-t.build/DerivedSources/GeneratedAssetSymbols.swift" : {
+    "const-values" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/TemasterUI.build/Debug-iphonesimulator/TemasterUI-t.build/Objects-normal/arm64/GeneratedAssetSymbols.swiftconstvalues",
+    "dependencies" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/TemasterUI.build/Debug-iphonesimulator/TemasterUI-t.build/Objects-normal/arm64/GeneratedAssetSymbols.d",
+    "diagnostics" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/TemasterUI.build/Debug-iphonesimulator/TemasterUI-t.build/Objects-normal/arm64/GeneratedAssetSymbols.dia",
+    "object" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/TemasterUI.build/Debug-iphonesimulator/TemasterUI-t.build/Objects-normal/arm64/GeneratedAssetSymbols.o",
+    "swift-dependencies" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/TemasterUI.build/Debug-iphonesimulator/TemasterUI-t.build/Objects-normal/arm64/GeneratedAssetSymbols.swiftdeps"
+  }
+}

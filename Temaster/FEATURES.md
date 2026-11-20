@@ -194,7 +194,11 @@ shared one (`SaveGenerationPlaylistsUseCase`: `LastPlaylistRepository.saveGenera
 `saveCustomGenerationPlaylists`, keyed by id, for the custom ones). Play hands the game every playlist (`Route.game([GamePlaylist], settings)`): one
 for everyone, or one per generation in their order. Game keeps one shuffled queue per playlist and plays them in
 turns: Continue passes the turn to the next generation that has songs left (Next keeps it), the header shows whose
-turn it is, and the game ends when every queue is empty.
+turn it is, and the game ends when every queue is empty. Each generation carries its look to the game
+(`GameViewData.GenerationLook`: the three fixed ones by `DSGeneration`, a custom one by its `CustomLook`, the icon and
+color the user chose): its icon and name show under the vinyl, under the Bingo category when there is one, on the
+iPhone and on the TV. The colors of the screen (glow, vinyl, progress bar, mode chip, tint) stay the Bingo
+category's.
 
 Before the turns, each generation's playlist is mixed by release year (`GenerationMixUseCase`, applied by
 `FetchGameSongsUseCase`): its songs are split into the three generations' years (`firstYear`/`lastYear` from the

@@ -1,0 +1,72 @@
+{
+  "source": "/Users/hernanvillamil/Documents/Proyectos/Temaster/Temaster/Features/Settings/View/CustomGenerationSheetView.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "settings.players.custom.sheet.save",
+        "location": {
+          "startingColumn": 35,
+          "startingLine": 13
+        }
+      },
+      {
+        "comment": "",
+        "key": "settings.players.custom.sheet.icon",
+        "location": {
+          "startingColumn": 63,
+          "startingLine": 30
+        }
+      },
+      {
+        "comment": "",
+        "key": "settings.players.custom.sheet.color",
+        "location": {
+          "startingColumn": 63,
+          "startingLine": 43
+        }
+      },
+      {
+        "comment": "",
+        "key": "settings.players.custom.color.pink",
+        "location": {
+          "startingColumn": 17,
+          "startingLine": 53
+        }
+      },
+      {
+        "comment": "",
+        "key": "settings.players.custom.color.yellow",
+        "location": {
+          "startingColumn": 19,
+          "startingLine": 54
+        }
+      },
+      {
+        "comment": "",
+        "key": "settings.players.custom.color.cyan",
+        "location": {
+          "startingColumn": 17,
+          "startingLine": 55
+        }
+      },
+      {
+        "comment": "",
+        "key": "settings.players.custom.color.green",
+        "location": {
+          "startingColumn": 18,
+          "startingLine": 56
+        }
+      },
+      {
+        "comment": "",
+        "key": "settings.players.custom.color.orange",
+        "location": {
+          "startingColumn": 19,
+          "startingLine": 57
+        }
+      }
+    ]
+  },
+  "version": 1
+}

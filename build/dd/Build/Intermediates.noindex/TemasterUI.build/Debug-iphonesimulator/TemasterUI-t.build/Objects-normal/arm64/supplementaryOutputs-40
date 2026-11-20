@@ -1,0 +1,30 @@
+{
+  "/Users/hernanvillamil/Documents/Proyectos/Temaster/Packages/TemasterUI/Sources/TemasterUI/Components/DSIconPicker.swift" : {
+    "const-values" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/TemasterUI.build/Debug-iphonesimulator/TemasterUI-t.build/Objects-normal/arm64/DSIconPicker.swiftconstvalues",
+    "dependencies" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/TemasterUI.build/Debug-iphonesimulator/TemasterUI-t.build/Objects-normal/arm64/DSIconPicker.d",
+    "diagnostics" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/TemasterUI.build/Debug-iphonesimulator/TemasterUI-t.build/Objects-normal/arm64/DSIconPicker.dia",
+    "object" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/TemasterUI.build/Debug-iphonesimulator/TemasterUI-t.build/Objects-normal/arm64/DSIconPicker.o",
+    "swift-dependencies" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/TemasterUI.build/Debug-iphonesimulator/TemasterUI-t.build/Objects-normal/arm64/DSIconPicker.swiftdeps"
+  },
+  "/Users/hernanvillamil/Documents/Proyectos/Temaster/Packages/TemasterUI/Sources/TemasterUI/Components/DSListButtonRow.swift" : {
+    "const-values" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/TemasterUI.build/Debug-iphonesimulator/TemasterUI-t.build/Objects-normal/arm64/DSListButtonRow.swiftconstvalues",
+    "dependencies" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/TemasterUI.build/Debug-iphonesimulator/TemasterUI-t.build/Objects-normal/arm64/DSListButtonRow.d",
+    "diagnostics" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/TemasterUI.build/Debug-iphonesimulator/TemasterUI-t.build/Objects-normal/arm64/DSListButtonRow.dia",
+    "object" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/TemasterUI.build/Debug-iphonesimulator/TemasterUI-t.build/Objects-normal/arm64/DSListButtonRow.o",
+    "swift-dependencies" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/TemasterUI.build/Debug-iphonesimulator/TemasterUI-t.build/Objects-normal/arm64/DSListButtonRow.swiftdeps"
+  },
+  "/Users/hernanvillamil/Documents/Proyectos/Temaster/Packages/TemasterUI/Sources/TemasterUI/Components/DSListGroup.swift" : {
+    "const-values" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/TemasterUI.build/Debug-iphonesimulator/TemasterUI-t.build/Objects-normal/arm64/DSListGroup.swiftconstvalues",
+    "dependencies" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/TemasterUI.build/Debug-iphonesimulator/TemasterUI-t.build/Objects-normal/arm64/DSListGroup.d",
+    "diagnostics" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/TemasterUI.build/Debug-iphonesimulator/TemasterUI-t.build/Objects-normal/arm64/DSListGroup.dia",
+    "object" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/TemasterUI.build/Debug-iphonesimulator/TemasterUI-t.build/Objects-normal/arm64/DSListGroup.o",
+    "swift-dependencies" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/TemasterUI.build/Debug-iphonesimulator/TemasterUI-t.build/Objects-normal/arm64/DSListGroup.swiftdeps"
+  },
+  "/Users/hernanvillamil/Documents/Proyectos/Temaster/Packages/TemasterUI/Sources/TemasterUI/Components/DSListRow.swift" : {
+    "const-values" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/TemasterUI.build/Debug-iphonesimulator/TemasterUI-t.build/Objects-normal/arm64/DSListRow.swiftconstvalues",
+    "dependencies" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/TemasterUI.build/Debug-iphonesimulator/TemasterUI-t.build/Objects-normal/arm64/DSListRow.d",
+    "diagnostics" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/TemasterUI.build/Debug-iphonesimulator/TemasterUI-t.build/Objects-normal/arm64/DSListRow.dia",
+    "object" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/TemasterUI.build/Debug-iphonesimulator/TemasterUI-t.build/Objects-normal/arm64/DSListRow.o",
+    "swift-dependencies" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/TemasterUI.build/Debug-iphonesimulator/TemasterUI-t.build/Objects-normal/arm64/DSListRow.swiftdeps"
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "/Users/hernanvillamil/Documents/Proyectos/Temaster/Packages/TemasterData/Sources/TemasterData/Repositories/Player/Remote/AppleMusic/AppleMusicPlayerService.swift" : {
+    "const-values" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/TemasterData.build/Debug-iphonesimulator/TemasterData-t.build/Objects-normal/x86_64/AppleMusicPlayerService.swiftconstvalues",
+    "dependencies" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/TemasterData.build/Debug-iphonesimulator/TemasterData-t.build/Objects-normal/x86_64/AppleMusicPlayerService.d",
+    "diagnostics" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/TemasterData.build/Debug-iphonesimulator/TemasterData-t.build/Objects-normal/x86_64/AppleMusicPlayerService.dia",
+    "object" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/TemasterData.build/Debug-iphonesimulator/TemasterData-t.build/Objects-normal/x86_64/AppleMusicPlayerService.o",
+    "swift-dependencies" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/TemasterData.build/Debug-iphonesimulator/TemasterData-t.build/Objects-normal/x86_64/AppleMusicPlayerService.swiftdeps"
+  },
+  "/Users/hernanvillamil/Documents/Proyectos/Temaster/Packages/TemasterData/Sources/TemasterData/Repositories/Playlists/DAO/PlaylistsRequestDAO.swift" : {
+    "const-values" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/TemasterData.build/Debug-iphonesimulator/TemasterData-t.build/Objects-normal/x86_64/PlaylistsRequestDAO.swiftconstvalues",
+    "dependencies" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/TemasterData.build/Debug-iphonesimulator/TemasterData-t.build/Objects-normal/x86_64/PlaylistsRequestDAO.d",
+    "diagnostics" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/TemasterData.build/Debug-iphonesimulator/TemasterData-t.build/Objects-normal/x86_64/PlaylistsRequestDAO.dia",
+    "object" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/TemasterData.build/Debug-iphonesimulator/TemasterData-t.build/Objects-normal/x86_64/PlaylistsRequestDAO.o",
+    "swift-dependencies" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/TemasterData.build/Debug-iphonesimulator/TemasterData-t.build/Objects-normal/x86_64/PlaylistsRequestDAO.swiftdeps"
+  },
+  "/Users/hernanvillamil/Documents/Proyectos/Temaster/Packages/TemasterData/Sources/TemasterData/Repositories/Playlists/DAO/PlaylistsResponseDAO.swift" : {
+    "const-values" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/TemasterData.build/Debug-iphonesimulator/TemasterData-t.build/Objects-normal/x86_64/PlaylistsResponseDAO.swiftconstvalues",
+    "dependencies" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/TemasterData.build/Debug-iphonesimulator/TemasterData-t.build/Objects-normal/x86_64/PlaylistsResponseDAO.d",
+    "diagnostics" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/TemasterData.build/Debug-iphonesimulator/TemasterData-t.build/Objects-normal/x86_64/PlaylistsResponseDAO.dia",
+    "object" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/TemasterData.build/Debug-iphonesimulator/TemasterData-t.build/Objects-normal/x86_64/PlaylistsResponseDAO.o",
+    "swift-dependencies" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/TemasterData.build/Debug-iphonesimulator/TemasterData-t.build/Objects-normal/x86_64/PlaylistsResponseDAO.swiftdeps"
+  },
+  "/Users/hernanvillamil/Documents/Proyectos/Temaster/Packages/TemasterData/Sources/TemasterData/Repositories/Playlists/PlaylistsRepository.swift" : {
+    "const-values" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/TemasterData.build/Debug-iphonesimulator/TemasterData-t.build/Objects-normal/x86_64/PlaylistsRepository.swiftconstvalues",
+    "dependencies" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/TemasterData.build/Debug-iphonesimulator/TemasterData-t.build/Objects-normal/x86_64/PlaylistsRepository.d",
+    "diagnostics" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/TemasterData.build/Debug-iphonesimulator/TemasterData-t.build/Objects-normal/x86_64/PlaylistsRepository.dia",
+    "object" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/TemasterData.build/Debug-iphonesimulator/TemasterData-t.build/Objects-normal/x86_64/PlaylistsRepository.o",
+    "swift-dependencies" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/TemasterData.build/Debug-iphonesimulator/TemasterData-t.build/Objects-normal/x86_64/PlaylistsRepository.swiftdeps"
+  },
+  "/Users/hernanvillamil/Documents/Proyectos/Temaster/Packages/TemasterData/Sources/TemasterData/Repositories/Playlists/PlaylistsRequestProtocol.swift" : {
+    "const-values" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/TemasterData.build/Debug-iphonesimulator/TemasterData-t.build/Objects-normal/x86_64/PlaylistsRequestProtocol.swiftconstvalues",
+    "dependencies" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/TemasterData.build/Debug-iphonesimulator/TemasterData-t.build/Objects-normal/x86_64/PlaylistsRequestProtocol.d",
+    "diagnostics" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/TemasterData.build/Debug-iphonesimulator/TemasterData-t.build/Objects-normal/x86_64/PlaylistsRequestProtocol.dia",
+    "object" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/TemasterData.build/Debug-iphonesimulator/TemasterData-t.build/Objects-normal/x86_64/PlaylistsRequestProtocol.o",
+    "swift-dependencies" : "/Users/hernanvillamil/Documents/Proyectos/Temaster/build/dd/Build/Intermediates.noindex/TemasterData.build/Debug-iphonesimulator/TemasterData-t.build/Objects-normal/x86_64/PlaylistsRequestProtocol.swiftdeps"
+  }
+}

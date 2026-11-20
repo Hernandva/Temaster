@@ -90,6 +90,14 @@ struct GameStarterViewData: Equatable, Sendable {
         case custom(id: String)
     }
 
+    /// Icon and color the user chose for a custom generation. The three of the «Generations» play mode have a fixed
+    /// look, so they have none.
+    struct CustomLook: Hashable, Sendable {
+        /// SF Symbol of the generation.
+        let symbolName: String
+        let color: BingoColor
+    }
+
     /// A generation that plays with its own playlist: its kind, its name, already localised, and the release years
     /// of its songs, which the game uses to mix each playlist.
     struct Generation: Hashable, Sendable, Identifiable {
@@ -99,6 +107,8 @@ struct GameStarterViewData: Equatable, Sendable {
         let firstYear: Int?
         /// `nil` when the generation reaches today (streaming).
         let lastYear: Int?
+        /// The icon and color of a custom generation; `nil` for the three of the «Generations» play mode.
+        var customLook: CustomLook?
 
         var id: GenerationKind { kind }
     }

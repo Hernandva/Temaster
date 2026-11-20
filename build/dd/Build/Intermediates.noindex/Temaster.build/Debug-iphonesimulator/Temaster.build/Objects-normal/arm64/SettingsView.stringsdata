@@ -1,0 +1,104 @@
+{
+  "source": "/Users/hernanvillamil/Documents/Proyectos/Temaster/Temaster/Features/Settings/View/SettingsView.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "settings.bingo.footer",
+        "location": {
+          "startingColumn": 76,
+          "startingLine": 139
+        }
+      },
+      {
+        "comment": "",
+        "key": "settings.playback.fullSong",
+        "location": {
+          "startingColumn": 63,
+          "startingLine": 72
+        }
+      },
+      {
+        "comment": "",
+        "key": "settings.playback.clip",
+        "location": {
+          "startingColumn": 59,
+          "startingLine": 73
+        }
+      },
+      {
+        "comment": "",
+        "key": "settings.playback.duration",
+        "location": {
+          "startingColumn": 38,
+          "startingLine": 105
+        }
+      },
+      {
+        "comment": "",
+        "key": "settings.playback.start.beginning",
+        "location": {
+          "startingColumn": 72,
+          "startingLine": 85
+        }
+      },
+      {
+        "comment": "",
+        "key": "settings.playback.start.random",
+        "location": {
+          "startingColumn": 69,
+          "startingLine": 86
+        }
+      },
+      {
+        "comment": "",
+        "key": "settings.players.individual",
+        "location": {
+          "startingColumn": 65,
+          "startingLine": 161
+        }
+      },
+      {
+        "comment": "",
+        "key": "settings.players.generations",
+        "location": {
+          "startingColumn": 66,
+          "startingLine": 162
+        }
+      },
+      {
+        "comment": "",
+        "key": "settings.players.custom",
+        "location": {
+          "startingColumn": 61,
+          "startingLine": 163
+        }
+      },
+      {
+        "comment": "",
+        "key": "settings.players.custom.edit %@",
+        "location": {
+          "startingColumn": 55,
+          "startingLine": 203
+        }
+      },
+      {
+        "comment": "",
+        "key": "settings.players.custom.delete %@",
+        "location": {
+          "startingColumn": 55,
+          "startingLine": 209
+        }
+      },
+      {
+        "comment": "",
+        "key": "settings.account.connected",
+        "location": {
+          "startingColumn": 57,
+          "startingLine": 224
+        }
+      }
+    ]
+  },
+  "version": 1
+}

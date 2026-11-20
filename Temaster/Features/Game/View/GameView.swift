@@ -11,7 +11,8 @@ import SwiftUI
 /// - «Partida · bingo»: each round draws a category before its song plays; the background glow, the vinyl, the
 ///   progress bar and the tint take its color, and its name shows under the vinyl.
 /// - «Partida · generaciones»: with one playlist per generation, Continue passes the turn to the next generation and
-///   the header shows whose turn it is over the name of its playlist. Next keeps the turn.
+///   the header shows whose turn it is over the name of its playlist. Next keeps the turn. The generation's icon and
+///   name show under the vinyl (under the category in the Bingo mode); the colors of the screen stay the category's.
 /// - With an external display (a TV through AirPlay) the TV shows the round (`GameExternalDisplayView`) and a chip
 ///   under the header says so; the iPhone keeps the controls.
 /// - The content fills the screen and scrolls only when it does not fit, e.g. a revealed card with long names.
@@ -115,7 +116,12 @@ struct GameView: View {
 
     private var player: some View {
         VStack(spacing: DSSpacing.space6) {
-            DSVinyl(phase: viewModel.vinylPhase, category: viewModel.category, categoryTitle: viewModel.categoryTitle)
+            DSVinyl(
+                phase: viewModel.vinylPhase,
+                category: viewModel.category,
+                categoryTitle: viewModel.categoryTitle,
+                generation: viewModel.generation
+            )
             DSProgressBar(
                 progress: viewModel.progress,
                 elapsed: viewModel.elapsedText,
