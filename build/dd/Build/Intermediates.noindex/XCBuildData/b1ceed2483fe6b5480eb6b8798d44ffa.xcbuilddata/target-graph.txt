@@ -1,0 +1,21 @@
+Target dependency graph (9 targets)
+Target 'Temaster' in project 'Temaster'
+➜ Explicit dependency on target 'TemasterData-product' in project 'TemasterData'
+➜ Explicit dependency on target 'TemasterUI-product' in project 'TemasterUI'
+Target 'TemasterUI-product' in project 'TemasterUI'
+➜ Explicit dependency on target 'TemasterUI' in project 'TemasterUI'
+➜ Explicit dependency on target 'TemasterUI_TemasterUI' in project 'TemasterUI'
+Target 'TemasterUI' in project 'TemasterUI'
+➜ Explicit dependency on target 'TemasterUI_TemasterUI' in project 'TemasterUI'
+Target 'TemasterUI_TemasterUI' in project 'TemasterUI' (no dependencies)
+Target 'TemasterData-product' in project 'TemasterData'
+➜ Explicit dependency on target 'TemasterData' in project 'TemasterData'
+➜ Explicit dependency on target 'Alamofire-product' in project 'Alamofire'
+Target 'TemasterData' in project 'TemasterData'
+➜ Explicit dependency on target 'Alamofire-product' in project 'Alamofire'
+Target 'Alamofire-product' in project 'Alamofire'
+➜ Explicit dependency on target 'Alamofire' in project 'Alamofire'
+➜ Explicit dependency on target 'Alamofire_Alamofire' in project 'Alamofire'
+Target 'Alamofire' in project 'Alamofire'
+➜ Explicit dependency on target 'Alamofire_Alamofire' in project 'Alamofire'
+Target 'Alamofire_Alamofire' in project 'Alamofire' (no dependencies)

@@ -85,3 +85,5 @@ DSTextField(value: $email).localized("login.email.placeholder")
 ```
 
 Keys are looked up in the app's `Localizable.xcstrings` (`Bundle.main`). Pass `table:` and `bundle:` to use another catalog. Because the key is passed as a value, Xcode does not extract it automatically, so add every new key to the String Catalog.
+
+Inside the package, a component's own fixed texts use `Text(forKey:value:)` (`Localization/Text+Localized.swift`, internal): it looks `key` up in the app's catalog (`Bundle.main`) and shows `value` when the key is missing, e.g. `Text(forKey: "vinyl.category", value: "Categoría")`.

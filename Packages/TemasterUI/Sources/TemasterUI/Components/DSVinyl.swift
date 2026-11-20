@@ -95,7 +95,8 @@ public struct DSVinyl: View {
     /// «EQUIPO» over the generation's icon on its color, next to its name.
     private func generationLabel(_ generation: Generation) -> some View {
         VStack(spacing: DSSpacing.space1) {
-            Text(Bundle.main.localizedString(forKey: "vinyl.team", value: "Equipo", table: nil).uppercased())
+            Text(forKey: "vinyl.team", value: "Equipo")
+                .textCase(.uppercase)
                 .font(DSFont.caption)
                 .tracking(0.72)
                 .foregroundStyle(DSColor.textSecondary)
@@ -127,7 +128,8 @@ public struct DSVinyl: View {
     /// «CATEGORÍA» over the category name in its color.
     private func categoryLabel(_ category: DSBingoCategory, title: String) -> some View {
         VStack(spacing: DSSpacing.space1) {
-            Text(Bundle.main.localizedString(forKey: "vinyl.category", value: "Categoría", table: nil).uppercased())
+            Text(forKey: "vinyl.category", value: "Categoría")
+                .textCase(.uppercase)
                 .font(DSFont.caption)
                 .tracking(0.72)
                 .foregroundStyle(DSColor.textSecondary)
