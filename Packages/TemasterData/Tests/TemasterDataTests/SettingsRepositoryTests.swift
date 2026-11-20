@@ -12,7 +12,8 @@ struct SettingsRepositoryTests {
         clipSeconds: 45,
         clipStart: .beginning,
         gameMode: .bingo,
-        bingoLevel: .expert
+        bingoLevel: .expert,
+        playMode: .generations
     )
 
     /// A repository on its own empty `UserDefaults` suite, so tests never share data.
@@ -99,5 +100,28 @@ struct SettingsRepositoryTests {
         #expect(response.bingoLevel == GameSettingsDAO.defaults.bingoLevel)
         #expect(response.gameMode == .bingo)
         #expect(response.clipSeconds == 45)
+    }
+
+    @Test func playsIndividuallyByDefault() {
+        #expect(GameSettingsDAO.defaults.playMode == .individual)
+    }
+
+    @Test func readsAMissingOrUnknownPlayModeAsIndividualAndKeepsTheRest() async throws {
+        let suiteName = "SettingsRepositoryTests.\(UUID().uuidString)"
+        let stored = Data(#"{"playMode":"teams","gameMode":"bingo"}"#.utf8)
+        UserDefaults(suiteName: suiteName)?.set(stored, forKey: SettingsUserDefaultsStorage.key(for: .spotify))
+
+        let repository = Self.makeRepository(suiteName: suiteName)
+        let response = try await repository.fetch(FakeSettingsRequest(provider: .spotify))
+
+        #expect(response.playMode == .individual)
+        #expect(response.gameMode == .bingo)
+    }
+
+    @Test func offersTheThreeGenerationsInOrderWithTheirNames() async {
+        let generations = await Self.makeRepository().generations()
+
+        #expect(generations.map(\.generation) == [.vinyl, .cassette, .streaming])
+        #expect(generations.map(\.titleKey) == ["generation.vinyl", "generation.cassette", "generation.streaming"])
     }
 }

@@ -1277,6 +1277,57 @@
         }
       }
     },
+    "generation.cassette" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cassette and CD (1985-2004)"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Casete y CD (1985-2004)"
+          }
+        }
+      }
+    },
+    "generation.streaming" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Streaming songs (From 2005)"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Canciones en streaming (Desde 2005)"
+          }
+        }
+      }
+    },
+    "generation.vinyl" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vinyl classics (Up to 1984)"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Clásicos en vinilo (Hasta 1984)"
+          }
+        }
+      }
+    },
     "home.loading" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -2351,6 +2402,91 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Punto aleatorio"
+          }
+        }
+      }
+    },
+    "settings.players.footer.generations" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The players split into these three generations, which always all play."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Los jugadores se reparten en estas tres generaciones, que juegan siempre."
+          }
+        }
+      }
+    },
+    "settings.players.footer.individual" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Every player plays on their own."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cada jugador juega por su cuenta."
+          }
+        }
+      }
+    },
+    "settings.players.generations" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Generations"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Generaciones"
+          }
+        }
+      }
+    },
+    "settings.players.header" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Players"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Jugadores"
+          }
+        }
+      }
+    },
+    "settings.players.individual" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Individual"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Individual"
           }
         }
       }

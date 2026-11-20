@@ -39,7 +39,8 @@ private extension SettingsUseCase {
             clipSeconds: clipSeconds(response.clipSeconds),
             clipStart: response.clipStart == .beginning ? .beginning : .random,
             mode: response.gameMode == .bingo ? .bingo : .classic,
-            bingoLevel: response.bingoLevel.rawValue
+            bingoLevel: response.bingoLevel.rawValue,
+            playMode: response.playMode == .generations ? .generations : .individual
         )
     }
 

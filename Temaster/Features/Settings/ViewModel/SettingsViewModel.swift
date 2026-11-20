@@ -19,6 +19,7 @@ final class SettingsViewModel {
 
     private let settingsUseCase: any SettingsUseCaseProtocol
     private let bingoLevelsUseCase: any BingoLevelsUseCaseProtocol
+    private let generationsUseCase: any GenerationsUseCaseProtocol
     private let saveSettingsUseCase: any SaveSettingsUseCaseProtocol
     private let signOut: @MainActor () -> Void
     /// The last save, so each one waits for the previous and the newest settings are written last.
@@ -29,6 +30,7 @@ final class SettingsViewModel {
         self.viewData = SettingsViewData(provider: SettingsViewData.Provider(dependencies.resolveProvider()))
         self.settingsUseCase = dependencies.resolveSettingsUseCase()
         self.bingoLevelsUseCase = dependencies.resolveBingoLevelsUseCase()
+        self.generationsUseCase = dependencies.resolveGenerationsUseCase()
         self.saveSettingsUseCase = dependencies.resolveSaveSettingsUseCase()
         self.signOut = dependencies.resolveSignOut()
     }
@@ -62,6 +64,16 @@ final class SettingsViewModel {
         set { update { $0.bingoLevel = newValue } }
     }
 
+    var playMode: SettingsViewData.PlayMode {
+        get { viewData.game?.playMode ?? .individual }
+        set { update { $0.playMode = newValue } }
+    }
+
+    /// The three generations from the repository. They all always play.
+    var generations: [SettingsViewData.Generation] {
+        viewData.generations
+    }
+
     /// The Bingo levels from the repository, for the level selector.
     var bingoLevels: [SettingsViewData.BingoLevel] {
         viewData.bingoLevels
@@ -93,6 +105,14 @@ final class SettingsViewModel {
         }
     }
 
+    /// How the selected play mode splits the players, under the Players section.
+    var playModeFooter: String {
+        switch playMode {
+        case .individual: String(localized: "settings.players.footer.individual")
+        case .generations: String(localized: "settings.players.footer.generations")
+        }
+    }
+
     /// Name of the music service in the Account section.
     var providerName: String {
         viewData.provider.displayName
@@ -108,6 +128,7 @@ final class SettingsViewModel {
     func load() async {
         state = .loading
         viewData.bingoLevels = await bingoLevelsUseCase.execute()
+        viewData.generations = await generationsUseCase.execute()
         do {
             viewData.game = try await settingsUseCase.execute()
             state = .loaded

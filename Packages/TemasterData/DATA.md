@@ -124,15 +124,17 @@ Write failures are thrown as `LastPlaylistError.storageFailed`; unreadable data 
 
 `SettingsRepository` keeps the game settings of each `MusicProvider` on the device. `fetch(_:)` takes a
 `SettingsRequestProtocol` (the provider the user signed in with) and returns a `SettingsResponseProtocol`
-(a `GameSettingsProtocol`: playback mode, clip length and start, game mode and Bingo level), or the
-defaults (30-second clips from a random point, classic mode, beginner level) until
+(a `GameSettingsProtocol`: playback mode, clip length and start, game mode, Bingo level and play mode), or the
+defaults (30-second clips from a random point, classic mode, beginner level, `individual` play mode) until
 something is saved for that provider. `saveSettings(_:for:)` replaces the settings of a provider; each provider has
 its own entry. `bingoLevels()` returns the Bingo levels in the order Settings shows them, each a
 `SettingsBingoLevelResponseProtocol` with its five `SettingsBingoCategoryResponseProtocol`s (the color, as
 `SettingsBingoCategory`, and the key of its name in that level). The levels ship with the app, in
 `Local/BingoLevelsCatalog.swift`; the names are keys of the app's `Localizable.xcstrings`
 (`bingo.level.<level>`, `bingo.category.<color>.<level>`), which the features localise. An unknown stored level reads
-as the default one. The internal `SettingsStorageProtocol` (in `Local/`) is backed by `SettingsUserDefaultsStorage`, which writes the
+as the default one. `generations()` returns the three `SettingsGeneration`s of the `generations` play mode
+(`vinyl`, `cassette`, `streaming`, always all three), each a `SettingsGenerationResponseProtocol` with the key of its
+name (`generation.<generation>`). An unknown stored play mode reads as `individual`. The internal `SettingsStorageProtocol` (in `Local/`) is backed by `SettingsUserDefaultsStorage`, which writes the
 `Codable` `GameSettingsDAO` as JSON under `temasterData.settings.<provider>`. Do not change those keys or the raw
 values of the `Settings…` enums: saved settings would be lost. A missing field reads as its default, so adding a
 setting keeps the rest. Write failures are thrown as `SettingsError.storageFailed`.

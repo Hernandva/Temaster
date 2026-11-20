@@ -26,6 +26,32 @@ public enum SettingsGameMode: String, Codable, Sendable, CaseIterable {
     case bingo
 }
 
+/// Who plays each game: every player on their own, or the three generations as teams.
+public enum SettingsPlayMode: String, Codable, Sendable, CaseIterable {
+    /// Every player plays on their own, as the game always did.
+    case individual
+    /// The players are split into the three `SettingsGeneration`s, which always all play.
+    case generations
+}
+
+/// The three generations of the `generations` play mode, by the music of their time. Every game has all three,
+/// in this order. The raw values are stable keys of their names in the app's strings.
+public enum SettingsGeneration: String, Sendable, CaseIterable {
+    /// Up to 1984.
+    case vinyl
+    /// From 1985 to 2004.
+    case cassette
+    /// From 2005.
+    case streaming
+}
+
+/// One generation of the `generations` play mode, returned by `SettingsRepositoryProtocol.generations()`.
+public protocol SettingsGenerationResponseProtocol: Sendable {
+    var generation: SettingsGeneration { get }
+    /// Key of the generation's name in the app's strings, e.g. `generation.vinyl`.
+    var titleKey: String { get }
+}
+
 /// Difficulty of the Bingo mode. It changes what each category asks. A new level adds a case with a new raw value
 /// and its entry in `BingoLevelsCatalog`; the raw values are what is stored, so existing ones never change.
 public enum SettingsBingoLevel: String, Codable, Sendable, CaseIterable {
@@ -68,6 +94,7 @@ public protocol GameSettingsProtocol: Sendable {
     var clipStart: SettingsClipStart { get }
     var gameMode: SettingsGameMode { get }
     var bingoLevel: SettingsBingoLevel { get }
+    var playMode: SettingsPlayMode { get }
 }
 
 /// Public data the Settings repository returns to the app: the saved settings, or the default ones.

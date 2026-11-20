@@ -12,6 +12,9 @@ public protocol SettingsRepositoryProtocol: Sendable {
 
     /// The Bingo levels, in the order Settings shows them, each with its five categories.
     func bingoLevels() async -> [any SettingsBingoLevelResponseProtocol]
+
+    /// The three generations of the `generations` play mode, in the order Settings shows them.
+    func generations() async -> [any SettingsGenerationResponseProtocol]
 }
 
 /// Public entry point of the game settings. Keeps them in the local storage, one set per provider.
@@ -37,5 +40,9 @@ public final class SettingsRepository: SettingsRepositoryProtocol {
 
     public func bingoLevels() async -> [any SettingsBingoLevelResponseProtocol] {
         BingoLevelsCatalog.levels
+    }
+
+    public func generations() async -> [any SettingsGenerationResponseProtocol] {
+        SettingsGeneration.allCases.map(GenerationDAO.init)
     }
 }

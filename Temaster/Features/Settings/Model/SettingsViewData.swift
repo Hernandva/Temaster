@@ -42,6 +42,12 @@ struct SettingsViewData: Equatable, Sendable {
         case bingo
     }
 
+    /// Who plays each game: every player on their own, or the three generations as teams.
+    enum PlayMode: Hashable, Sendable {
+        case individual
+        case generations
+    }
+
     /// Game settings, returned by `SettingsUseCase` and saved by `SaveSettingsUseCase`.
     struct Game: Equatable, Sendable {
         /// Lengths a clip can have, in seconds, and the step between them.
@@ -54,6 +60,7 @@ struct SettingsViewData: Equatable, Sendable {
         var mode: GameMode
         /// Identifier of the Bingo level: the `id` of one of the `bingoLevels`.
         var bingoLevel: String
+        var playMode: PlayMode
     }
 
     /// The five Bingo categories, by their color.
@@ -81,9 +88,27 @@ struct SettingsViewData: Equatable, Sendable {
         let categories: [BingoCategory]
     }
 
+    /// The three generations of the «Generations» play mode, by their music format.
+    enum GenerationKind: Hashable, Sendable {
+        case vinyl
+        case cassette
+        case streaming
+    }
+
+    /// A generation of the «Generations» play mode with its name already localised, returned by
+    /// `GenerationsUseCase`.
+    struct Generation: Equatable, Sendable, Identifiable {
+        let kind: GenerationKind
+        let title: String
+
+        var id: GenerationKind { kind }
+    }
+
     var provider: Provider
     /// Result of `SettingsUseCase`, or `nil` until it loads.
     var game: Game?
     /// Result of `BingoLevelsUseCase`, in the order Settings shows them. Empty until it loads.
     var bingoLevels: [BingoLevel] = []
+    /// Result of `GenerationsUseCase`, in the order Settings shows them. Empty until it loads.
+    var generations: [Generation] = []
 }

@@ -1,7 +1,8 @@
 import TemasterUI
 import SwiftUI
 
-/// Settings: what each round plays, the game mode, the Bingo level with its categories and the account.
+/// Settings: what each round plays, the game mode, the Bingo level with its categories, who plays (individually
+/// or by generations) and the account.
 /// Every change is saved as soon as it is made.
 struct SettingsView: View {
     /// Keeps the column readable on iPad.
@@ -38,6 +39,7 @@ struct SettingsView: View {
                 .frame(maxWidth: .infinity)
         case .loaded:
             playbackSection
+            playersSection
             gameModeSection
             if viewModel.gameMode == .bingo {
                 bingoSection
@@ -147,6 +149,26 @@ struct SettingsView: View {
         }
     }
 
+    // MARK: Players
+
+    private var playersSection: some View {
+        section(header: "settings.players.header", footer: viewModel.playModeFooter) {
+            DSListGroup {
+                segmented(selection: $viewModel.playMode, segments: [
+                    .init(.individual, title: String(localized: "settings.players.individual")),
+                    .init(.generations, title: String(localized: "settings.players.generations"))
+                ])
+                // The three generations always play: they are shown, never chosen.
+                if viewModel.playMode == .generations {
+                    ForEach(viewModel.generations) { generation in
+                        DSGenerationRow(generation: DSGeneration(generation.kind), title: generation.title)
+                    }
+                }
+            }
+            .animation(.snappy, value: viewModel.playMode)
+        }
+    }
+
     // MARK: Account
 
     private var accountSection: some View {
@@ -201,6 +223,17 @@ private extension DSBingoCategory {
         case .cyan: self = .cyan
         case .green: self = .green
         case .orange: self = .orange
+        }
+    }
+}
+
+private extension DSGeneration {
+    /// The design system's look of a generation.
+    init(_ kind: SettingsViewData.GenerationKind) {
+        switch kind {
+        case .vinyl: self = .vinyl
+        case .cassette: self = .cassette
+        case .streaming: self = .streaming
         }
     }
 }

@@ -2,13 +2,15 @@ import Foundation
 
 /// Stored format of the game settings. Internal to TemasterData: the app only sees SettingsResponseProtocol.
 struct GameSettingsDAO: Codable, Sendable, Equatable, SettingsResponseProtocol {
-    /// Settings of a first launch: 30-second clips from a random point, classic mode, beginner Bingo level.
+    /// Settings of a first launch: 30-second clips from a random point, classic mode, beginner Bingo level,
+    /// every player on their own.
     static let defaults = GameSettingsDAO(
         playbackMode: .clip,
         clipSeconds: 30,
         clipStart: .random,
         gameMode: .classic,
-        bingoLevel: .beginner
+        bingoLevel: .beginner,
+        playMode: .individual
     )
 
     let playbackMode: SettingsPlaybackMode
@@ -16,19 +18,22 @@ struct GameSettingsDAO: Codable, Sendable, Equatable, SettingsResponseProtocol {
     let clipStart: SettingsClipStart
     let gameMode: SettingsGameMode
     let bingoLevel: SettingsBingoLevel
+    let playMode: SettingsPlayMode
 
     init(
         playbackMode: SettingsPlaybackMode,
         clipSeconds: Int,
         clipStart: SettingsClipStart,
         gameMode: SettingsGameMode,
-        bingoLevel: SettingsBingoLevel
+        bingoLevel: SettingsBingoLevel,
+        playMode: SettingsPlayMode
     ) {
         self.playbackMode = playbackMode
         self.clipSeconds = clipSeconds
         self.clipStart = clipStart
         self.gameMode = gameMode
         self.bingoLevel = bingoLevel
+        self.playMode = playMode
     }
 
     init(_ settings: some GameSettingsProtocol) {
@@ -37,7 +42,8 @@ struct GameSettingsDAO: Codable, Sendable, Equatable, SettingsResponseProtocol {
             clipSeconds: settings.clipSeconds,
             clipStart: settings.clipStart,
             gameMode: settings.gameMode,
-            bingoLevel: settings.bingoLevel
+            bingoLevel: settings.bingoLevel,
+            playMode: settings.playMode
         )
     }
 
@@ -56,7 +62,9 @@ struct GameSettingsDAO: Codable, Sendable, Equatable, SettingsResponseProtocol {
             // A level this version does not know, e.g. saved by a newer one, reads as the default level
             // instead of losing every setting.
             bingoLevel: (try? container.decodeIfPresent(SettingsBingoLevel.self, forKey: .bingoLevel))
-                ?? defaults.bingoLevel
+                ?? defaults.bingoLevel,
+            playMode: (try? container.decodeIfPresent(SettingsPlayMode.self, forKey: .playMode))
+                ?? defaults.playMode
         )
     }
 }

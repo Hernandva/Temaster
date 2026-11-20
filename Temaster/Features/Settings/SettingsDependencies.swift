@@ -43,6 +43,10 @@ final class SettingsDependencies {
         BingoLevelsUseCase(dependencies: self)
     }
 
+    func resolveGenerationsUseCase() -> any GenerationsUseCaseProtocol {
+        GenerationsUseCase(dependencies: self)
+    }
+
     func resolveSaveSettingsUseCase() -> any SaveSettingsUseCaseProtocol {
         SaveSettingsUseCase(dependencies: self)
     }

@@ -171,6 +171,13 @@ Every level has the same five categories with the same colors; a level only chan
 
 Settings shows its segment and its categories, and the game uses them, with no other change.
 
+### Play mode and generations
+
+Settings also stores who plays (`SettingsPlayMode`, default `individual`): `individual` keeps the game as it always
+was, and `generations` splits the players into three generations that always all play, like the Bingo categories.
+`SettingsRepositoryProtocol.generations()` returns them with the keys of their names (`generation.<generation>`);
+`GenerationsUseCase` localises them and `DSGeneration` gives each its color and icon.
+
 ### Creating a feature
 
 Use the `temaster-new-feature` skill, or run:
