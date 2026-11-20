@@ -163,8 +163,6 @@ struct SettingsView: View {
                     ForEach(viewModel.generations) { generation in
                         DSGenerationRow(generation: DSGeneration(generation.kind), title: generation.title)
                     }
-                    DSToggle(isOn: $viewModel.sharedPlaylist)
-                        .localized("settings.players.sharedPlaylist")
                 }
             }
             .animation(.snappy, value: viewModel.playMode)

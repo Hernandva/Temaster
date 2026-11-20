@@ -3,7 +3,7 @@ import TemasterData
 
 protocol GenerationPlaylistsUseCaseProtocol: Sendable {
     /// Returns the generations that each play with their own playlist, names already localised: all of them in the
-    /// `generations` play mode without «Play with the same playlist», none otherwise (one playlist for everyone).
+    /// `generations` play mode, none in `individual` (one playlist for everyone).
     /// The view model adds them to its `GameStarterViewData`.
     func execute() async throws -> [GameStarterViewData.Generation]
 }
@@ -24,7 +24,7 @@ struct GenerationPlaylistsUseCase: GenerationPlaylistsUseCaseProtocol {
 
     func execute() async throws -> [GameStarterViewData.Generation] {
         let response = try await repository.fetch(GameSettingsRequest(provider: provider))
-        guard response.playMode == .generations, !response.sharedPlaylist else { return [] }
+        guard response.playMode == .generations else { return [] }
         return await repository.generations().map(Self.generation)
     }
 }

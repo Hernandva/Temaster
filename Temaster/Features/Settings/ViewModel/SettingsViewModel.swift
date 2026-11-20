@@ -64,21 +64,9 @@ final class SettingsViewModel {
         set { update { $0.bingoLevel = newValue } }
     }
 
-    /// Going back to `individual` resets «Play with the same playlist» to its default, on.
     var playMode: SettingsViewData.PlayMode {
         get { viewData.game?.playMode ?? .individual }
-        set {
-            update { game in
-                game.playMode = newValue
-                if newValue == .individual { game.sharedPlaylist = true }
-            }
-        }
-    }
-
-    /// «Play with the same playlist», only shown with `generations`.
-    var sharedPlaylist: Bool {
-        get { viewData.game?.sharedPlaylist ?? true }
-        set { update { $0.sharedPlaylist = newValue } }
+        set { update { $0.playMode = newValue } }
     }
 
     /// The three generations from the repository. They all always play.

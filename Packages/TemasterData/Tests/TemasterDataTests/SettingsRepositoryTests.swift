@@ -13,8 +13,7 @@ struct SettingsRepositoryTests {
         clipStart: .beginning,
         gameMode: .bingo,
         bingoLevel: .expert,
-        playMode: .generations,
-        sharedPlaylist: false
+        playMode: .generations
     )
 
     /// A repository on its own empty `UserDefaults` suite, so tests never share data.
@@ -105,7 +104,6 @@ struct SettingsRepositoryTests {
 
     @Test func playsIndividuallyByDefault() {
         #expect(GameSettingsDAO.defaults.playMode == .individual)
-        #expect(GameSettingsDAO.defaults.sharedPlaylist)
     }
 
     @Test func readsAMissingOrUnknownPlayModeAsIndividualAndKeepsTheRest() async throws {
@@ -117,7 +115,6 @@ struct SettingsRepositoryTests {
         let response = try await repository.fetch(FakeSettingsRequest(provider: .spotify))
 
         #expect(response.playMode == .individual)
-        #expect(response.sharedPlaylist)
         #expect(response.gameMode == .bingo)
     }
 
@@ -133,5 +130,16 @@ struct SettingsRepositoryTests {
 
         #expect(generations.map(\.firstYear) == [nil, 1985, 2005])
         #expect(generations.map(\.lastYear) == [1984, 2004, nil])
+    }
+
+    @Test func ignoresTheRemovedSharedPlaylistField() async throws {
+        let suiteName = "SettingsRepositoryTests.\(UUID().uuidString)"
+        let stored = Data(#"{"playMode":"generations","sharedPlaylist":true}"#.utf8)
+        UserDefaults(suiteName: suiteName)?.set(stored, forKey: SettingsUserDefaultsStorage.key(for: .spotify))
+
+        let repository = Self.makeRepository(suiteName: suiteName)
+        let response = try await repository.fetch(FakeSettingsRequest(provider: .spotify))
+
+        #expect(response.playMode == .generations)
     }
 }

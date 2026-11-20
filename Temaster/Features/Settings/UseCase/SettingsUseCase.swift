@@ -40,8 +40,7 @@ private extension SettingsUseCase {
             clipStart: response.clipStart == .beginning ? .beginning : .random,
             mode: response.gameMode == .bingo ? .bingo : .classic,
             bingoLevel: response.bingoLevel.rawValue,
-            playMode: response.playMode == .generations ? .generations : .individual,
-            sharedPlaylist: response.sharedPlaylist
+            playMode: response.playMode == .generations ? .generations : .individual
         )
     }
 

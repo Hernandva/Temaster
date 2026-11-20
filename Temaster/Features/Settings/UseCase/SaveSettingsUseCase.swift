@@ -31,7 +31,6 @@ private struct SavedSettings: GameSettingsProtocol {
     let gameMode: SettingsGameMode
     let bingoLevel: SettingsBingoLevel
     let playMode: SettingsPlayMode
-    let sharedPlaylist: Bool
 
     init(_ game: SettingsViewData.Game) {
         self.playbackMode = game.playback == .fullSong ? .fullSong : .clip
@@ -41,6 +40,5 @@ private struct SavedSettings: GameSettingsProtocol {
         // The id always comes from a level of the repository; the default only guards against a wrong one.
         self.bingoLevel = SettingsBingoLevel(rawValue: game.bingoLevel) ?? .beginner
         self.playMode = game.playMode == .generations ? .generations : .individual
-        self.sharedPlaylist = game.sharedPlaylist
     }
 }
