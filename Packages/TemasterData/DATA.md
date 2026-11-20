@@ -134,7 +134,8 @@ its own entry. `bingoLevels()` returns the Bingo levels in the order Settings sh
 (`bingo.level.<level>`, `bingo.category.<color>.<level>`), which the features localise. An unknown stored level reads
 as the default one. `generations()` returns the three `SettingsGeneration`s of the `generations` play mode
 (`vinyl`, `cassette`, `streaming`, always all three), each a `SettingsGenerationResponseProtocol` with the key of its
-name (`generation.<generation>`). An unknown stored play mode reads as `individual`. The internal `SettingsStorageProtocol` (in `Local/`) is backed by `SettingsUserDefaultsStorage`, which writes the
+name (`generation.<generation>`). An unknown stored play mode reads as `individual`. `sharedPlaylist` (default `true`) says whether
+the generations play with the same playlist; Settings sets it back to `true` when the play mode returns to `individual`. The internal `SettingsStorageProtocol` (in `Local/`) is backed by `SettingsUserDefaultsStorage`, which writes the
 `Codable` `GameSettingsDAO` as JSON under `temasterData.settings.<provider>`. Do not change those keys or the raw
 values of the `Settings…` enums: saved settings would be lost. A missing field reads as its default, so adding a
 setting keeps the rest. Write failures are thrown as `SettingsError.storageFailed`.

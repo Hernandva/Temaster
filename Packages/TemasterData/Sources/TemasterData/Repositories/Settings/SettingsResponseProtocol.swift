@@ -95,6 +95,9 @@ public protocol GameSettingsProtocol: Sendable {
     var gameMode: SettingsGameMode { get }
     var bingoLevel: SettingsBingoLevel { get }
     var playMode: SettingsPlayMode { get }
+    /// In the `generations` play mode, whether the three generations play with the same playlist.
+    /// It is always `true` in the `individual` play mode.
+    var sharedPlaylist: Bool { get }
 }
 
 /// Public data the Settings repository returns to the app: the saved settings, or the default ones.

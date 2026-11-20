@@ -13,7 +13,8 @@ struct SettingsRepositoryTests {
         clipStart: .beginning,
         gameMode: .bingo,
         bingoLevel: .expert,
-        playMode: .generations
+        playMode: .generations,
+        sharedPlaylist: false
     )
 
     /// A repository on its own empty `UserDefaults` suite, so tests never share data.
@@ -104,6 +105,7 @@ struct SettingsRepositoryTests {
 
     @Test func playsIndividuallyByDefault() {
         #expect(GameSettingsDAO.defaults.playMode == .individual)
+        #expect(GameSettingsDAO.defaults.sharedPlaylist)
     }
 
     @Test func readsAMissingOrUnknownPlayModeAsIndividualAndKeepsTheRest() async throws {
@@ -115,6 +117,7 @@ struct SettingsRepositoryTests {
         let response = try await repository.fetch(FakeSettingsRequest(provider: .spotify))
 
         #expect(response.playMode == .individual)
+        #expect(response.sharedPlaylist)
         #expect(response.gameMode == .bingo)
     }
 

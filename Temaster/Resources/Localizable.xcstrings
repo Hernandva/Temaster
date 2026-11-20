@@ -2491,6 +2491,23 @@
         }
       }
     },
+    "settings.players.sharedPlaylist" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Play with the same playlist"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Jugar con una misma playlist"
+          }
+        }
+      }
+    },
     "settings.retry" : {
       "extractionState" : "manual",
       "localizations" : {

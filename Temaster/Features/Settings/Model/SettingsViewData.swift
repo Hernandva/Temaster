@@ -61,6 +61,8 @@ struct SettingsViewData: Equatable, Sendable {
         /// Identifier of the Bingo level: the `id` of one of the `bingoLevels`.
         var bingoLevel: String
         var playMode: PlayMode
+        /// «Play with the same playlist», shown only with `generations`. Back to `true` with `individual`.
+        var sharedPlaylist: Bool
     }
 
     /// The five Bingo categories, by their color.

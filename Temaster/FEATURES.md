@@ -176,7 +176,9 @@ Settings shows its segment and its categories, and the game uses them, with no o
 Settings also stores who plays (`SettingsPlayMode`, default `individual`): `individual` keeps the game as it always
 was, and `generations` splits the players into three generations that always all play, like the Bingo categories.
 `SettingsRepositoryProtocol.generations()` returns them with the keys of their names (`generation.<generation>`);
-`GenerationsUseCase` localises them and `DSGeneration` gives each its color and icon.
+`GenerationsUseCase` localises them and `DSGeneration` gives each its color and icon. With `generations`, Settings
+also shows «Play with the same playlist» (`sharedPlaylist`, on by default); switching back to `individual` turns it on
+again.
 
 ### Creating a feature
 

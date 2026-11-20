@@ -3,14 +3,15 @@ import Foundation
 /// Stored format of the game settings. Internal to TemasterData: the app only sees SettingsResponseProtocol.
 struct GameSettingsDAO: Codable, Sendable, Equatable, SettingsResponseProtocol {
     /// Settings of a first launch: 30-second clips from a random point, classic mode, beginner Bingo level,
-    /// every player on their own.
+    /// every player on their own, and the generations, when chosen, sharing one playlist.
     static let defaults = GameSettingsDAO(
         playbackMode: .clip,
         clipSeconds: 30,
         clipStart: .random,
         gameMode: .classic,
         bingoLevel: .beginner,
-        playMode: .individual
+        playMode: .individual,
+        sharedPlaylist: true
     )
 
     let playbackMode: SettingsPlaybackMode
@@ -19,6 +20,7 @@ struct GameSettingsDAO: Codable, Sendable, Equatable, SettingsResponseProtocol {
     let gameMode: SettingsGameMode
     let bingoLevel: SettingsBingoLevel
     let playMode: SettingsPlayMode
+    let sharedPlaylist: Bool
 
     init(
         playbackMode: SettingsPlaybackMode,
@@ -26,7 +28,8 @@ struct GameSettingsDAO: Codable, Sendable, Equatable, SettingsResponseProtocol {
         clipStart: SettingsClipStart,
         gameMode: SettingsGameMode,
         bingoLevel: SettingsBingoLevel,
-        playMode: SettingsPlayMode
+        playMode: SettingsPlayMode,
+        sharedPlaylist: Bool
     ) {
         self.playbackMode = playbackMode
         self.clipSeconds = clipSeconds
@@ -34,6 +37,7 @@ struct GameSettingsDAO: Codable, Sendable, Equatable, SettingsResponseProtocol {
         self.gameMode = gameMode
         self.bingoLevel = bingoLevel
         self.playMode = playMode
+        self.sharedPlaylist = sharedPlaylist
     }
 
     init(_ settings: some GameSettingsProtocol) {
@@ -43,7 +47,8 @@ struct GameSettingsDAO: Codable, Sendable, Equatable, SettingsResponseProtocol {
             clipStart: settings.clipStart,
             gameMode: settings.gameMode,
             bingoLevel: settings.bingoLevel,
-            playMode: settings.playMode
+            playMode: settings.playMode,
+            sharedPlaylist: settings.sharedPlaylist
         )
     }
 
@@ -64,7 +69,9 @@ struct GameSettingsDAO: Codable, Sendable, Equatable, SettingsResponseProtocol {
             bingoLevel: (try? container.decodeIfPresent(SettingsBingoLevel.self, forKey: .bingoLevel))
                 ?? defaults.bingoLevel,
             playMode: (try? container.decodeIfPresent(SettingsPlayMode.self, forKey: .playMode))
-                ?? defaults.playMode
+                ?? defaults.playMode,
+            sharedPlaylist: try container.decodeIfPresent(Bool.self, forKey: .sharedPlaylist)
+                ?? defaults.sharedPlaylist
         )
     }
 }
