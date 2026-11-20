@@ -16,10 +16,12 @@ final class SettingsViewModel {
     private(set) var viewData: SettingsViewData
     /// Shown at the bottom when a change could not be saved.
     private(set) var saveErrorMessage: String?
-    /// Whether the «New generation» sheet is open.
-    var isAddingCustomGeneration = false
-    /// What the user is typing in the «New generation» sheet.
+    /// Whether the custom generation sheet («New generation» or «Edit generation») is open.
+    var isCustomGenerationSheetOpen = false
+    /// What the user is typing in the custom generation sheet.
     var customGenerationDraft = SettingsViewData.CustomGenerationDraft()
+    /// The generation the sheet edits, or `nil` when it creates a new one.
+    private(set) var editingCustomGenerationID: String?
 
     private let settingsUseCase: any SettingsUseCaseProtocol
     private let bingoLevelsUseCase: any BingoLevelsUseCaseProtocol
@@ -160,16 +162,48 @@ final class SettingsViewModel {
 
     /// «Add new» in the custom generations: opens the «New generation» sheet with an empty form.
     func didTapAddCustomGeneration() {
+        editingCustomGenerationID = nil
         customGenerationDraft = SettingsViewData.CustomGenerationDraft()
-        isAddingCustomGeneration = true
+        isCustomGenerationSheetOpen = true
     }
 
-    /// «Save» in the «New generation» sheet: adds the generation at the end of the list, saves it and closes the
-    /// sheet. It does nothing while the form is not valid.
+    /// Edit button of a custom generation: opens the sheet with its data.
+    func didTapEditCustomGeneration(_ generation: SettingsViewData.CustomGeneration) {
+        editingCustomGenerationID = generation.id
+        customGenerationDraft = SettingsViewData.CustomGenerationDraft(
+            name: generation.name,
+            symbolName: generation.symbolName,
+            color: generation.color,
+            firstYear: generation.firstYear.map(String.init) ?? "",
+            lastYear: generation.lastYear.map(String.init) ?? ""
+        )
+        isCustomGenerationSheetOpen = true
+    }
+
+    /// Delete button of a custom generation: takes it off the list and off the saved settings.
+    func didTapDeleteCustomGeneration(_ generation: SettingsViewData.CustomGeneration) {
+        update { $0.customGenerations.removeAll { $0.id == generation.id } }
+    }
+
+    /// «Save» in the sheet: replaces the edited generation in its place, or adds a new one at the end, saves it and
+    /// closes the sheet. It does nothing while the form is not valid.
     func didTapSaveCustomGeneration() {
         guard let generation = validCustomGeneration else { return }
-        update { $0.customGenerations.append(generation) }
-        isAddingCustomGeneration = false
+        update { game in
+            if let index = game.customGenerations.firstIndex(where: { $0.id == generation.id }) {
+                game.customGenerations[index] = generation
+            } else {
+                game.customGenerations.append(generation)
+            }
+        }
+        isCustomGenerationSheetOpen = false
+    }
+
+    /// Title of the sheet: «New generation» or «Edit generation».
+    var customGenerationSheetTitle: String {
+        editingCustomGenerationID == nil
+            ? String(localized: "settings.players.custom.sheet.title")
+            : String(localized: "settings.players.custom.sheet.editTitle")
     }
 
     func load() async {
@@ -231,7 +265,8 @@ private extension SettingsViewModel {
         let name = customGenerationDraft.name.trimmingCharacters(in: .whitespacesAndNewlines)
         guard !name.isEmpty, let years = validYears else { return nil }
         return SettingsViewData.CustomGeneration(
-            id: UUID().uuidString,
+            // An edited generation keeps its id, so it stays in its place in the list.
+            id: editingCustomGenerationID ?? UUID().uuidString,
             name: name,
             symbolName: customGenerationDraft.symbolName,
             color: customGenerationDraft.color,

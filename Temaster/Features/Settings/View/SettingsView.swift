@@ -29,7 +29,7 @@ struct SettingsView: View {
         .toolbar(.visible, for: .navigationBar)
         .navigationBarTitleDisplayMode(.inline)
         .task { await viewModel.load() }
-        .sheet(isPresented: $viewModel.isAddingCustomGeneration) {
+        .sheet(isPresented: $viewModel.isCustomGenerationSheetOpen) {
             CustomGenerationSheetView(viewModel: viewModel)
         }
     }
@@ -181,7 +181,8 @@ struct SettingsView: View {
                             symbolName: generation.symbolName,
                             color: DSBingoCategory(generation.color).color,
                             title: generation.name,
-                            subtitle: SettingsViewModel.yearsText(generation)
+                            subtitle: SettingsViewModel.yearsText(generation),
+                            actions: customGenerationActions(generation)
                         )
                     }
                     DSListButtonRow {
@@ -192,6 +193,25 @@ struct SettingsView: View {
             }
             .animation(.snappy, value: viewModel.playMode)
         }
+    }
+
+    /// Edit and delete buttons at the end of a custom generation's row.
+    private func customGenerationActions(_ generation: SettingsViewData.CustomGeneration) -> [DSGenerationRow.Action] {
+        [
+            .init(
+                systemImage: "pencil",
+                accessibilityLabel: String(localized: "settings.players.custom.edit \(generation.name)")
+            ) {
+                viewModel.didTapEditCustomGeneration(generation)
+            },
+            .init(
+                systemImage: "trash",
+                accessibilityLabel: String(localized: "settings.players.custom.delete \(generation.name)"),
+                isDestructive: true
+            ) {
+                withAnimation(.snappy) { viewModel.didTapDeleteCustomGeneration(generation) }
+            }
+        ]
     }
 
     // MARK: Account

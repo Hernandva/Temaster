@@ -2525,6 +2525,40 @@
         }
       }
     },
+    "settings.players.custom.delete %@" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Delete %@"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Eliminar %@"
+          }
+        }
+      }
+    },
+    "settings.players.custom.edit %@" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Edit %@"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Editar %@"
+          }
+        }
+      }
+    },
     "settings.players.custom.empty" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -2572,6 +2606,23 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Color"
+          }
+        }
+      }
+    },
+    "settings.players.custom.sheet.editTitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Edit generation"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Editar generación"
           }
         }
       }

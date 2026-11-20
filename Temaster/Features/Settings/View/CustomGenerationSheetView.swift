@@ -1,14 +1,14 @@
 import TemasterUI
 import SwiftUI
 
-/// «New generation» sheet of the `custom` play mode: name, icon, first and last year, and «Save» at the end.
-/// Shown by `SettingsView` with `.sheet(isPresented:)`; it edits the view model's draft.
+/// «New generation» / «Edit generation» sheet of the `custom` play mode: name, icon, color, first and last year, and
+/// «Save» at the end. Shown by `SettingsView` with `.sheet(isPresented:)`; it edits the view model's draft.
 struct CustomGenerationSheetView: View {
     @Bindable var viewModel: SettingsViewModel
 
     var body: some View {
         DSBottomSheet(
-            title: String(localized: "settings.players.custom.sheet.title"),
+            title: viewModel.customGenerationSheetTitle,
             primaryAction: .init(
                 String(localized: "settings.players.custom.sheet.save"),
                 isEnabled: viewModel.canSaveCustomGeneration

@@ -181,7 +181,9 @@ the user's own generations (`customGenerations`, empty at first) and «Add new»
 `View/CustomGenerationSheetView.swift`: name, icon (`DSIconPicker`), color (`DSColorPicker`, one of the five Bingo colors; the icon
 in the list is painted on it), first and last year (1900 to this year, the first
 not after the last; an empty first year is saved as «Pasado» and an empty last year as «Actualidad», but at least one
-is needed) and «Save», enabled only when the form is valid. Every generation plays with its own playlist, in
+is needed) and «Save», enabled only when the form is valid. Each row of the list has an edit button, which opens the same
+sheet («Edit generation») with its data and saves it in its place, and a delete button, which removes it from the list
+and the saved settings. Every generation plays with its own playlist, in
 `generations` and in `custom`. GameStarter reads the play mode every time it appears (`GenerationPlaylistsUseCase`): with `generations`
 or `custom` it shows one playlist card per generation (the three fixed ones, or the user's, with their own names and
 `GenerationKind.custom(id:)`), each opening the selector with

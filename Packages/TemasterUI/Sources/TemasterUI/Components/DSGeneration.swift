@@ -36,29 +36,71 @@ public enum DSGeneration: Int, CaseIterable, Identifiable, Sendable {
     public var ink: Color { DSColor.background }
 }
 
-/// Settings row of a generation: its icon on its color and its name, already localised. It goes inside a
-/// `DSListGroup`.
+/// Settings row of a generation: its icon on its color and its name, already localised, and optional icon buttons
+/// at the end (e.g. edit and delete). It goes inside a `DSListGroup`.
 public struct DSGenerationRow: View {
+    /// An icon button at the end of the row, 44 pt: `text-secondary`, or `destructive` with `isDestructive`.
+    public struct Action {
+        let systemImage: String
+        let accessibilityLabel: String
+        let isDestructive: Bool
+        let handler: @MainActor () -> Void
+
+        /// - Parameter accessibilityLabel: What VoiceOver says for the button, already localised.
+        public init(
+            systemImage: String,
+            accessibilityLabel: String,
+            isDestructive: Bool = false,
+            handler: @escaping @MainActor () -> Void
+        ) {
+            self.systemImage = systemImage
+            self.accessibilityLabel = accessibilityLabel
+            self.isDestructive = isDestructive
+            self.handler = handler
+        }
+    }
+
     private static let swatch: CGFloat = 28
     private let color: Color
     private let symbolName: String
     private let title: String
     private let subtitle: String?
+    private let actions: [Action]
 
     public init(generation: DSGeneration, title: String) {
         self.init(symbolName: generation.symbolName, color: generation.color, title: title)
     }
 
     /// A generation the user created: its own icon on `color` (a light one, so the icon is `bg-night`), its name
-    /// and, e.g., its years in `subtitle`. Texts are passed localised.
-    public init(symbolName: String, color: Color = DSPalette.bingoCyan, title: String, subtitle: String? = nil) {
+    /// and, e.g., its years in `subtitle`, with `actions` at the end. Texts are passed localised.
+    public init(
+        symbolName: String,
+        color: Color = DSPalette.bingoCyan,
+        title: String,
+        subtitle: String? = nil,
+        actions: [Action] = []
+    ) {
         self.color = color
         self.symbolName = symbolName
         self.title = title
         self.subtitle = subtitle
+        self.actions = actions
     }
 
     public var body: some View {
+        HStack(spacing: DSSpacing.space1) {
+            label
+            ForEach(actions.indices, id: \.self) { index in
+                button(actions[index])
+            }
+        }
+        .padding(.leading, DSSpacing.space4)
+        .padding(.trailing, actions.isEmpty ? DSSpacing.space4 : DSSpacing.space2)
+        .padding(.vertical, subtitle == nil ? 0 : DSSpacing.space3)
+        .frame(minHeight: DSListRow.minHeight)
+    }
+
+    private var label: some View {
         HStack(spacing: DSSpacing.space3) {
             RoundedRectangle(cornerRadius: 8, style: .continuous)
                 .fill(color)
@@ -85,10 +127,19 @@ public struct DSGenerationRow: View {
             }
             Spacer(minLength: 0)
         }
-        .padding(.horizontal, DSSpacing.space4)
-        .padding(.vertical, subtitle == nil ? 0 : DSSpacing.space3)
-        .frame(minHeight: DSListRow.minHeight)
         .accessibilityElement(children: .combine)
+    }
+
+    private func button(_ action: Action) -> some View {
+        Button(action: action.handler) {
+            Image(systemName: action.systemImage)
+                .font(DSFont.body)
+                .foregroundStyle(action.isDestructive ? DSColor.destructive : DSColor.textSecondary)
+                .frame(width: DSSpacing.tapMin, height: DSSpacing.tapMin)
+                .contentShape(Rectangle())
+        }
+        .buttonStyle(DSPressStyle())
+        .accessibilityLabel(action.accessibilityLabel)
     }
 }
 
@@ -97,7 +148,15 @@ public struct DSGenerationRow: View {
         DSGenerationRow(generation: .vinyl, title: "Clásicos en vinilo (Hasta 1984)")
         DSGenerationRow(generation: .cassette, title: "Casete y CD (1985-2004)")
         DSGenerationRow(generation: .streaming, title: "Canciones en streaming (Desde 2005)")
-        DSGenerationRow(symbolName: "guitars.fill", title: "Los noventa", subtitle: "1990 – 1999")
+        DSGenerationRow(
+            symbolName: "guitars.fill",
+            title: "Los noventa",
+            subtitle: "1990 – 1999",
+            actions: [
+                .init(systemImage: "pencil", accessibilityLabel: "Editar") {},
+                .init(systemImage: "trash", accessibilityLabel: "Borrar", isDestructive: true) {}
+            ]
+        )
     }
     .padding(DSSpacing.space4)
     .background(DSColor.background)
