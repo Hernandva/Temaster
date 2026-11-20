@@ -5,7 +5,7 @@ import TemasterData
 @MainActor
 final class GameDependencies {
     private let provider: MusicProvider
-    private let playlist: GameViewData.Playlist
+    private let playlists: [GameViewData.Playlist]
     private let settings: GameViewData.Settings
     private let songRepository: any SongRepositoryProtocol
     private let playerRepository: any PlayerRepositoryProtocol
@@ -14,12 +14,12 @@ final class GameDependencies {
 
     /// - Parameters:
     ///   - provider: The music service the user signed in with.
-    ///   - playlist: The playlist chosen in GameStarter, played by the game.
+    ///   - playlists: The playlists chosen in GameStarter: one for everyone, or one per generation in turn order.
     ///   - settings: The game settings saved in Settings.
     ///   - externalDisplaySession: Where the game is shown on an external display (a TV through AirPlay).
     init(
         provider: MusicProvider,
-        playlist: GameViewData.Playlist,
+        playlists: [GameViewData.Playlist],
         settings: GameViewData.Settings,
         songRepository: any SongRepositoryProtocol = SongRepository(),
         playerRepository: any PlayerRepositoryProtocol = PlayerRepository(),
@@ -27,7 +27,7 @@ final class GameDependencies {
         externalDisplaySession: GameExternalDisplaySession = .shared
     ) {
         self.provider = provider
-        self.playlist = playlist
+        self.playlists = playlists
         self.settings = settings
         self.songRepository = songRepository
         self.playerRepository = playerRepository
@@ -40,9 +40,9 @@ final class GameDependencies {
         provider
     }
 
-    /// The playlist the game is played with.
-    func resolvePlaylist() -> GameViewData.Playlist {
-        playlist
+    /// The playlists the game is played with, in turn order.
+    func resolvePlaylists() -> [GameViewData.Playlist] {
+        playlists
     }
 
     /// The game settings the game is played with.

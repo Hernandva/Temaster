@@ -96,6 +96,14 @@ struct GameStarterViewData: Equatable, Sendable {
         var id: GenerationKind { kind }
     }
 
+    /// A playlist Play hands to the game: everyone's, or the one `generation` plays with. `Hashable` because the
+    /// Game route carries it.
+    struct GamePlaylist: Hashable, Sendable {
+        let playlist: Playlist
+        /// `nil` when everyone plays with `playlist`.
+        let generation: Generation?
+    }
+
     /// Known before anything loads: it comes from Home.
     var provider: Provider
     /// Result of `LastPlaylistUseCase`. `nil` until it loads, or when no playlist has been played yet.

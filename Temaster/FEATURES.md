@@ -181,7 +181,10 @@ also shows «Play with the same playlist» (`sharedPlaylist`, on by default); sw
 again. GameStarter reads both every time it appears (`GenerationPlaylistsUseCase`): with `generations` and
 `sharedPlaylist` off it shows one playlist card per generation, each opening the selector with
 `Route.playlistSelector(generation)`, and Play appears once every generation has a playlist; otherwise it shows the
-single selected playlist card. The game still plays one playlist: the first generation's.
+single selected playlist card. Play hands the game every playlist (`Route.game([GamePlaylist], settings)`): one
+for everyone, or one per generation in their order. Game keeps one shuffled queue per playlist and plays them in
+turns: Continue passes the turn to the next generation that has songs left (Next keeps it), the header shows whose
+turn it is, and the game ends when every queue is empty.
 
 ### Creating a feature
 

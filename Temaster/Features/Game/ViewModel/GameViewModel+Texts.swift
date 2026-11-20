@@ -19,6 +19,17 @@ extension GameViewModel {
         }
     }
 
+    /// Small caps label above the playlist name: the name of the generation whose turn it is, or «LISTA» when
+    /// everyone plays with the same playlist.
+    var playlistCaption: String {
+        currentPlaylist?.generationTitle?.uppercased(with: .current) ?? String(localized: "game.playlist")
+    }
+
+    /// Name of the playlist the current round plays.
+    var playlistName: String {
+        currentPlaylist?.name ?? ""
+    }
+
     /// Release year of the current song for the revealed card, or «—» when it is unknown.
     var revealedYear: String {
         currentSong?.releaseYear.map(String.init) ?? "—"

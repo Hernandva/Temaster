@@ -9,7 +9,7 @@ final class GameViewModel {
         case idle
         case loading
         case loaded
-        /// Every song was revealed: the playlist is over.
+        /// Every song was revealed: every playlist is over.
         case finished
         case failed(String)
     }
@@ -51,7 +51,7 @@ final class GameViewModel {
     /// Receives only the container and resolves what it needs from it.
     init(dependencies: GameDependencies) {
         self.viewData = GameViewData(
-            playlist: dependencies.resolvePlaylist(),
+            playlists: dependencies.resolvePlaylists(),
             settings: dependencies.resolveSettings()
         )
         self.provider = dependencies.resolveProvider()
@@ -73,9 +73,14 @@ final class GameViewModel {
         Self.formatted(seconds: Int(elapsed))
     }
 
-    /// The song that is playing: the first of the queue.
+    /// The song that is playing: the first of the turn's queue.
     var currentSong: GameViewData.Song? {
-        viewData.queue?.first
+        viewData.currentSong
+    }
+
+    /// The playlist the current round plays: everyone's, or the generation's whose turn it is.
+    var currentPlaylist: GameViewData.Playlist? {
+        viewData.currentPlaylist
     }
 
     /// Length of the round: the clip length, or the length of the song when it plays whole.
@@ -105,18 +110,21 @@ final class GameViewModel {
         Duration.seconds(seconds).formatted(.time(pattern: .minuteSecond))
     }
 
-    /// Reads every song of the playlist, shuffles them into the queue and plays the first one. An external display
-    /// shows the game from now on.
+    /// Reads every song of every playlist, shuffles each playlist into its own queue and plays the first song of the
+    /// first playlist that has songs. An external display shows the game from now on.
     func load() async {
         externalDisplaySession.present(self)
         state = .loading
         do {
-            let songs = try await fetchSongsUseCase.execute(playlistID: viewData.playlist.id, provider: provider)
-            guard !songs.isEmpty else {
+            let playlistIDs = viewData.playlists.map(\.id)
+            let queues = try await fetchSongsUseCase.execute(playlistIDs: playlistIDs, provider: provider)
+                .map { $0.shuffled() }
+            guard let firstTurn = queues.firstIndex(where: { !$0.isEmpty }) else {
                 state = .failed(String(localized: "game.empty"))
                 return
             }
-            viewData.queue = songs.shuffled()
+            viewData.queues = queues
+            viewData.turn = firstTurn
             state = .loaded
         } catch is CancellationError {
             state = .idle
@@ -161,16 +169,16 @@ final class GameViewModel {
         }
     }
 
-    /// After Reveal: stops the song, takes it out of the game for good and starts a new round with the next one.
-    /// With no songs left the game is over.
+    /// After Reveal: stops the song, takes it out of the game for good and starts a new round with the next playlist
+    /// that has songs left, so the generations play in turn. With no songs left in any playlist the game is over.
     func continueToNextSong() async {
         guard viewData.isRevealed, !isChangingPlayback else { return }
         isChangingPlayback = true
         defer { isChangingPlayback = false }
         stopProgress()
         await playerUseCase.stop(provider: provider)
-        viewData.queue?.removeFirst()
-        guard currentSong != nil else {
+        viewData.removeCurrentSong()
+        guard viewData.passTurn() else {
             state = .finished
             return
         }
@@ -179,17 +187,18 @@ final class GameViewModel {
 
     /// `false` until the songs load.
     var canPlayNextSong: Bool {
-        state == .loaded && viewData.queue?.isEmpty == false
+        state == .loaded && viewData.currentSong != nil
     }
 
-    /// Stops the song, sends it to the end of the queue and starts a new round with the next one.
+    /// Stops the song, sends it to the end of the turn's queue and starts a new round with the next one of the same
+    /// playlist: the turn does not change.
     func playNextSong() async {
         guard canPlayNextSong, !isChangingPlayback else { return }
         isChangingPlayback = true
         defer { isChangingPlayback = false }
         stopProgress()
         await playerUseCase.stop(provider: provider)
-        moveCurrentSongToEnd()
+        viewData.moveCurrentSongToEnd()
         await playCurrentSong()
     }
 
@@ -236,7 +245,7 @@ final class GameViewModel {
                 return
             } catch GamePlaybackError.unavailable where skipped < Self.maxSkippedSongs {
                 skipped += 1
-                moveCurrentSongToEnd()
+                viewData.moveCurrentSongToEnd()
             } catch {
                 viewData.playbackError = Self.message(for: error as? GamePlaybackError ?? .unavailable)
                 return
@@ -264,13 +273,6 @@ final class GameViewModel {
             return
         }
         viewData.bingoCategory = settings.bingoCategories.randomElement()
-    }
-
-    /// Sends the current song to the end of the queue, so the next one becomes the current song.
-    private func moveCurrentSongToEnd() {
-        guard var queue = viewData.queue, !queue.isEmpty else { return }
-        queue.append(queue.removeFirst())
-        viewData.queue = queue
     }
 
     /// Reads the player's time and status every `progressInterval` while the song is in the game, paused or not,

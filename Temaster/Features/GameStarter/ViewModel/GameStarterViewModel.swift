@@ -28,7 +28,7 @@ final class GameStarterViewModel {
     private let saveLastPlaylistUseCase: any SaveLastPlaylistUseCaseProtocol
     private let gameSettingsUseCase: any GameSettingsUseCaseProtocol
     private let generationPlaylistsUseCase: any GenerationPlaylistsUseCaseProtocol
-    private let openGame: @MainActor (GameStarterViewData.Playlist, GameStarterViewData.GameSettings) -> Void
+    private let openGame: @MainActor ([GameStarterViewData.GamePlaylist], GameStarterViewData.GameSettings) -> Void
 
     /// Receives only the container and resolves what it needs from it.
     init(dependencies: GameStarterDependencies) {
@@ -86,12 +86,18 @@ final class GameStarterViewModel {
         return generations.allSatisfy { viewData.generationPlaylists[$0.kind] != nil }
     }
 
-    /// The playlist Play opens the game with. The game plays one playlist for now, so with one per generation it
-    /// is the first generation's.
-    private var playlistToPlay: GameStarterViewData.Playlist? {
-        guard canPlay else { return nil }
-        guard let first = generations.first else { return selectedPlaylist }
-        return viewData.generationPlaylists[first.kind]
+    /// The playlists Play opens the game with: the shared one, or each generation's in the order their turns go.
+    /// Empty until every one is chosen.
+    private var playlistsToPlay: [GameStarterViewData.GamePlaylist] {
+        guard canPlay else { return [] }
+        guard !generations.isEmpty else {
+            return selectedPlaylist.map { [GameStarterViewData.GamePlaylist(playlist: $0, generation: nil)] } ?? []
+        }
+        return generations.compactMap { generation in
+            viewData.generationPlaylists[generation.kind].map {
+                GameStarterViewData.GamePlaylist(playlist: $0, generation: generation)
+            }
+        }
     }
 
     /// Title of the sheet that offers to change the music service.
@@ -138,16 +144,17 @@ final class GameStarterViewModel {
     }
 
     /// Play: saves the selected playlist as the last playlist, reads the game settings, then opens the game
-    /// with the playlist, the music service and the settings. When a step fails, the game does not open and
+    /// with the playlists, the music service and the settings. When a step fails, the game does not open and
     /// the error is shown under Play.
     func didTapPlay() async {
-        guard !isStartingGame, let playlist = playlistToPlay else { return }
+        let playlists = playlistsToPlay
+        guard !isStartingGame, !playlists.isEmpty else { return }
         isStartingGame = true
         defer { isStartingGame = false }
         playErrorMessage = nil
         do {
             // The last playlist is everyone's: the generations' own ones do not replace it.
-            if generations.isEmpty { try await saveAsLastPlaylist(playlist) }
+            if generations.isEmpty, let shared = playlists.first?.playlist { try await saveAsLastPlaylist(shared) }
         } catch {
             playErrorMessage = String(localized: "gameStarter.play.saveError")
             return
@@ -155,7 +162,7 @@ final class GameStarterViewModel {
         do {
             let settings = try await gameSettingsUseCase.execute()
             viewData.gameSettings = settings
-            openGame(playlist, settings)
+            openGame(playlists, settings)
         } catch {
             playErrorMessage = String(localized: "gameStarter.play.settingsError")
         }

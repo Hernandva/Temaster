@@ -19,8 +19,8 @@ struct GameExternalDisplayView: View {
         DSExternalDisplayCanvas(glow: viewModel.category?.color) {
             VStack(spacing: DSSpacing.space8) {
                 DSGameHeader(
-                    caption: String(localized: "game.playlist"),
-                    title: viewModel.viewData.playlist.name,
+                    caption: viewModel.playlistCaption,
+                    title: viewModel.playlistName,
                     badge: viewModel.modeSummary,
                     badgeStyle: viewModel.badgeStyle
                 )

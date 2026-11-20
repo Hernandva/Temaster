@@ -10,6 +10,8 @@ import SwiftUI
 ///   closing it without ending plays the song again.
 /// - «Partida · bingo»: each round draws a category before its song plays; the background glow, the vinyl, the
 ///   progress bar and the tint take its color, and its name shows under the vinyl.
+/// - «Partida · generaciones»: with one playlist per generation, Continue passes the turn to the next generation and
+///   the header shows whose turn it is over the name of its playlist. Next keeps the turn.
 /// - With an external display (a TV through AirPlay) the TV shows the round (`GameExternalDisplayView`) and a chip
 ///   under the header says so; the iPhone keeps the controls.
 /// - The content fills the screen and scrolls only when it does not fit, e.g. a revealed card with long names.
@@ -55,8 +57,8 @@ struct GameView: View {
     private var content: some View {
         VStack(spacing: 0) {
             DSGameHeader(
-                caption: String(localized: "game.playlist"),
-                title: viewModel.viewData.playlist.name,
+                caption: viewModel.playlistCaption,
+                title: viewModel.playlistName,
                 badge: viewModel.modeSummary,
                 badgeStyle: viewModel.badgeStyle,
                 badgeHint: String(localized: "game.endGame.hint")
@@ -194,7 +196,7 @@ struct GameView: View {
     NavigationStack {
         GameCoordinator(
             provider: .appleMusic,
-            playlist: GameViewData.Playlist(id: "preview", name: "Road Trip", songCount: 42, covers: []),
+            playlists: [GameViewData.Playlist(id: "preview", name: "Road Trip", songCount: 42, covers: [])],
             settings: GameViewData.Settings(
                 playback: .clip,
                 clipSeconds: 15,

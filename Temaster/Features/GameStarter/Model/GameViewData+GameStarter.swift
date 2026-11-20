@@ -1,5 +1,19 @@
 import Foundation
 
+/// Hands a playlist chosen in GameStarter to the Game feature, with the name of the generation that plays it.
+/// `GameStarterCoordinator` uses it when it opens the game.
+extension GameViewData.Playlist {
+    init(_ gamePlaylist: GameStarterViewData.GamePlaylist) {
+        self.init(
+            id: gamePlaylist.playlist.id,
+            name: gamePlaylist.playlist.name,
+            songCount: gamePlaylist.playlist.songCount,
+            covers: gamePlaylist.playlist.covers,
+            generationTitle: gamePlaylist.generation?.title
+        )
+    }
+}
+
 /// Hands the settings read by GameStarter to the Game feature, which has its own types.
 /// `GameStarterCoordinator` uses it when it opens the game.
 extension GameViewData.Settings {

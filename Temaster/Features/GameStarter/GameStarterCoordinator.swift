@@ -11,8 +11,9 @@ final class GameStarterCoordinator: Coordinator {
         case settings
         /// Recommended and own playlists, to choose the one to play: the generation's one, or everyone's when `nil`.
         case playlistSelector(GameStarterViewData.GenerationKind?)
-        /// The game, played with the playlist chosen and the game settings read when Play was tapped.
-        case game(GameStarterViewData.Playlist, GameStarterViewData.GameSettings)
+        /// The game, played with the playlists chosen (one for everyone, or one per generation in turn order) and
+        /// the game settings read when Play was tapped.
+        case game([GameStarterViewData.GamePlaylist], GameStarterViewData.GameSettings)
         // @codegen:routes
     }
 
@@ -63,15 +64,10 @@ final class GameStarterCoordinator: Coordinator {
                     covers: playlist.covers
                 ), generation)
             }.start())
-        case .game(let playlist, let settings):
+        case .game(let playlists, let settings):
             return AnyView(GameCoordinator(
                 provider: dependencies.resolveProvider(),
-                playlist: GameViewData.Playlist(
-                    id: playlist.id,
-                    name: playlist.name,
-                    songCount: playlist.songCount,
-                    covers: playlist.covers
-                ),
+                playlists: playlists.map(GameViewData.Playlist.init),
                 settings: GameViewData.Settings(settings)
             ).start())
         // @codegen:destinations

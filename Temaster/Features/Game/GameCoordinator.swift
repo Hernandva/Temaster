@@ -18,10 +18,10 @@ final class GameCoordinator: Coordinator {
 
     /// - Parameters:
     ///   - provider: The music service the user signed in with.
-    ///   - playlist: The playlist chosen in GameStarter, played by the game.
+    ///   - playlists: The playlists chosen in GameStarter: one for everyone, or one per generation in turn order.
     ///   - settings: The game settings saved in Settings.
-    convenience init(provider: MusicProvider, playlist: GameViewData.Playlist, settings: GameViewData.Settings) {
-        self.init(dependencies: GameDependencies(provider: provider, playlist: playlist, settings: settings))
+    convenience init(provider: MusicProvider, playlists: [GameViewData.Playlist], settings: GameViewData.Settings) {
+        self.init(dependencies: GameDependencies(provider: provider, playlists: playlists, settings: settings))
     }
 
     func start() -> some View {

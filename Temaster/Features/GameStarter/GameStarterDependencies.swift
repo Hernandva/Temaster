@@ -40,11 +40,11 @@ final class GameStarterDependencies {
         signOut
     }
 
-    /// Opens the game with `playlist` and the game settings. The view model calls it from Play.
+    /// Opens the game with `playlists` and the game settings. The view model calls it from Play.
     func resolveOpenGame()
-        -> @MainActor (GameStarterViewData.Playlist, GameStarterViewData.GameSettings) -> Void {
-        { [navigate] playlist, settings in
-            navigate(.game(playlist, settings))
+        -> @MainActor ([GameStarterViewData.GamePlaylist], GameStarterViewData.GameSettings) -> Void {
+        { [navigate] playlists, settings in
+            navigate(.game(playlists, settings))
         }
     }
 

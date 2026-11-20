@@ -4,6 +4,9 @@ import TemasterData
 protocol FetchGameSongsUseCaseProtocol: Sendable {
     /// Returns every song of the playlist, in their order. The view model shuffles them into the game queue.
     func execute(playlistID: String, provider: MusicProvider) async throws -> [GameViewData.Song]
+    /// Returns the songs of each playlist, in their order, at the same index as its identifier. The playlists are
+    /// read at the same time.
+    func execute(playlistIDs: [String], provider: MusicProvider) async throws -> [[GameViewData.Song]]
 }
 
 /// Songs of the game: reads the whole playlist through the Song repository public API, one page
@@ -17,6 +20,21 @@ struct FetchGameSongsUseCase: FetchGameSongsUseCaseProtocol {
     @MainActor
     init(dependencies: GameDependencies) {
         self.repository = dependencies.resolveSongRepository()
+    }
+
+    func execute(playlistIDs: [String], provider: MusicProvider) async throws -> [[GameViewData.Song]] {
+        try await withThrowingTaskGroup(of: (Int, [GameViewData.Song]).self) { group in
+            for (index, playlistID) in playlistIDs.enumerated() {
+                group.addTask {
+                    (index, try await execute(playlistID: playlistID, provider: provider))
+                }
+            }
+            var songsByPlaylist = Array(repeating: [GameViewData.Song](), count: playlistIDs.count)
+            for try await (index, songs) in group {
+                songsByPlaylist[index] = songs
+            }
+            return songsByPlaylist
+        }
     }
 
     func execute(playlistID: String, provider: MusicProvider) async throws -> [GameViewData.Song] {

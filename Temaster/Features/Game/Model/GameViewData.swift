@@ -3,7 +3,7 @@ import Foundation
 /// Display-ready data of Game. The view model owns it as a variable and adds each use case result
 /// to its own field, so a new result never erases the rest of the data.
 struct GameViewData: Equatable, Sendable {
-    /// The playlist the game is played with, chosen in GameStarter.
+    /// A playlist the game is played with, chosen in GameStarter: everyone's, or one generation's.
     struct Playlist: Equatable, Sendable {
         /// Identifier of the playlist in its music service.
         let id: String
@@ -11,6 +11,8 @@ struct GameViewData: Equatable, Sendable {
         /// `nil` when it was chosen in the selector, which does not read the songs.
         let songCount: Int?
         let covers: [URL]
+        /// Name of the generation that plays with it, already localised, or `nil` when everyone plays with it.
+        var generationTitle: String?
     }
 
     /// What each round plays of a song.
@@ -114,13 +116,18 @@ struct GameViewData: Equatable, Sendable {
         }
     }
 
-    /// Known before anything loads: it comes from GameStarter.
-    var playlist: Playlist
+    /// Known before anything loads: it comes from GameStarter. One playlist for everyone, or one per generation in
+    /// the order their turns go.
+    var playlists: [Playlist]
     /// Known before anything loads: it comes from GameStarter.
     var settings: Settings
-    /// Songs of the playlist in the order the game plays them: shuffled once when the game starts. The first one is
-    /// the current song; Next (or a song that cannot be played) sends it to the end. `nil` until they load.
-    var queue: [Song]?
+    /// Songs of each of `playlists`, at the same index, in the order the game plays them: shuffled once when the game
+    /// starts. The first one of the turn's queue is the current song; Next (or a song that cannot be played) sends it
+    /// to the end of that queue. `nil` until they load.
+    var queues: [[Song]]?
+    /// Index in `playlists` (and `queues`) of the playlist the current round plays. Continue passes the turn to the
+    /// next playlist that has songs left, so each generation plays in turn.
+    var turn = 0
     /// Why the current song could not be played, already localised, or `nil` while it plays.
     var playbackError: String?
     /// The current song once it plays, or `nil` until then.
