@@ -142,4 +142,21 @@ struct SettingsRepositoryTests {
 
         #expect(response.playMode == .generations)
     }
+
+    @Test func keepsTheCustomPlayMode() async throws {
+        let repository = Self.makeRepository()
+        let custom = GameSettingsDAO(
+            playbackMode: .clip,
+            clipSeconds: 30,
+            clipStart: .random,
+            gameMode: .classic,
+            bingoLevel: .beginner,
+            playMode: .custom
+        )
+
+        try await repository.saveSettings(custom, for: .spotify)
+        let response = try await repository.fetch(FakeSettingsRequest(provider: .spotify))
+
+        #expect(response.playMode == .custom)
+    }
 }

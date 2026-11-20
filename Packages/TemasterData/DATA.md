@@ -139,7 +139,7 @@ its own entry. `bingoLevels()` returns the Bingo levels in the order Settings sh
 as the default one. `generations()` returns the three `SettingsGeneration`s of the `generations` play mode
 (`vinyl`, `cassette`, `streaming`, always all three), each a `SettingsGenerationResponseProtocol` with the key of its
 name (`generation.<generation>`) and the release years of its songs (`firstYear`/`lastYear`: up to 1984,
-1985-2004, from 2005; `nil` where it is open). An unknown stored play mode reads as `individual`. The internal `SettingsStorageProtocol` (in `Local/`) is backed by `SettingsUserDefaultsStorage`, which writes the
+1985-2004, from 2005; `nil` where it is open). A third play mode, `custom`, is for generations the user creates (none can be added yet). An unknown stored play mode reads as `individual`. The internal `SettingsStorageProtocol` (in `Local/`) is backed by `SettingsUserDefaultsStorage`, which writes the
 `Codable` `GameSettingsDAO` as JSON under `temasterData.settings.<provider>`. Do not change those keys or the raw
 values of the `Settings…` enums: saved settings would be lost. A missing field reads as its default, so adding a
 setting keeps the rest. Write failures are thrown as `SettingsError.storageFailed`.

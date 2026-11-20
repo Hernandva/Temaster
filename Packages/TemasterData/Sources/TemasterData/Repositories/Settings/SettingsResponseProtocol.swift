@@ -26,12 +26,14 @@ public enum SettingsGameMode: String, Codable, Sendable, CaseIterable {
     case bingo
 }
 
-/// Who plays each game: every player on their own, or the three generations as teams.
+/// Who plays each game: every player on their own, the three generations as teams, or the user's own generations.
 public enum SettingsPlayMode: String, Codable, Sendable, CaseIterable {
     /// Every player plays on their own, as the game always did.
     case individual
     /// The players are split into the three `SettingsGeneration`s, which always all play.
     case generations
+    /// Generations the user creates. For now the list starts empty and nothing can be added yet.
+    case custom
 }
 
 /// The three generations of the `generations` play mode, by the music of their time. Every game has all three,

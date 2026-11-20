@@ -40,8 +40,16 @@ private extension SettingsUseCase {
             clipStart: response.clipStart == .beginning ? .beginning : .random,
             mode: response.gameMode == .bingo ? .bingo : .classic,
             bingoLevel: response.bingoLevel.rawValue,
-            playMode: response.playMode == .generations ? .generations : .individual
+            playMode: playMode(response.playMode)
         )
+    }
+
+    static func playMode(_ mode: SettingsPlayMode) -> SettingsViewData.PlayMode {
+        switch mode {
+        case .individual: .individual
+        case .generations: .generations
+        case .custom: .custom
+        }
     }
 
     /// Keeps a stored length inside the range and on a step of the slider.

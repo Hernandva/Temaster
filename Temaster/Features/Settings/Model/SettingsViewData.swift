@@ -42,10 +42,11 @@ struct SettingsViewData: Equatable, Sendable {
         case bingo
     }
 
-    /// Who plays each game: every player on their own, or the three generations as teams.
+    /// Who plays each game: every player on their own, the three generations as teams, or the user's own ones.
     enum PlayMode: Hashable, Sendable {
         case individual
         case generations
+        case custom
     }
 
     /// Game settings, returned by `SettingsUseCase` and saved by `SaveSettingsUseCase`.

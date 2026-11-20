@@ -110,6 +110,7 @@ final class SettingsViewModel {
         switch playMode {
         case .individual: String(localized: "settings.players.footer.individual")
         case .generations: String(localized: "settings.players.footer.generations")
+        case .custom: String(localized: "settings.players.footer.custom")
         }
     }
 
@@ -124,6 +125,9 @@ final class SettingsViewModel {
     func didTapSignOut() {
         signOut()
     }
+
+    /// «Add new» in the custom generations. It does nothing yet: what it adds is still to be defined.
+    func didTapAddCustomGeneration() {}
 
     func load() async {
         state = .loading

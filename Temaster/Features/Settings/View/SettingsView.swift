@@ -156,13 +156,25 @@ struct SettingsView: View {
             DSListGroup {
                 segmented(selection: $viewModel.playMode, segments: [
                     .init(.individual, title: String(localized: "settings.players.individual")),
-                    .init(.generations, title: String(localized: "settings.players.generations"))
+                    .init(.generations, title: String(localized: "settings.players.generations")),
+                    .init(.custom, title: String(localized: "settings.players.custom"))
                 ])
                 // The three generations always play: they are shown, never chosen.
                 if viewModel.playMode == .generations {
                     ForEach(viewModel.generations) { generation in
                         DSGenerationRow(generation: DSGeneration(generation.kind), title: generation.title)
                     }
+                }
+                // The user's own generations: an empty list for now, and the button to add one.
+                if viewModel.playMode == .custom {
+                    DSText(style: .footnote, color: DSColor.textSecondary)
+                        .localized("settings.players.custom.empty")
+                        .padding(.horizontal, DSSpacing.space4)
+                        .padding(.vertical, DSSpacing.space3)
+                    DSListButtonRow {
+                        viewModel.didTapAddCustomGeneration()
+                    }
+                    .localized("settings.players.custom.add")
                 }
             }
             .animation(.snappy, value: viewModel.playMode)

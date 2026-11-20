@@ -39,6 +39,14 @@ private struct SavedSettings: GameSettingsProtocol {
         self.gameMode = game.mode == .bingo ? .bingo : .classic
         // The id always comes from a level of the repository; the default only guards against a wrong one.
         self.bingoLevel = SettingsBingoLevel(rawValue: game.bingoLevel) ?? .beginner
-        self.playMode = game.playMode == .generations ? .generations : .individual
+        self.playMode = Self.playMode(game.playMode)
+    }
+
+    static func playMode(_ mode: SettingsViewData.PlayMode) -> SettingsPlayMode {
+        switch mode {
+        case .individual: .individual
+        case .generations: .generations
+        case .custom: .custom
+        }
     }
 }
