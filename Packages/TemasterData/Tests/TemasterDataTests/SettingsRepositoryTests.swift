@@ -13,7 +13,18 @@ struct SettingsRepositoryTests {
         clipStart: .beginning,
         gameMode: .bingo,
         bingoLevel: .expert,
-        playMode: .generations
+        playMode: .generations,
+        customGenerations: [
+            CustomGenerationDAO(
+                id: "90s",
+                name: "Los noventa",
+                symbolName: "guitars.fill",
+                color: .orange,
+                firstYear: 1990,
+                lastYear: 1999
+            ),
+            CustomGenerationDAO(id: "now", name: "Lo último", symbolName: "sparkles", firstYear: 2020, lastYear: nil)
+        ]
     )
 
     /// A repository on its own empty `UserDefaults` suite, so tests never share data.
@@ -158,5 +169,34 @@ struct SettingsRepositoryTests {
         let response = try await repository.fetch(FakeSettingsRequest(provider: .spotify))
 
         #expect(response.playMode == .custom)
+    }
+
+    @Test func startsWithNoCustomGenerations() {
+        #expect(GameSettingsDAO.defaults.customGenerations.isEmpty)
+    }
+
+    @Test func dropsUnreadableCustomGenerationsAndKeepsTheRest() async throws {
+        let suiteName = "SettingsRepositoryTests.\(UUID().uuidString)"
+        let stored = Data(#"{"playMode":"custom","customGenerations":[{"name":"Sin años"}]}"#.utf8)
+        UserDefaults(suiteName: suiteName)?.set(stored, forKey: SettingsUserDefaultsStorage.key(for: .spotify))
+
+        let repository = Self.makeRepository(suiteName: suiteName)
+        let response = try await repository.fetch(FakeSettingsRequest(provider: .spotify))
+
+        #expect(response.customGenerations.isEmpty)
+        #expect(response.playMode == .custom)
+    }
+
+    @Test func readsACustomGenerationWithoutColorAsTheDefaultColor() async throws {
+        let suiteName = "SettingsRepositoryTests.\(UUID().uuidString)"
+        let generation = #"{"id":"a","name":"Los noventa","symbolName":"music.note","firstYear":1990}"#
+        let stored = Data(#"{"playMode":"custom","customGenerations":[\#(generation)]}"#.utf8)
+        UserDefaults(suiteName: suiteName)?.set(stored, forKey: SettingsUserDefaultsStorage.key(for: .spotify))
+
+        let repository = Self.makeRepository(suiteName: suiteName)
+        let response = try await repository.fetch(FakeSettingsRequest(provider: .spotify))
+
+        #expect(response.customGenerations.map(\.color) == [CustomGenerationDAO.defaultColor])
+        #expect(response.customGenerations.map(\.lastYear) == [nil])
     }
 }

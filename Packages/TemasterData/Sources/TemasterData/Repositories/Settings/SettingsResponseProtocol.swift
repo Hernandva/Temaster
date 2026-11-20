@@ -92,6 +92,31 @@ public protocol SettingsBingoLevelResponseProtocol: Sendable {
     var categories: [any SettingsBingoCategoryResponseProtocol] { get }
 }
 
+/// Colors a custom generation can have: the five light colors of the app. The raw values are stored, so they never
+/// change.
+public enum SettingsCustomGenerationColor: String, Codable, Sendable, CaseIterable {
+    case pink
+    case yellow
+    case cyan
+    case green
+    case orange
+}
+
+/// A generation the user creates for the `custom` play mode.
+public protocol SettingsCustomGenerationProtocol: Sendable {
+    /// Stable identifier, made by the app when the generation is created.
+    var id: String { get }
+    var name: String { get }
+    /// SF Symbol the user chose for it.
+    var symbolName: String { get }
+    /// Color its icon is painted on.
+    var color: SettingsCustomGenerationColor { get }
+    /// First and last release year of its songs, both included. At least one of them is set: `nil` first year is
+    /// «the past» (any year up to the last one), `nil` last year is «today» (any year from the first one).
+    var firstYear: Int? { get }
+    var lastYear: Int? { get }
+}
+
 /// The game settings, as the app stores and shows them.
 public protocol GameSettingsProtocol: Sendable {
     var playbackMode: SettingsPlaybackMode { get }
@@ -101,6 +126,8 @@ public protocol GameSettingsProtocol: Sendable {
     var gameMode: SettingsGameMode { get }
     var bingoLevel: SettingsBingoLevel { get }
     var playMode: SettingsPlayMode { get }
+    /// Generations of the `custom` play mode, in the order they were created. Empty until the user adds one.
+    var customGenerations: [any SettingsCustomGenerationProtocol] { get }
 }
 
 /// Public data the Settings repository returns to the app: the saved settings, or the default ones.

@@ -1,7 +1,28 @@
 import SwiftUI
 
-/// Bottom sheet of the design system: a `title`, a `message` and one or two stacked actions,
-/// on the aura background with `radius-sheet` corners and the drag indicator.
+/// A button of a sheet (`DSBottomSheet`, `DSSongsSheet`): its title, already localised, its style and its action.
+public struct DSSheetAction {
+    let title: String
+    let style: DSButton.Style
+    let isEnabled: Bool
+    let handler: @MainActor () -> Void
+
+    /// - Parameter isEnabled: `false` dims the button and keeps it from being tapped, e.g. until a form is valid.
+    public init(
+        _ title: String,
+        style: DSButton.Style = .primary,
+        isEnabled: Bool = true,
+        handler: @escaping @MainActor () -> Void
+    ) {
+        self.title = title
+        self.style = style
+        self.isEnabled = isEnabled
+        self.handler = handler
+    }
+}
+
+/// Bottom sheet of the design system: a `title`, an optional `message`, optional `content` (e.g. a form) and one or
+/// two stacked actions, on the aura background with `radius-sheet` corners and the drag indicator.
 ///
 /// It sizes itself to its content. Present it from `.sheet(item:)` or `.sheet(isPresented:)`:
 ///
@@ -13,42 +34,47 @@ import SwiftUI
 ///         )
 ///     }
 ///
-/// Texts are passed already localised.
-public struct DSBottomSheet: View {
+/// Texts are passed already localised. `content` goes between the message and the actions, aligned to the leading
+/// edge.
+public struct DSBottomSheet<Content: View>: View {
     /// A button of the sheet.
-    public struct Action {
-        let title: String
-        let style: DSButton.Style
-        let handler: @MainActor () -> Void
-
-        public init(_ title: String, style: DSButton.Style = .primary, handler: @escaping @MainActor () -> Void) {
-            self.title = title
-            self.style = style
-            self.handler = handler
-        }
-    }
+    public typealias Action = DSSheetAction
 
     private let title: String
-    private let message: String
+    private let message: String?
     private let primaryAction: Action
     private let secondaryAction: Action?
+    private let content: Content
     @State private var contentHeight: CGFloat = 0
 
     /// - Parameters:
     ///   - primaryAction: Main button, `.primary` by default.
     ///   - secondaryAction: Optional button under it. Pass `style: .plain` for "Not now" or "Cancel".
-    public init(title: String, message: String, primaryAction: Action, secondaryAction: Action? = nil) {
+    ///   - content: Shown between the message and the actions.
+    public init(
+        title: String,
+        message: String? = nil,
+        primaryAction: Action,
+        secondaryAction: Action? = nil,
+        @ViewBuilder content: () -> Content
+    ) {
         self.title = title
         self.message = message
         self.primaryAction = primaryAction
         self.secondaryAction = secondaryAction
+        self.content = content()
     }
 
     public var body: some View {
         VStack(spacing: DSSpacing.space4) {
             DSText(title, style: .title)
                 .accessibilityAddTraits(.isHeader)
-            DSText(message, style: .body, color: DSColor.textSecondary)
+            if let message {
+                DSText(message, style: .body, color: DSColor.textSecondary)
+            }
+            content
+                .multilineTextAlignment(.leading)
+                .frame(maxWidth: .infinity, alignment: .leading)
             VStack(spacing: DSSpacing.space2) {
                 button(for: primaryAction)
                 if let secondaryAction {
@@ -78,6 +104,16 @@ public struct DSBottomSheet: View {
 
     private func button(for action: Action) -> some View {
         DSButton(action.title, style: action.style, action: action.handler)
+            .disabled(!action.isEnabled)
+    }
+}
+
+public extension DSBottomSheet where Content == EmptyView {
+    /// A sheet with only a title, a message and its actions.
+    init(title: String, message: String, primaryAction: Action, secondaryAction: Action? = nil) {
+        self.init(title: title, message: message, primaryAction: primaryAction, secondaryAction: secondaryAction) {
+            EmptyView()
+        }
     }
 }
 

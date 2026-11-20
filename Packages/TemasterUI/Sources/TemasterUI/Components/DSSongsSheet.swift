@@ -27,16 +27,16 @@ public struct DSSongsSheet<Content: View>: View {
     private let title: String
     private let subtitle: String
     private let covers: [URL]
-    private let primaryAction: DSBottomSheet.Action
-    private let closeAction: DSBottomSheet.Action
+    private let primaryAction: DSSheetAction
+    private let closeAction: DSSheetAction
     private let content: Content
 
     public init(
         title: String,
         subtitle: String,
         covers: [URL],
-        primaryAction: DSBottomSheet.Action,
-        closeAction: DSBottomSheet.Action,
+        primaryAction: DSSheetAction,
+        closeAction: DSSheetAction,
         @ViewBuilder content: () -> Content
     ) {
         self.title = title

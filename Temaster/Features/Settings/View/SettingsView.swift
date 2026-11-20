@@ -29,6 +29,9 @@ struct SettingsView: View {
         .toolbar(.visible, for: .navigationBar)
         .navigationBarTitleDisplayMode(.inline)
         .task { await viewModel.load() }
+        .sheet(isPresented: $viewModel.isAddingCustomGeneration) {
+            CustomGenerationSheetView(viewModel: viewModel)
+        }
     }
 
     @ViewBuilder private var content: some View {
@@ -165,12 +168,22 @@ struct SettingsView: View {
                         DSGenerationRow(generation: DSGeneration(generation.kind), title: generation.title)
                     }
                 }
-                // The user's own generations: an empty list for now, and the button to add one.
+                // The user's own generations, and the button that opens the «New generation» sheet.
                 if viewModel.playMode == .custom {
-                    DSText(style: .footnote, color: DSColor.textSecondary)
-                        .localized("settings.players.custom.empty")
-                        .padding(.horizontal, DSSpacing.space4)
-                        .padding(.vertical, DSSpacing.space3)
+                    if viewModel.customGenerations.isEmpty {
+                        DSText(style: .footnote, color: DSColor.textSecondary)
+                            .localized("settings.players.custom.empty")
+                            .padding(.horizontal, DSSpacing.space4)
+                            .padding(.vertical, DSSpacing.space3)
+                    }
+                    ForEach(viewModel.customGenerations) { generation in
+                        DSGenerationRow(
+                            symbolName: generation.symbolName,
+                            color: DSBingoCategory(generation.color).color,
+                            title: generation.name,
+                            subtitle: SettingsViewModel.yearsText(generation)
+                        )
+                    }
                     DSListButtonRow {
                         viewModel.didTapAddCustomGeneration()
                     }
@@ -226,8 +239,8 @@ struct SettingsView: View {
     }
 }
 
-private extension DSBingoCategory {
-    /// The design system's look of a category's color.
+extension DSBingoCategory {
+    /// The design system's look of a category's color, also used for the colors of custom generations.
     init(_ color: SettingsViewData.BingoColor) {
         switch color {
         case .pink: self = .pink

@@ -177,8 +177,12 @@ Settings also stores who plays (`SettingsPlayMode`, default `individual`): `indi
 was, and `generations` splits the players into three generations that always all play, like the Bingo categories.
 `SettingsRepositoryProtocol.generations()` returns them with the keys of their names (`generation.<generation>`);
 `GenerationsUseCase` localises them and `DSGeneration` gives each its color and icon. A third option, `custom`, shows
-the user's own generations: for now an empty list and an «Add new» button that does nothing yet
-(`SettingsViewModel.didTapAddCustomGeneration()`); GameStarter and the game treat it like `individual`. Every generation plays with its own
+the user's own generations (`customGenerations`, empty at first) and «Add new», which opens
+`View/CustomGenerationSheetView.swift`: name, icon (`DSIconPicker`), color (`DSColorPicker`, one of the five Bingo colors; the icon
+in the list is painted on it), first and last year (1900 to this year, the first
+not after the last; an empty first year is saved as «Pasado» and an empty last year as «Actualidad», but at least one
+is needed) and «Save», enabled only when the form is valid. GameStarter and the game treat `custom` like
+`individual` for now. Every generation plays with its own
 playlist. GameStarter reads the play mode every time it appears (`GenerationPlaylistsUseCase`): with `generations`
 it shows one playlist card per generation, each opening the selector with
 `Route.playlistSelector(generation)`, and Play appears once every generation has a playlist; otherwise it shows the

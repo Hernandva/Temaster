@@ -19,6 +19,14 @@ struct GameSettingsDAO: Codable, Sendable, Equatable, SettingsResponseProtocol {
     let gameMode: SettingsGameMode
     let bingoLevel: SettingsBingoLevel
     let playMode: SettingsPlayMode
+    let customGenerationDAOs: [CustomGenerationDAO]
+
+    var customGenerations: [any SettingsCustomGenerationProtocol] { customGenerationDAOs }
+
+    enum CodingKeys: String, CodingKey {
+        case playbackMode, clipSeconds, clipStart, gameMode, bingoLevel, playMode
+        case customGenerationDAOs = "customGenerations"
+    }
 
     init(
         playbackMode: SettingsPlaybackMode,
@@ -26,7 +34,8 @@ struct GameSettingsDAO: Codable, Sendable, Equatable, SettingsResponseProtocol {
         clipStart: SettingsClipStart,
         gameMode: SettingsGameMode,
         bingoLevel: SettingsBingoLevel,
-        playMode: SettingsPlayMode
+        playMode: SettingsPlayMode,
+        customGenerations: [CustomGenerationDAO] = []
     ) {
         self.playbackMode = playbackMode
         self.clipSeconds = clipSeconds
@@ -34,6 +43,7 @@ struct GameSettingsDAO: Codable, Sendable, Equatable, SettingsResponseProtocol {
         self.gameMode = gameMode
         self.bingoLevel = bingoLevel
         self.playMode = playMode
+        self.customGenerationDAOs = customGenerations
     }
 
     init(_ settings: some GameSettingsProtocol) {
@@ -43,7 +53,8 @@ struct GameSettingsDAO: Codable, Sendable, Equatable, SettingsResponseProtocol {
             clipStart: settings.clipStart,
             gameMode: settings.gameMode,
             bingoLevel: settings.bingoLevel,
-            playMode: settings.playMode
+            playMode: settings.playMode,
+            customGenerations: settings.customGenerations.map { CustomGenerationDAO($0) }
         )
     }
 
@@ -64,7 +75,12 @@ struct GameSettingsDAO: Codable, Sendable, Equatable, SettingsResponseProtocol {
             bingoLevel: (try? container.decodeIfPresent(SettingsBingoLevel.self, forKey: .bingoLevel))
                 ?? defaults.bingoLevel,
             playMode: (try? container.decodeIfPresent(SettingsPlayMode.self, forKey: .playMode))
-                ?? defaults.playMode
+                ?? defaults.playMode,
+            // Unreadable custom generations are dropped instead of losing every setting.
+            customGenerations: (try? container.decodeIfPresent(
+                [CustomGenerationDAO].self,
+                forKey: .customGenerationDAOs
+            )) ?? []
         )
     }
 }

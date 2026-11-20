@@ -62,6 +62,40 @@ struct SettingsViewData: Equatable, Sendable {
         /// Identifier of the Bingo level: the `id` of one of the `bingoLevels`.
         var bingoLevel: String
         var playMode: PlayMode
+        /// Generations of the `custom` play mode, in the order they were created.
+        var customGenerations: [CustomGeneration]
+    }
+
+    /// A generation the user created for the `custom` play mode.
+    struct CustomGeneration: Equatable, Sendable, Identifiable {
+        let id: String
+        var name: String
+        /// SF Symbol, one of `symbols`.
+        var symbolName: String
+        /// Color its icon is painted on.
+        var color: BingoColor
+        /// First and last release year of its songs, both included.
+        /// At least one is set: `nil` first year is «the past», `nil` last year is «today».
+        var firstYear: Int?
+        var lastYear: Int?
+
+        /// Icons the user can choose from, in the order the picker shows them. The first one is the default.
+        static let symbols = [
+            "music.note", "music.mic", "guitars.fill", "pianokeys", "headphones", "radio.fill",
+            "music.quarternote.3", "mic.fill", "star.fill", "heart.fill", "flame.fill", "sparkles"
+        ]
+        /// Years a generation can start and end in.
+        static let firstAllowedYear = 1900
+    }
+
+    /// What the user is typing in the «New generation» sheet, before it is saved.
+    struct CustomGenerationDraft: Equatable, Sendable {
+        var name = ""
+        var symbolName = CustomGeneration.symbols[0]
+        var color = BingoColor.cyan
+        /// Years as typed. Either can stay empty (the past, or today), but not both.
+        var firstYear = ""
+        var lastYear = ""
     }
 
     /// The five Bingo categories, by their color.

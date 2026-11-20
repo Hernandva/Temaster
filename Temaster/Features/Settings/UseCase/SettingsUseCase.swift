@@ -40,8 +40,28 @@ private extension SettingsUseCase {
             clipStart: response.clipStart == .beginning ? .beginning : .random,
             mode: response.gameMode == .bingo ? .bingo : .classic,
             bingoLevel: response.bingoLevel.rawValue,
-            playMode: playMode(response.playMode)
+            playMode: playMode(response.playMode),
+            customGenerations: response.customGenerations.map { generation in
+                SettingsViewData.CustomGeneration(
+                    id: generation.id,
+                    name: generation.name,
+                    symbolName: generation.symbolName,
+                    color: color(generation.color),
+                    firstYear: generation.firstYear,
+                    lastYear: generation.lastYear
+                )
+            }
         )
+    }
+
+    static func color(_ color: SettingsCustomGenerationColor) -> SettingsViewData.BingoColor {
+        switch color {
+        case .pink: .pink
+        case .yellow: .yellow
+        case .cyan: .cyan
+        case .green: .green
+        case .orange: .orange
+        }
     }
 
     static func playMode(_ mode: SettingsPlayMode) -> SettingsViewData.PlayMode {
