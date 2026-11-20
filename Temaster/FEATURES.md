@@ -178,7 +178,10 @@ was, and `generations` splits the players into three generations that always all
 `SettingsRepositoryProtocol.generations()` returns them with the keys of their names (`generation.<generation>`);
 `GenerationsUseCase` localises them and `DSGeneration` gives each its color and icon. With `generations`, Settings
 also shows «Play with the same playlist» (`sharedPlaylist`, on by default); switching back to `individual` turns it on
-again.
+again. GameStarter reads both every time it appears (`GenerationPlaylistsUseCase`): with `generations` and
+`sharedPlaylist` off it shows one playlist card per generation, each opening the selector with
+`Route.playlistSelector(generation)`, and Play appears once every generation has a playlist; otherwise it shows the
+single selected playlist card. The game still plays one playlist: the first generation's.
 
 ### Creating a feature
 

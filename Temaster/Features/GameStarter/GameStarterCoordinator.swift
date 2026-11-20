@@ -9,8 +9,8 @@ final class GameStarterCoordinator: Coordinator {
     enum Route: Hashable {
         /// Playback, game mode, Bingo level and categories, and account.
         case settings
-        /// Recommended and own playlists, to choose the one to play.
-        case playlistSelector
+        /// Recommended and own playlists, to choose the one to play: the generation's one, or everyone's when `nil`.
+        case playlistSelector(GameStarterViewData.GenerationKind?)
         /// The game, played with the playlist chosen and the game settings read when Play was tapped.
         case game(GameStarterViewData.Playlist, GameStarterViewData.GameSettings)
         // @codegen:routes
@@ -52,7 +52,7 @@ final class GameStarterCoordinator: Coordinator {
                 provider: dependencies.resolveProvider(),
                 signOut: dependencies.resolveSignOut()
             ).start())
-        case .playlistSelector:
+        case .playlistSelector(let generation):
             let selectPlaylist = dependencies.resolveSelectPlaylist()
             return AnyView(PlaylistSelectorCoordinator(provider: dependencies.resolveProvider()) { playlist in
                 // The selector does not read the songs, so the count is unknown until the game loads them.
@@ -61,7 +61,7 @@ final class GameStarterCoordinator: Coordinator {
                     name: playlist.name,
                     songCount: nil,
                     covers: playlist.covers
-                ))
+                ), generation)
             }.start())
         case .game(let playlist, let settings):
             return AnyView(GameCoordinator(

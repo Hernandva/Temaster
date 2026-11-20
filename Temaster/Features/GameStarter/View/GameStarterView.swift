@@ -24,9 +24,9 @@ struct GameStarterView: View {
                 VStack(alignment: .leading, spacing: DSSpacing.space6) {
                     header
                     greeting
-                    selectedPlaylist
+                    playlists
                     Spacer(minLength: DSSpacing.space6)
-                    if viewModel.selectedPlaylist != nil {
+                    if viewModel.canPlay {
                         play
                         Spacer(minLength: DSSpacing.space6)
                     }
@@ -103,6 +103,49 @@ struct GameStarterView: View {
         }
     }
 
+    /// One card for everyone, or one per generation when each generation plays with its own playlist.
+    @ViewBuilder private var playlists: some View {
+        if viewModel.generations.isEmpty {
+            selectedPlaylist
+        } else {
+            generationPlaylists
+        }
+    }
+
+    /// A card per generation, under its name. Each one opens the selector for its own generation.
+    private var generationPlaylists: some View {
+        VStack(alignment: .leading, spacing: DSSpacing.space6) {
+            ForEach(viewModel.generations) { generation in
+                VStack(alignment: .leading, spacing: DSSpacing.space2) {
+                    DSSectionHeader(generation.title)
+                    generationPlaylistCard(for: generation.kind)
+                }
+            }
+        }
+    }
+
+    /// The same card as the selected playlist one: the generation's playlist, or the invitation to choose it.
+    @ViewBuilder
+    private func generationPlaylistCard(for generation: GameStarterViewData.GenerationKind) -> some View {
+        if let playlist = viewModel.playlist(for: generation) {
+            playlistCard(
+                covers: playlist.covers,
+                title: playlist.name,
+                subtitle: viewModel.songCountText(for: playlist),
+                action: String(localized: "gameStarter.changePlaylist"),
+                generation: generation
+            )
+        } else {
+            playlistCard(
+                covers: [],
+                title: String(localized: "gameStarter.selectPlaylist.title"),
+                subtitle: String(localized: "gameStarter.selectPlaylist.message"),
+                action: String(localized: "gameStarter.selectPlaylist.action"),
+                generation: generation
+            )
+        }
+    }
+
     @ViewBuilder private var selectedPlaylist: some View {
         if viewModel.needsPlaylist {
             selectPlaylistCard
@@ -159,8 +202,15 @@ struct GameStarterView: View {
     }
 
     /// The playlist card, the same with and without a playlist: the cover mosaic, a title, a subtitle and a button
-    /// that opens the selector («Elegir lista» or «Cambiar lista»). Strings are passed already localised.
-    private func playlistCard(covers: [URL], title: String, subtitle: String?, action: String) -> some View {
+    /// that opens the selector («Elegir lista» or «Cambiar lista») for `generation`, or for everyone when it is `nil`.
+    /// Strings are passed already localised.
+    private func playlistCard(
+        covers: [URL],
+        title: String,
+        subtitle: String?,
+        action: String,
+        generation: GameStarterViewData.GenerationKind? = nil
+    ) -> some View {
         DSCard {
             HStack(spacing: DSSpacing.space4) {
                 DSCoverMosaic(covers: covers)
@@ -173,7 +223,7 @@ struct GameStarterView: View {
                     if let subtitle {
                         DSText(subtitle, style: .subheadline)
                     }
-                    NavigationLink(value: GameStarterCoordinator.Route.playlistSelector) {
+                    NavigationLink(value: GameStarterCoordinator.Route.playlistSelector(generation)) {
                         Text(action)
                     }
                     .buttonStyle(DSButtonStyle(style: .plain))

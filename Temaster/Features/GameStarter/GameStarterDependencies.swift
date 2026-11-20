@@ -57,6 +57,10 @@ final class GameStarterDependencies {
         GameSettingsUseCase(dependencies: self)
     }
 
+    func resolveGenerationPlaylistsUseCase() -> any GenerationPlaylistsUseCaseProtocol {
+        GenerationPlaylistsUseCase(dependencies: self)
+    }
+
     func resolveRepository() -> any LastPlaylistRepositoryProtocol {
         repository
     }
@@ -73,10 +77,12 @@ final class GameStarterDependencies {
         viewModel
     }
 
-    /// Shows the playlist confirmed in the playlist selector in the selected playlist card.
-    func resolveSelectPlaylist() -> @MainActor (GameStarterViewData.Playlist) -> Void {
-        { [weak self] playlist in
-            self?.viewModel.selectPlaylist(playlist)
+    /// Shows the playlist confirmed in the playlist selector in the card it was opened from: the generation's card,
+    /// or the selected playlist card when the generation is `nil`.
+    func resolveSelectPlaylist()
+        -> @MainActor (GameStarterViewData.Playlist, GameStarterViewData.GenerationKind?) -> Void {
+        { [weak self] playlist, generation in
+            self?.viewModel.selectPlaylist(playlist, for: generation)
         }
     }
 }
