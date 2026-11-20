@@ -112,4 +112,40 @@ struct LastPlaylistRepositoryTests {
         #expect(response.generationPlaylists[.vinyl] == nil)
         #expect(response.generationPlaylists[.streaming]?.id == "pl.456")
     }
+
+    @Test func returnsTheSavedPlaylistOfEachCustomGeneration() async throws {
+        let repository = Self.makeRepository()
+        let other = LastPlaylistItemDAO(id: "pl.456", name: "Hitster 2010s", songCount: nil, coverURLs: [])
+
+        try await repository.saveCustomGenerationPlaylists(["gen.a": Self.playlist, "gen.b": other], for: .spotify)
+        let response = try await repository.fetch(FakeLastPlaylistRequest(provider: .spotify))
+
+        #expect(response.customGenerationPlaylists["gen.a"]?.id == "pl.123")
+        #expect(response.customGenerationPlaylists["gen.b"]?.name == "Hitster 2010s")
+        #expect(response.customGenerationPlaylists["gen.c"] == nil)
+    }
+
+    @Test func keepsTheCustomGenerationPlaylistsApartFromTheGenerationOnes() async throws {
+        let repository = Self.makeRepository()
+        let custom = LastPlaylistItemDAO(id: "pl.789", name: "Mis 90", songCount: 40, coverURLs: [])
+
+        try await repository.saveGenerationPlaylists([.vinyl: Self.playlist], for: .spotify)
+        try await repository.saveCustomGenerationPlaylists(["gen.a": custom], for: .spotify)
+        let response = try await repository.fetch(FakeLastPlaylistRequest(provider: .spotify))
+
+        #expect(response.generationPlaylists[.vinyl]?.id == "pl.123")
+        #expect(response.customGenerationPlaylists["gen.a"]?.id == "pl.789")
+    }
+
+    @Test func replacesThePreviousCustomGenerationPlaylists() async throws {
+        let repository = Self.makeRepository()
+
+        try await repository.saveCustomGenerationPlaylists(["gen.a": Self.playlist], for: .appleMusic)
+        try await repository.saveCustomGenerationPlaylists(["gen.b": Self.playlist], for: .appleMusic)
+        let response = try await repository.fetch(FakeLastPlaylistRequest(provider: .appleMusic))
+
+        #expect(response.customGenerationPlaylists["gen.a"] == nil)
+        #expect(response.customGenerationPlaylists["gen.b"]?.id == "pl.123")
+        #expect(response.generationPlaylists.isEmpty)
+    }
 }

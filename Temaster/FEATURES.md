@@ -181,14 +181,15 @@ the user's own generations (`customGenerations`, empty at first) and «Add new»
 `View/CustomGenerationSheetView.swift`: name, icon (`DSIconPicker`), color (`DSColorPicker`, one of the five Bingo colors; the icon
 in the list is painted on it), first and last year (1900 to this year, the first
 not after the last; an empty first year is saved as «Pasado» and an empty last year as «Actualidad», but at least one
-is needed) and «Save», enabled only when the form is valid. GameStarter and the game treat `custom` like
-`individual` for now. Every generation plays with its own
-playlist. GameStarter reads the play mode every time it appears (`GenerationPlaylistsUseCase`): with `generations`
-it shows one playlist card per generation, each opening the selector with
-`Route.playlistSelector(generation)`, and Play appears once every generation has a playlist; otherwise it shows the
-single selected playlist card. Like the shared playlist, each generation's card shows the playlist it last played with
+is needed) and «Save», enabled only when the form is valid. Every generation plays with its own playlist, in
+`generations` and in `custom`. GameStarter reads the play mode every time it appears (`GenerationPlaylistsUseCase`): with `generations`
+or `custom` it shows one playlist card per generation (the three fixed ones, or the user's, with their own names and
+`GenerationKind.custom(id:)`), each opening the selector with
+`Route.playlistSelector(generation)`, and Play appears once every generation has a playlist; otherwise (`individual`, or
+`custom` with no generations yet) it shows the single selected playlist card. Like the shared playlist, each generation's card shows the playlist it last played with
 (`LastGenerationPlaylistsUseCase`) until another is chosen, and Play saves the generations' playlists apart from the
-shared one (`SaveGenerationPlaylistsUseCase`, `LastPlaylistRepository.saveGenerationPlaylists`). Play hands the game every playlist (`Route.game([GamePlaylist], settings)`): one
+shared one (`SaveGenerationPlaylistsUseCase`: `LastPlaylistRepository.saveGenerationPlaylists` for the fixed generations and
+`saveCustomGenerationPlaylists`, keyed by id, for the custom ones). Play hands the game every playlist (`Route.game([GamePlaylist], settings)`): one
 for everyone, or one per generation in their order. Game keeps one shuffled queue per playlist and plays them in
 turns: Continue passes the turn to the next generation that has songs left (Next keeps it), the header shows whose
 turn it is, and the game ends when every queue is empty.

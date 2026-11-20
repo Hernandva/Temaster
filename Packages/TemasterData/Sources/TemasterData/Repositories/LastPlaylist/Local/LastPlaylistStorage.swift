@@ -11,13 +11,18 @@ protocol LastPlaylistStorageProtocol: Sendable {
         _ playlists: [SettingsGeneration: LastPlaylistItemDAO],
         for provider: MusicProvider
     ) throws
+    /// The stored playlists of each custom generation of `provider`, by the generation's id; empty when there are
+    /// none or they cannot be read.
+    func customGenerationPlaylists(for provider: MusicProvider) -> [String: LastPlaylistItemDAO]
+    func saveCustomGenerationPlaylists(_ playlists: [String: LastPlaylistItemDAO], for provider: MusicProvider) throws
 }
 
-/// Keeps each provider's last playlist, and its generations' playlists, as JSON in `UserDefaults`, under their own
-/// keys.
+/// Keeps each provider's last playlist, its generations' playlists and its custom generations' playlists, as JSON in
+/// `UserDefaults`, under their own keys.
 struct LastPlaylistUserDefaultsStorage: LastPlaylistStorageProtocol {
     private static let keyPrefix = "temasterData.lastPlaylist."
     private static let generationsKeyPrefix = "temasterData.generationPlaylists."
+    private static let customGenerationsKeyPrefix = "temasterData.customGenerationPlaylists."
 
     /// `UserDefaults` is not `Sendable`, so the storage keeps the suite name and opens it on each access.
     /// `nil` uses the standard defaults.
@@ -70,6 +75,22 @@ struct LastPlaylistUserDefaultsStorage: LastPlaylistStorageProtocol {
         defaults.set(data, forKey: Self.generationsKey(for: provider))
     }
 
+    /// Stored as a JSON object keyed by the custom generations' ids.
+    func customGenerationPlaylists(for provider: MusicProvider) -> [String: LastPlaylistItemDAO] {
+        guard let data = defaults.data(forKey: Self.customGenerationsKey(for: provider)) else { return [:] }
+        return (try? JSONDecoder().decode([String: LastPlaylistItemDAO].self, from: data)) ?? [:]
+    }
+
+    func saveCustomGenerationPlaylists(_ playlists: [String: LastPlaylistItemDAO], for provider: MusicProvider) throws {
+        let data: Data
+        do {
+            data = try JSONEncoder().encode(playlists)
+        } catch {
+            throw LastPlaylistError.storageFailed
+        }
+        defaults.set(data, forKey: Self.customGenerationsKey(for: provider))
+    }
+
     /// Stable key per provider: it must not change between versions, or saved playlists are lost.
     static func key(for provider: MusicProvider) -> String {
         switch provider {
@@ -83,6 +104,14 @@ struct LastPlaylistUserDefaultsStorage: LastPlaylistStorageProtocol {
         switch provider {
         case .spotify: generationsKeyPrefix + "spotify"
         case .appleMusic: generationsKeyPrefix + "appleMusic"
+        }
+    }
+
+    /// Stable key of the custom generations' playlists per provider: it must not change between versions either.
+    static func customGenerationsKey(for provider: MusicProvider) -> String {
+        switch provider {
+        case .spotify: customGenerationsKeyPrefix + "spotify"
+        case .appleMusic: customGenerationsKeyPrefix + "appleMusic"
         }
     }
 }

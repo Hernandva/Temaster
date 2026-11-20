@@ -21,16 +21,29 @@ struct SaveGenerationPlaylistsUseCase: SaveGenerationPlaylistsUseCaseProtocol {
         self.repository = dependencies.resolveRepository()
     }
 
+    /// The playlists of one play mode replace only that mode's last ones: the `generations` ones and the custom ones
+    /// are stored apart.
     func execute(playlists: [GameStarterViewData.GenerationKind: GameStarterViewData.Playlist]) async throws {
-        var savedPlaylists: [SettingsGeneration: any LastPlaylistItemProtocol] = [:]
+        var generationPlaylists: [SettingsGeneration: any LastPlaylistItemProtocol] = [:]
+        var customPlaylists: [String: any LastPlaylistItemProtocol] = [:]
         for entry in playlists {
-            savedPlaylists[entry.key.settingsGeneration] = SavedPlaylist(
-                id: entry.value.id,
-                name: entry.value.name,
-                songCount: entry.value.songCount,
-                coverURLs: entry.value.covers
-            )
+            if let generation = entry.key.settingsGeneration {
+                generationPlaylists[generation] = Self.savedPlaylist(entry.value)
+            } else if let id = entry.key.customGenerationID {
+                customPlaylists[id] = Self.savedPlaylist(entry.value)
+            }
         }
-        try await repository.saveGenerationPlaylists(savedPlaylists, for: provider)
+        if !generationPlaylists.isEmpty {
+            try await repository.saveGenerationPlaylists(generationPlaylists, for: provider)
+        }
+        if !customPlaylists.isEmpty {
+            try await repository.saveCustomGenerationPlaylists(customPlaylists, for: provider)
+        }
+    }
+}
+
+private extension SaveGenerationPlaylistsUseCase {
+    static func savedPlaylist(_ playlist: GameStarterViewData.Playlist) -> SavedPlaylist {
+        SavedPlaylist(id: playlist.id, name: playlist.name, songCount: playlist.songCount, coverURLs: playlist.covers)
     }
 }

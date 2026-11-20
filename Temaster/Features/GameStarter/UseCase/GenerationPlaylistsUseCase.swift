@@ -3,7 +3,8 @@ import TemasterData
 
 protocol GenerationPlaylistsUseCaseProtocol: Sendable {
     /// Returns the generations that each play with their own playlist, names already localised: all of them in the
-    /// `generations` play mode, none in `individual` (one playlist for everyone).
+    /// `generations` play mode, the user's own ones in `custom`, none in `individual` (one playlist for everyone).
+    /// `custom` without generations also returns none.
     /// The view model adds them to its `GameStarterViewData`.
     func execute() async throws -> [GameStarterViewData.Generation]
 }
@@ -24,8 +25,11 @@ struct GenerationPlaylistsUseCase: GenerationPlaylistsUseCaseProtocol {
 
     func execute() async throws -> [GameStarterViewData.Generation] {
         let response = try await repository.fetch(GameSettingsRequest(provider: provider))
-        guard response.playMode == .generations else { return [] }
-        return await repository.generations().map(Self.generation)
+        switch response.playMode {
+        case .individual: return []
+        case .generations: return await repository.generations().map(Self.generation)
+        case .custom: return response.customGenerations.map(Self.generation)
+        }
     }
 }
 
@@ -37,6 +41,16 @@ private extension GenerationPlaylistsUseCase {
             title: String(localized: String.LocalizationValue(response.titleKey)),
             firstYear: response.firstYear,
             lastYear: response.lastYear
+        )
+    }
+
+    /// Maps a generation the user created into the same data: its name is the user's own, so it is not localised.
+    static func generation(_ custom: any SettingsCustomGenerationProtocol) -> GameStarterViewData.Generation {
+        GameStarterViewData.Generation(
+            kind: .custom(id: custom.id),
+            title: custom.name,
+            firstYear: custom.firstYear,
+            lastYear: custom.lastYear
         )
     }
 }

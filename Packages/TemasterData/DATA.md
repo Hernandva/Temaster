@@ -121,6 +121,9 @@ replaces the previous one; each provider has its own entry. The internal `LastPl
 `SettingsGeneration` (the `generations` play mode with one playlist per generation) and replaces the previous ones;
 `fetch(_:)` returns them in `generationPlaylists`, empty until they are saved. They are kept apart from the last
 playlist, as a JSON object keyed by the generations' raw values under `temasterData.generationPlaylists.<provider>`.
+`saveCustomGenerationPlaylists(_:for:)` does the same for the user's generations of the `custom` play mode, keyed by
+the id of each `SettingsCustomGenerationProtocol`; `fetch(_:)` returns them in `customGenerationPlaylists`, stored
+apart under `temasterData.customGenerationPlaylists.<provider>`.
 Do not change those keys: saved playlists would be lost.
 Write failures are thrown as `LastPlaylistError.storageFailed`; unreadable data reads as no playlist.
 

@@ -2,8 +2,8 @@ import Foundation
 import TemasterData
 
 protocol LastGenerationPlaylistsUseCaseProtocol: Sendable {
-    /// Returns the playlist each generation last played with, for the music service the user signed in with; a
-    /// generation without one is missing. The view model adds them to its `GameStarterViewData`.
+    /// Returns the playlist each generation (of the `generations` play mode and the user's custom ones) last played
+    /// with, for the music service the user signed in with; a generation without one is missing. The view model adds them to its `GameStarterViewData`.
     func execute() async throws -> [GameStarterViewData.GenerationKind: GameStarterViewData.Playlist]
 }
 
@@ -23,13 +23,24 @@ struct LastGenerationPlaylistsUseCase: LastGenerationPlaylistsUseCaseProtocol {
 
     func execute() async throws -> [GameStarterViewData.GenerationKind: GameStarterViewData.Playlist] {
         let response = try await repository.fetch(LastPlaylistRequest(provider: provider))
-        return response.generationPlaylists.reduce(into: [:]) { playlists, entry in
-            playlists[GameStarterViewData.GenerationKind(entry.key)] = GameStarterViewData.Playlist(
-                id: entry.value.id,
-                name: entry.value.name,
-                songCount: entry.value.songCount,
-                covers: entry.value.coverURLs
-            )
+        var playlists: [GameStarterViewData.GenerationKind: GameStarterViewData.Playlist] = [:]
+        for entry in response.generationPlaylists {
+            playlists[GameStarterViewData.GenerationKind(entry.key)] = Self.playlist(from: entry.value)
         }
+        for entry in response.customGenerationPlaylists {
+            playlists[.custom(id: entry.key)] = Self.playlist(from: entry.value)
+        }
+        return playlists
+    }
+}
+
+private extension LastGenerationPlaylistsUseCase {
+    static func playlist(from playlist: any LastPlaylistItemProtocol) -> GameStarterViewData.Playlist {
+        GameStarterViewData.Playlist(
+            id: playlist.id,
+            name: playlist.name,
+            songCount: playlist.songCount,
+            covers: playlist.coverURLs
+        )
     }
 }

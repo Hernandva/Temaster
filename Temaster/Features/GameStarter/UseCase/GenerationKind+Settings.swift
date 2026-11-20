@@ -12,11 +12,19 @@ extension GameStarterViewData.GenerationKind {
         }
     }
 
-    var settingsGeneration: SettingsGeneration {
+    /// The generation of the `generations` play mode, or `nil` for a custom one.
+    var settingsGeneration: SettingsGeneration? {
         switch self {
         case .vinyl: .vinyl
         case .cassette: .cassette
         case .streaming: .streaming
+        case .custom: nil
         }
+    }
+
+    /// Id of the custom generation, or `nil` for one of the `generations` play mode.
+    var customGenerationID: String? {
+        guard case .custom(let id) = self else { return nil }
+        return id
     }
 }

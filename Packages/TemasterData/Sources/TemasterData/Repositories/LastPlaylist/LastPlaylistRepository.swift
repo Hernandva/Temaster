@@ -17,6 +17,15 @@ public protocol LastPlaylistRepositoryProtocol: Sendable {
         _ playlists: [SettingsGeneration: any LastPlaylistItemProtocol],
         for provider: MusicProvider
     ) async throws
+
+    /// Stores the playlists chosen for each custom generation, keyed by the generation's id, as the last ones
+    /// played with `provider`, replacing the previous ones. They are kept apart from the last playlist and from the
+    /// `SettingsGeneration`s' playlists.
+    /// Throws `LastPlaylistError.storageFailed` when they cannot be written.
+    func saveCustomGenerationPlaylists(
+        _ playlists: [String: any LastPlaylistItemProtocol],
+        for provider: MusicProvider
+    ) async throws
 }
 
 /// Public entry point of the music services' data. Keeps the last playlist of each provider in the local storage.
@@ -36,7 +45,8 @@ public final class LastPlaylistRepository: LastPlaylistRepositoryProtocol {
         LastPlaylistResponseDAO(
             provider: request.provider,
             playlist: storage.lastPlaylist(for: request.provider),
-            generations: storage.generationPlaylists(for: request.provider)
+            generations: storage.generationPlaylists(for: request.provider),
+            customGenerations: storage.customGenerationPlaylists(for: request.provider)
         )
     }
 
@@ -49,5 +59,12 @@ public final class LastPlaylistRepository: LastPlaylistRepositoryProtocol {
         for provider: MusicProvider
     ) async throws {
         try storage.saveGenerationPlaylists(playlists.mapValues { LastPlaylistItemDAO($0) }, for: provider)
+    }
+
+    public func saveCustomGenerationPlaylists(
+        _ playlists: [String: any LastPlaylistItemProtocol],
+        for provider: MusicProvider
+    ) async throws {
+        try storage.saveCustomGenerationPlaylists(playlists.mapValues { LastPlaylistItemDAO($0) }, for: provider)
     }
 }

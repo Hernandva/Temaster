@@ -191,9 +191,10 @@ final class GameStarterViewModel {
         for gamePlaylist in playlists {
             if let generation = gamePlaylist.generation { byGeneration[generation.kind] = gamePlaylist.playlist }
         }
-        guard byGeneration != viewData.lastGenerationPlaylists else { return }
+        // The last ones hold both play modes' generations, so only this game's ones are compared and replaced.
+        guard byGeneration.contains(where: { viewData.lastGenerationPlaylists[$0.key] != $0.value }) else { return }
         try await saveGenerationPlaylistsUseCase.execute(playlists: byGeneration)
-        viewData.lastGenerationPlaylists = byGeneration
+        viewData.lastGenerationPlaylists.merge(byGeneration) { _, new in new }
     }
 
     /// Runs every time the screen appears, so coming back from Settings shows the cards of the play mode just saved.

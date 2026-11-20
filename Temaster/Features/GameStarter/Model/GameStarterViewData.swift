@@ -80,12 +80,14 @@ struct GameStarterViewData: Equatable, Sendable {
         var bingoCategories: [BingoCategory]
     }
 
-    /// The three generations of the «Generations» play mode. `Hashable` because the playlist selector route
-    /// carries the one it chooses for.
+    /// A generation that plays with its own playlist: one of the three of the «Generations» play mode, or one the
+    /// user created for the «Custom» play mode, by its id. `Hashable` because the playlist selector route carries the
+    /// one it chooses for.
     enum GenerationKind: Hashable, Sendable {
         case vinyl
         case cassette
         case streaming
+        case custom(id: String)
     }
 
     /// A generation that plays with its own playlist: its kind, its name, already localised, and the release years
@@ -117,7 +119,7 @@ struct GameStarterViewData: Equatable, Sendable {
     /// `lastPlaylist`, and Play saves it as the new last playlist.
     var selectedPlaylist: Playlist?
     /// Result of `GenerationPlaylistsUseCase`: the generations that each choose their own playlist. Empty when
-    /// everyone plays with `selectedPlaylist` (the `individual` play mode, or «Play with the same playlist»).
+    /// everyone plays with `selectedPlaylist` (the `individual` play mode, or `custom` with no generations yet).
     var generations: [Generation] = []
     /// Result of `LastGenerationPlaylistsUseCase`: the playlist each generation last played with. A generation's card
     /// shows it until one is chosen for it in the selector.

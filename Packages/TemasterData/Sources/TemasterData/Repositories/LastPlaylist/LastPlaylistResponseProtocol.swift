@@ -25,4 +25,7 @@ public protocol LastPlaylistResponseProtocol: Sendable {
     /// The playlists each generation last played with in the `generations` play mode with one playlist per
     /// generation. Empty until they are saved; a generation without one is missing.
     var generationPlaylists: [SettingsGeneration: any LastPlaylistItemProtocol] { get }
+    /// The playlists each custom generation last played with in the `custom` play mode, by the id of the
+    /// `SettingsCustomGenerationProtocol`. Empty until they are saved; a generation without one is missing.
+    var customGenerationPlaylists: [String: any LastPlaylistItemProtocol] { get }
 }
