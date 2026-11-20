@@ -33,16 +33,10 @@ private extension GenerationPlaylistsUseCase {
     /// Maps a generation of the repository into the data the view model adds to its ViewData.
     static func generation(_ response: any SettingsGenerationResponseProtocol) -> GameStarterViewData.Generation {
         GameStarterViewData.Generation(
-            kind: kind(response.generation),
-            title: String(localized: String.LocalizationValue(response.titleKey))
+            kind: GameStarterViewData.GenerationKind(response.generation),
+            title: String(localized: String.LocalizationValue(response.titleKey)),
+            firstYear: response.firstYear,
+            lastYear: response.lastYear
         )
-    }
-
-    static func kind(_ generation: SettingsGeneration) -> GameStarterViewData.GenerationKind {
-        switch generation {
-        case .vinyl: .vinyl
-        case .cassette: .cassette
-        case .streaming: .streaming
-        }
     }
 }

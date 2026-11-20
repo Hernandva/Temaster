@@ -127,4 +127,11 @@ struct SettingsRepositoryTests {
         #expect(generations.map(\.generation) == [.vinyl, .cassette, .streaming])
         #expect(generations.map(\.titleKey) == ["generation.vinyl", "generation.cassette", "generation.streaming"])
     }
+
+    @Test func givesEachGenerationTheYearsOfItsSongs() async {
+        let generations = await Self.makeRepository().generations()
+
+        #expect(generations.map(\.firstYear) == [nil, 1985, 2005])
+        #expect(generations.map(\.lastYear) == [1984, 2004, nil])
+    }
 }

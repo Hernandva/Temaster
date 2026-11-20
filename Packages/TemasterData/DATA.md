@@ -117,7 +117,11 @@ Failures are thrown as `LoginError`; a provider without a service throws `LoginE
 playlist was chosen without reading its songs, and up to four covers) is `nil` until one is saved. `saveLastPlaylist(_:for:)` stores a playlist for a provider and
 replaces the previous one; each provider has its own entry. The internal `LastPlaylistStorageProtocol` (in `Local/`) is backed by
 `LastPlaylistUserDefaultsStorage`, which writes the `Codable` `LastPlaylistItemDAO` as JSON under
-`temasterData.lastPlaylist.<provider>`. Do not change those keys: saved playlists would be lost.
+`temasterData.lastPlaylist.<provider>`. `saveGenerationPlaylists(_:for:)` stores the playlist of each
+`SettingsGeneration` (the `generations` play mode with one playlist per generation) and replaces the previous ones;
+`fetch(_:)` returns them in `generationPlaylists`, empty until they are saved. They are kept apart from the last
+playlist, as a JSON object keyed by the generations' raw values under `temasterData.generationPlaylists.<provider>`.
+Do not change those keys: saved playlists would be lost.
 Write failures are thrown as `LastPlaylistError.storageFailed`; unreadable data reads as no playlist.
 
 ### Settings (local storage, no HTTP)
@@ -134,7 +138,8 @@ its own entry. `bingoLevels()` returns the Bingo levels in the order Settings sh
 (`bingo.level.<level>`, `bingo.category.<color>.<level>`), which the features localise. An unknown stored level reads
 as the default one. `generations()` returns the three `SettingsGeneration`s of the `generations` play mode
 (`vinyl`, `cassette`, `streaming`, always all three), each a `SettingsGenerationResponseProtocol` with the key of its
-name (`generation.<generation>`). An unknown stored play mode reads as `individual`. `sharedPlaylist` (default `true`) says whether
+name (`generation.<generation>`) and the release years of its songs (`firstYear`/`lastYear`: up to 1984,
+1985-2004, from 2005; `nil` where it is open). An unknown stored play mode reads as `individual`. `sharedPlaylist` (default `true`) says whether
 the generations play with the same playlist; Settings sets it back to `true` when the play mode returns to `individual`. The internal `SettingsStorageProtocol` (in `Local/`) is backed by `SettingsUserDefaultsStorage`, which writes the
 `Codable` `GameSettingsDAO` as JSON under `temasterData.settings.<provider>`. Do not change those keys or the raw
 values of the `Settings…` enums: saved settings would be lost. A missing field reads as its default, so adding a

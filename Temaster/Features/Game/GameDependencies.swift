@@ -79,6 +79,10 @@ final class GameDependencies {
         GamePlayBackStatusUseCase(dependencies: self)
     }
 
+    func resolveGenerationMixUseCase() -> any GenerationMixUseCaseProtocol {
+        GenerationMixUseCase(dependencies: self)
+    }
+
     func resolveFetchGameSongsUseCase() -> any FetchGameSongsUseCaseProtocol {
         FetchGameSongsUseCase(dependencies: self)
     }

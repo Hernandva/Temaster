@@ -22,4 +22,7 @@ public protocol LastPlaylistResponseProtocol: Sendable {
     var provider: MusicProvider { get }
     /// The last playlist played with this music service, or `nil` when none has been chosen yet.
     var lastPlaylist: (any LastPlaylistItemProtocol)? { get }
+    /// The playlists each generation last played with in the `generations` play mode with one playlist per
+    /// generation. Empty until they are saved; a generation without one is missing.
+    var generationPlaylists: [SettingsGeneration: any LastPlaylistItemProtocol] { get }
 }

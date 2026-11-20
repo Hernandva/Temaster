@@ -181,10 +181,19 @@ also shows «Play with the same playlist» (`sharedPlaylist`, on by default); sw
 again. GameStarter reads both every time it appears (`GenerationPlaylistsUseCase`): with `generations` and
 `sharedPlaylist` off it shows one playlist card per generation, each opening the selector with
 `Route.playlistSelector(generation)`, and Play appears once every generation has a playlist; otherwise it shows the
-single selected playlist card. Play hands the game every playlist (`Route.game([GamePlaylist], settings)`): one
+single selected playlist card. Like the shared playlist, each generation's card shows the playlist it last played with
+(`LastGenerationPlaylistsUseCase`) until another is chosen, and Play saves the generations' playlists apart from the
+shared one (`SaveGenerationPlaylistsUseCase`, `LastPlaylistRepository.saveGenerationPlaylists`). Play hands the game every playlist (`Route.game([GamePlaylist], settings)`): one
 for everyone, or one per generation in their order. Game keeps one shuffled queue per playlist and plays them in
 turns: Continue passes the turn to the next generation that has songs left (Next keeps it), the header shows whose
 turn it is, and the game ends when every queue is empty.
+
+Before the turns, each generation's playlist is mixed by release year (`GenerationMixUseCase`, applied by
+`FetchGameSongsUseCase`): its songs are split into the three generations' years (`firstYear`/`lastYear` from the
+Settings repository: up to 1984, 1985-2004, from 2005), and the generation plays 70 % of its own, 20 % of the nearest
+(vinyl → cassette, cassette → streaming, streaming → cassette) and 10 % of the farthest, as many as the playlist allows.
+Songs without a year are left out; a group with no songs gives its share to the others; a playlist where no song has a
+year plays whole. The shared playlist is never mixed.
 
 ### Creating a feature
 

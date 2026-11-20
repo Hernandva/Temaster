@@ -60,4 +60,56 @@ struct LastPlaylistRepositoryTests {
 
         #expect(response.lastPlaylist?.id == "pl.456")
     }
+
+    @Test func returnsNoGenerationPlaylistsWhenNoneWereSaved() async throws {
+        let response = try await Self.makeRepository().fetch(FakeLastPlaylistRequest(provider: .appleMusic))
+
+        #expect(response.generationPlaylists.isEmpty)
+    }
+
+    @Test func returnsTheSavedPlaylistOfEachGeneration() async throws {
+        let repository = Self.makeRepository()
+        let cassette = LastPlaylistItemDAO(id: "pl.456", name: "Hitster 90s", songCount: nil, coverURLs: [])
+
+        try await repository.saveGenerationPlaylists([.vinyl: Self.playlist, .cassette: cassette], for: .appleMusic)
+        let response = try await repository.fetch(FakeLastPlaylistRequest(provider: .appleMusic))
+
+        #expect(response.generationPlaylists[.vinyl]?.id == "pl.123")
+        #expect(response.generationPlaylists[.vinyl]?.songCount == 312)
+        #expect(response.generationPlaylists[.cassette]?.name == "Hitster 90s")
+        #expect(response.generationPlaylists[.streaming] == nil)
+    }
+
+    @Test func keepsTheGenerationPlaylistsApartFromTheLastPlaylist() async throws {
+        let repository = Self.makeRepository()
+        let vinyl = LastPlaylistItemDAO(id: "pl.789", name: "Hitster 70s", songCount: 80, coverURLs: [])
+
+        try await repository.saveLastPlaylist(Self.playlist, for: .spotify)
+        try await repository.saveGenerationPlaylists([.vinyl: vinyl], for: .spotify)
+        let response = try await repository.fetch(FakeLastPlaylistRequest(provider: .spotify))
+
+        #expect(response.lastPlaylist?.id == "pl.123")
+        #expect(response.generationPlaylists[.vinyl]?.id == "pl.789")
+    }
+
+    @Test func keepsEachProviderGenerationPlaylistsApart() async throws {
+        let repository = Self.makeRepository()
+
+        try await repository.saveGenerationPlaylists([.vinyl: Self.playlist], for: .appleMusic)
+        let response = try await repository.fetch(FakeLastPlaylistRequest(provider: .spotify))
+
+        #expect(response.generationPlaylists.isEmpty)
+    }
+
+    @Test func replacesThePreviousGenerationPlaylists() async throws {
+        let repository = Self.makeRepository()
+        let streaming = LastPlaylistItemDAO(id: "pl.456", name: "Hitster 2010s", songCount: 95, coverURLs: [])
+
+        try await repository.saveGenerationPlaylists([.vinyl: Self.playlist], for: .spotify)
+        try await repository.saveGenerationPlaylists([.streaming: streaming], for: .spotify)
+        let response = try await repository.fetch(FakeLastPlaylistRequest(provider: .spotify))
+
+        #expect(response.generationPlaylists[.vinyl] == nil)
+        #expect(response.generationPlaylists[.streaming]?.id == "pl.456")
+    }
 }

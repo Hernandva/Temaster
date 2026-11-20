@@ -11,8 +11,21 @@ struct GameViewData: Equatable, Sendable {
         /// `nil` when it was chosen in the selector, which does not read the songs.
         let songCount: Int?
         let covers: [URL]
-        /// Name of the generation that plays with it, already localised, or `nil` when everyone plays with it.
-        var generationTitle: String?
+        /// The generation that plays with it, or `nil` when everyone plays with it.
+        var generation: Generation?
+    }
+
+    /// A generation of the «Generations» play mode, in the order they play: its name, already localised, and the
+    /// release years of its songs. `nil` years leave that end open (up to 1984, from 2005).
+    struct Generation: Equatable, Sendable {
+        let title: String
+        let firstYear: Int?
+        let lastYear: Int?
+
+        /// `true` when a song released in `year` belongs to the generation.
+        func contains(year: Int) -> Bool {
+            (firstYear.map { year >= $0 } ?? true) && (lastYear.map { year <= $0 } ?? true)
+        }
     }
 
     /// What each round plays of a song.

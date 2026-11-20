@@ -116,8 +116,7 @@ final class GameViewModel {
         externalDisplaySession.present(self)
         state = .loading
         do {
-            let playlistIDs = viewData.playlists.map(\.id)
-            let queues = try await fetchSongsUseCase.execute(playlistIDs: playlistIDs, provider: provider)
+            let queues = try await fetchSongsUseCase.execute(playlists: viewData.playlists, provider: provider)
                 .map { $0.shuffled() }
             guard let firstTurn = queues.firstIndex(where: { !$0.isEmpty }) else {
                 state = .failed(String(localized: "game.empty"))

@@ -50,6 +50,10 @@ public protocol SettingsGenerationResponseProtocol: Sendable {
     var generation: SettingsGeneration { get }
     /// Key of the generation's name in the app's strings, e.g. `generation.vinyl`.
     var titleKey: String { get }
+    /// First release year of the generation's songs, or `nil` when it has no start (`vinyl`).
+    var firstYear: Int? { get }
+    /// Last release year of the generation's songs, or `nil` when it reaches today (`streaming`).
+    var lastYear: Int? { get }
 }
 
 /// Difficulty of the Bingo mode. It changes what each category asks. A new level adds a case with a new raw value

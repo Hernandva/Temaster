@@ -4,8 +4,13 @@ import Foundation
 struct LastPlaylistResponseDAO: Sendable, LastPlaylistResponseProtocol {
     let provider: MusicProvider
     let playlist: LastPlaylistItemDAO?
+    let generations: [SettingsGeneration: LastPlaylistItemDAO]
 
     var lastPlaylist: (any LastPlaylistItemProtocol)? { playlist }
+
+    var generationPlaylists: [SettingsGeneration: any LastPlaylistItemProtocol] {
+        generations.mapValues { $0 }
+    }
 }
 
 /// Stored format of a playlist. Internal: the app only sees LastPlaylistItemProtocol.

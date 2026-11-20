@@ -88,10 +88,15 @@ struct GameStarterViewData: Equatable, Sendable {
         case streaming
     }
 
-    /// A generation that plays with its own playlist: its kind and its name, already localised.
+    /// A generation that plays with its own playlist: its kind, its name, already localised, and the release years
+    /// of its songs, which the game uses to mix each playlist.
     struct Generation: Hashable, Sendable, Identifiable {
         let kind: GenerationKind
         let title: String
+        /// `nil` when the generation has no first year (vinyl).
+        let firstYear: Int?
+        /// `nil` when the generation reaches today (streaming).
+        let lastYear: Int?
 
         var id: GenerationKind { kind }
     }
@@ -114,7 +119,11 @@ struct GameStarterViewData: Equatable, Sendable {
     /// Result of `GenerationPlaylistsUseCase`: the generations that each choose their own playlist. Empty when
     /// everyone plays with `selectedPlaylist` (the `individual` play mode, or «Play with the same playlist»).
     var generations: [Generation] = []
-    /// Playlist chosen in the playlist selector for each of `generations`.
+    /// Result of `LastGenerationPlaylistsUseCase`: the playlist each generation last played with. A generation's card
+    /// shows it until one is chosen for it in the selector.
+    var lastGenerationPlaylists: [GenerationKind: Playlist] = [:]
+    /// Playlist chosen in the playlist selector for each of `generations`. It is shown and played instead of the
+    /// generation's one in `lastGenerationPlaylists`, and Play saves them as the new last ones.
     var generationPlaylists: [GenerationKind: Playlist] = [:]
     /// Result of `GameSettingsUseCase`: the settings the last game started with. `nil` until Play is tapped.
     var gameSettings: GameSettings?

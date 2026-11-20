@@ -73,6 +73,14 @@ final class GameStarterDependencies {
         SaveLastPlaylistUseCase(dependencies: self)
     }
 
+    func resolveLastGenerationPlaylistsUseCase() -> any LastGenerationPlaylistsUseCaseProtocol {
+        LastGenerationPlaylistsUseCase(dependencies: self)
+    }
+
+    func resolveSaveGenerationPlaylistsUseCase() -> any SaveGenerationPlaylistsUseCaseProtocol {
+        SaveGenerationPlaylistsUseCase(dependencies: self)
+    }
+
     func resolveViewModel() -> GameStarterViewModel {
         viewModel
     }

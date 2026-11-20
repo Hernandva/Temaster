@@ -9,7 +9,13 @@ extension GameViewData.Playlist {
             name: gamePlaylist.playlist.name,
             songCount: gamePlaylist.playlist.songCount,
             covers: gamePlaylist.playlist.covers,
-            generationTitle: gamePlaylist.generation?.title
+            generation: gamePlaylist.generation.map { generation in
+                GameViewData.Generation(
+                    title: generation.title,
+                    firstYear: generation.firstYear,
+                    lastYear: generation.lastYear
+                )
+            }
         )
     }
 }

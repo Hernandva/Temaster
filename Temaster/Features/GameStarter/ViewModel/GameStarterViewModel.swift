@@ -28,6 +28,8 @@ final class GameStarterViewModel {
     private let saveLastPlaylistUseCase: any SaveLastPlaylistUseCaseProtocol
     private let gameSettingsUseCase: any GameSettingsUseCaseProtocol
     private let generationPlaylistsUseCase: any GenerationPlaylistsUseCaseProtocol
+    private let lastGenerationPlaylistsUseCase: any LastGenerationPlaylistsUseCaseProtocol
+    private let saveGenerationPlaylistsUseCase: any SaveGenerationPlaylistsUseCaseProtocol
     private let openGame: @MainActor ([GameStarterViewData.GamePlaylist], GameStarterViewData.GameSettings) -> Void
 
     /// Receives only the container and resolves what it needs from it.
@@ -38,6 +40,8 @@ final class GameStarterViewModel {
         self.saveLastPlaylistUseCase = dependencies.resolveSaveLastPlaylistUseCase()
         self.gameSettingsUseCase = dependencies.resolveGameSettingsUseCase()
         self.generationPlaylistsUseCase = dependencies.resolveGenerationPlaylistsUseCase()
+        self.lastGenerationPlaylistsUseCase = dependencies.resolveLastGenerationPlaylistsUseCase()
+        self.saveGenerationPlaylistsUseCase = dependencies.resolveSaveGenerationPlaylistsUseCase()
         self.openGame = dependencies.resolveOpenGame()
     }
 
@@ -75,15 +79,16 @@ final class GameStarterViewModel {
         return viewData.generations
     }
 
-    /// The playlist chosen for `generation`, or `nil` while it has none.
+    /// The playlist of `generation`: the one chosen in the selector, else the last one it played with. `nil` while
+    /// it has neither.
     func playlist(for generation: GameStarterViewData.GenerationKind) -> GameStarterViewData.Playlist? {
-        viewData.generationPlaylists[generation]
+        viewData.generationPlaylists[generation] ?? viewData.lastGenerationPlaylists[generation]
     }
 
     /// `true` once every playlist the game needs is chosen: the shared one, or one per generation.
     var canPlay: Bool {
         if generations.isEmpty { return selectedPlaylist != nil }
-        return generations.allSatisfy { viewData.generationPlaylists[$0.kind] != nil }
+        return generations.allSatisfy { playlist(for: $0.kind) != nil }
     }
 
     /// The playlists Play opens the game with: the shared one, or each generation's in the order their turns go.
@@ -94,7 +99,7 @@ final class GameStarterViewModel {
             return selectedPlaylist.map { [GameStarterViewData.GamePlaylist(playlist: $0, generation: nil)] } ?? []
         }
         return generations.compactMap { generation in
-            viewData.generationPlaylists[generation.kind].map {
+            playlist(for: generation.kind).map {
                 GameStarterViewData.GamePlaylist(playlist: $0, generation: generation)
             }
         }
@@ -143,7 +148,8 @@ final class GameStarterViewModel {
         playErrorMessage = nil
     }
 
-    /// Play: saves the selected playlist as the last playlist, reads the game settings, then opens the game
+    /// Play: saves the selected playlist as the last playlist (or each generation's as theirs), reads the game
+    /// settings, then opens the game
     /// with the playlists, the music service and the settings. When a step fails, the game does not open and
     /// the error is shown under Play.
     func didTapPlay() async {
@@ -153,8 +159,12 @@ final class GameStarterViewModel {
         defer { isStartingGame = false }
         playErrorMessage = nil
         do {
-            // The last playlist is everyone's: the generations' own ones do not replace it.
-            if generations.isEmpty, let shared = playlists.first?.playlist { try await saveAsLastPlaylist(shared) }
+            // The last playlist is everyone's: the generations' own ones are saved apart and do not replace it.
+            if generations.isEmpty, let shared = playlists.first?.playlist {
+                try await saveAsLastPlaylist(shared)
+            } else {
+                try await saveAsLastGenerationPlaylists(playlists)
+            }
         } catch {
             playErrorMessage = String(localized: "gameStarter.play.saveError")
             return
@@ -175,12 +185,24 @@ final class GameStarterViewModel {
         viewData.lastPlaylist = playlist
     }
 
+    /// Stores the playlist of each generation in `playlists` as their last ones, unless they already are.
+    private func saveAsLastGenerationPlaylists(_ playlists: [GameStarterViewData.GamePlaylist]) async throws {
+        var byGeneration: [GameStarterViewData.GenerationKind: GameStarterViewData.Playlist] = [:]
+        for gamePlaylist in playlists {
+            if let generation = gamePlaylist.generation { byGeneration[generation.kind] = gamePlaylist.playlist }
+        }
+        guard byGeneration != viewData.lastGenerationPlaylists else { return }
+        try await saveGenerationPlaylistsUseCase.execute(playlists: byGeneration)
+        viewData.lastGenerationPlaylists = byGeneration
+    }
+
     /// Runs every time the screen appears, so coming back from Settings shows the cards of the play mode just saved.
     func load() async {
         state = .loading
         do {
             viewData.lastPlaylist = try await lastPlaylistUseCase.execute()
             viewData.generations = try await generationPlaylistsUseCase.execute()
+            viewData.lastGenerationPlaylists = try await lastGenerationPlaylistsUseCase.execute()
             state = .loaded
         } catch {
             state = .failed(String(localized: "gameStarter.error \(provider.displayName)"))
