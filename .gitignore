@@ -3,6 +3,7 @@
 # Xcode / SwiftPM
 xcuserdata/
 DerivedData/
+build/
 .build/
 .swiftpm/
 # macOS
